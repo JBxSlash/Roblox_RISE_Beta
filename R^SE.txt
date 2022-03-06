@@ -1,4 +1,7 @@
-local rise_ver = "B".. 8
+wait(1)
+
+
+local rise_ver = "B".. 9
 --[[
 
 R^SE R^SE R^SE R^SE R^SE R^SE R^SE R^SE R^SE R^SE R^SE R^SE R^SE R^SE R^SE R^SE R^SE R^SE
@@ -25,7 +28,7 @@ R^SE R^SE R^SE R^SE R^SE R^SE R^SE R^SE R^SE R^SE R^SE R^SE R^SE R^SE R^SE R^SE 
 
 local keyAct = Enum.KeyCode.RightControl
 
-local doorParent = game.CoreGui
+local doorParent = game.Players.LocalPlayer.CoreGui
 
 if doorParent:FindFirstChild("_R^SE") then
 	warn("Another R^SE UI Detected: Removing Self;")
@@ -149,8 +152,38 @@ function newDropDown(par,pos,text,desc)
 					end
 				end))
 			end
+			if desco[2] == "D" then
+				local db = Instance.new("TextBox",button)
+				db.Name = "key"
+				db.Size = UDim2.new(.5,0,1,0)
+				db.Text = desco[1]
+				db.Position = UDim2.new(1.035,0,0 + (1*(_b-1)),0)
+				db.BorderSizePixel = 0
+				db.PlaceholderText = desco[1]
+				db.BackgroundColor3 = Color3.fromRGB(30,30,30)
+				db.PlaceholderColor3 = Color3.fromRGB(255,255,255)
+				db.TextColor3 = Color3.fromRGB(255,255,255)
+				db.TextScaled = true
+				db.Visible = false
+				local db2 = Instance.new("TextLabel",db)
+				db2.TextColor3 = Color3.fromRGB(255,255,255)
+				db2.Size = UDim2.new(1,0,1,0)
+				db2.Text = desco[3]
+				db2.Position = UDim2.new(1.035,0,0,0)
+				db2.BackgroundTransparency = 1
+				db2.TextScaled = true
+				db2.Visible = true
+				db2.TextXAlignment = Enum.TextXAlignment.Left
+				table.insert(objs[2],db)
+				
+			end
 		end
 	end
+	button.MouseButton1Down:Connect(function()
+		for _, objOfDb in pairs(objs[2]) do
+			objOfDb.Visible = not objOfDb.Visible
+		end
+	end)
 	return objs
 end
 
@@ -379,48 +412,14 @@ local dropDownfLY = newDropDown(_gui_mf_Open_blatant,UDim2.new(0.022, 0,0.188, 0
 local dropDownAim = newDropDown(_gui_mf_Open_blatant,UDim2.new(0.022, 0,0.270, 0),"Aimbot",{{"false","B","Active"},{"false","B","HeadLock"},{"","C","Key"},{16,"A","Distance"}})
 local dropDownTP = newDropDown(_gui_mf_Open_blatant,UDim2.new(0.022, 0,0.350, 0),"ClickTp",{{"false","B","Active"},{"","C","Key"}})
 local dropDownDisabler = newDropDown(_gui_mf_Open_blatant,UDim2.new(0.022, 0,0.432, 0),"Disabler",{{"false","B","Active"},{"","C","Key"}})
+local dropDownInvFling = newDropDown(_gui_mf_Open_blatant,UDim2.new(0.022, 0,0.512, 0),"InvFling",{{"false","B","Active"},{"Russia Man","D","PlayerName                        (Display Names Allowed)"},{"","C","Key"}})
+local dropDownNoclip = newDropDown(_gui_mf_Open_blatant,UDim2.new(0.022, 0,0.592, 0),"Noclip",{{"false","B","Active"},{"","C","Key"}})
+local dropDownJumpFly = newDropDown(_gui_mf_Open_blatant,UDim2.new(0.022, 0,0.592, 0),"JumpFly",{{"false","B","Active"},{"","C","Key"}})
+
+
 
 local dropDownEsp = newDropDown(_gui_mf_Open_Render,UDim2.new(0.022, 0,0.024, 0),"Box Esp",{{"false","B","Active"},{"255","A","R"},{"255","A","G"},{"255","A","B"},{"","C","Key"}})
 
-dropDownSpeed[1].MouseButton1Down:Connect(function()
-	for _, objOfDb in pairs(dropDownSpeed[2]) do
-		objOfDb.Visible = not objOfDb.Visible
-	end
-end)
-
-dropDownjp[1].MouseButton1Down:Connect(function()
-	for _, objOfDb in pairs(dropDownjp[2]) do
-		objOfDb.Visible = not objOfDb.Visible
-	end
-end)
-
-dropDownfLY[1].MouseButton1Down:Connect(function()
-	for _, objOfDb in pairs(dropDownfLY[2]) do
-		objOfDb.Visible = not objOfDb.Visible
-	end
-end)
-
-dropDownEsp[1].MouseButton1Down:Connect(function()
-	for _, objOfDb in pairs(dropDownEsp[2]) do
-		objOfDb.Visible = not objOfDb.Visible
-	end
-end)
-
-dropDownAim[1].MouseButton1Down:Connect(function()
-	for _, objOfDb in pairs(dropDownAim[2]) do
-		objOfDb.Visible = not objOfDb.Visible
-	end
-end)
-dropDownTP[1].MouseButton1Down:Connect(function()
-	for _, objOfDb in pairs(dropDownTP[2]) do
-		objOfDb.Visible = not objOfDb.Visible
-	end
-end)
-dropDownDisabler[1].MouseButton1Down:Connect(function()
-	for _, objOfDb in pairs(dropDownDisabler[2]) do
-		objOfDb.Visible = not objOfDb.Visible
-	end
-end)
 coroutine.resume(coroutine.create(function()
 	while wait() do
 		if dropDownTP[2][1].Text == "true" then
@@ -430,11 +429,11 @@ coroutine.resume(coroutine.create(function()
 				if game.Players.LocalPlayer.Character:FindFirstChildOfClass("Humanoid").Health > 0 then
 					game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game.Players.LocalPlayer:GetMouse().Hit
 				else
-					notify("Warning","Cannot Teleport While Dead!",Color3.fromRGB(255, 255, 127),"http://www.roblox.com/asset/?id=1764960410",Color3.fromRGB(255, 255, 127))
+					notify("Warning","Cannot Teleport While Dead!",Color3.fromRGB(255, 255, 127),"http://www.roblox.com/asset/?id=6254819318",Color3.fromRGB(255, 255, 127))
 				end
 
 			else
-				notify("Warning","No Target Found!",Color3.fromRGB(255, 255, 127),"http://www.roblox.com/asset/?id=1764960410",Color3.fromRGB(255, 255, 127))
+				notify("Warning","No Target Found!",Color3.fromRGB(255, 255, 127),"http://www.roblox.com/asset/?id=6254819318",Color3.fromRGB(255, 255, 127))
 			end
 		end
 	end
@@ -461,7 +460,7 @@ game:GetService("RunService").RenderStepped:Connect(function()
 		wait()
 		game.Players.LocalPlayer.Character.Humanoid:ChangeState(Enum.HumanoidStateType.Running)
 	end
-	
+
 end)
 coroutine.resume(coroutine.create(function()
 	while wait() do
@@ -474,9 +473,58 @@ coroutine.resume(coroutine.create(function()
 			wait()
 			game.Players.LocalPlayer.Character.HumanoidRootPart.Anchored = false
 		end
-		
+
 	end
 end))
+
+coroutine.resume(coroutine.create(function()
+	local lastac = false
+	game:GetService("UserInputService").InputBegan:Connect(function(keygr,gpe)
+		if keygr.KeyCode == Enum.KeyCode.Space and lastac and not gpe then
+			game.Players.LocalPlayer.Character.HumanoidRootPart.Velocity += Vector3.new(0,game.Players.LocalPlayer.Character.Humanoid.JumpPower,0)
+		end
+	end)
+	while wait() do
+		if dropDownNoclip[2][1].Text == "true" then
+			lastac = true
+			game.Players.LocalPlayer.Character.Humanoid:ChangeState(11)
+		else
+			if lastac then
+				game.Players.LocalPlayer.Character.Humanoid:ChangeState(Enum.HumanoidStateType.Running)
+				lastac = false
+			end
+		end
+
+	end
+end))
+
+
+
+coroutine.resume(coroutine.create(function()
+	local dbfr = false
+	game:GetService("UserInputService").InputBegan:Connect(function(keygr,gpe)
+		if keygr.KeyCode == Enum.KeyCode.Space and dropDownJumpFly[2][1].Text == "true" and not gpe then
+			dbfr = true
+		end
+	end)
+
+	game:GetService("UserInputService").InputEnded:Connect(function(keygr,gpe)
+		if keygr.KeyCode == Enum.KeyCode.Space and dropDownJumpFly[2][1].Text == "true" then
+			dbfr = false
+		end
+	end)
+	while wait() do
+		if dropDownJumpFly[2][1].Text == "false" and dbfr then
+			dbfr = false
+		end
+		if dbfr then
+			game.Players.LocalPlayer.Character.HumanoidRootPart.Velocity = Vector3.new(game.Players.LocalPlayer.Character.HumanoidRootPart.Velocity.X,game.Players.LocalPlayer.Character.Humanoid.JumpPower,game.Players.LocalPlayer.Character.HumanoidRootPart.Velocity.Z)
+		end
+	end
+end))
+
+
+
 
 local aimUI = Instance.new("Frame",_gui_main)
 aimUI.Position = UDim2.new(0.583, 0,0.431, 0)
@@ -511,6 +559,9 @@ txtAim[2].Size = UDim2.new(0.626, 0,0.357, 0)
 txtAim[1].Size = UDim2.new(0.626, 0,0.557, 0)
 txtAim[1].Position = UDim2.new(0.374, 0,0, 0)
 aimUI.Visible = false
+
+
+
 
 game:GetService("RunService").RenderStepped:Connect(function()
 	if dropDownAim[2][1].Text == "true" then
@@ -554,6 +605,9 @@ game:GetService("RunService").RenderStepped:Connect(function()
 					end
 					txtAim[2].Text = "Health ".. gb.. " Distance ".. gl
 				end
+				if dropDownAim[2][2].Text == "true" then
+					workspace.CurrentCamera.CFrame = CFrame.new(workspace.CurrentCamera.Position,glos[2].Character.Head)
+				end
 			end
 
 		else
@@ -563,6 +617,8 @@ game:GetService("RunService").RenderStepped:Connect(function()
 		end
 	end
 end)
+
+
 
 if true then
 	local lplr = game.Players.LocalPlayer
@@ -634,6 +690,7 @@ if true then
 end
 
 
+
 coroutine.resume(coroutine.create(function()
 	while wait() do
 		local speed = dropDownjp[2][1].Text
@@ -648,6 +705,8 @@ coroutine.resume(coroutine.create(function()
 
 	end
 end))
+
+
 
 coroutine.resume(coroutine.create(function()
 	local flyy = 0
@@ -704,7 +763,7 @@ coroutine.resume(coroutine.create(function()
 			if dropDownfLY[2][2].Text == "true" then
 				dropDownfLY[2][2].Text = "false"
 				bv:Destroy()
-				notify("Warning","Player Dead! Replacing Fly Module...",Color3.fromRGB(255, 255, 127),"http://www.roblox.com/asset/?id=1764960410",Color3.fromRGB(255, 255, 127))
+				notify("Warning","Player Dead! Replacing Fly Module...",Color3.fromRGB(255, 255, 127),"http://www.roblox.com/asset/?id=6254819318",Color3.fromRGB(255, 255, 127))
 				bv = Instance.new("BodyPosition")
 				bv.D = 0
 				bv.P = 400
@@ -733,6 +792,8 @@ _gui_mf_render.MouseButton1Down:Connect(function()
 end)
 
 _gui_mf.Visible = false
+
+
 game:GetService("UserInputService").InputEnded:Connect(function(key,gpe) -- sets movement/false
 	if key.KeyCode == Enum.KeyCode.W then
 		movement[1] = false
@@ -753,6 +814,9 @@ game:GetService("UserInputService").InputEnded:Connect(function(key,gpe) -- sets
 		movement[6] = false
 	end
 end)
+
+
+
 game:GetService("UserInputService").InputBegan:Connect(function(key,gpe) -- sets movement/false
 	if key.KeyCode == Enum.KeyCode.W then
 		movement[1] = true
@@ -773,6 +837,96 @@ game:GetService("UserInputService").InputBegan:Connect(function(key,gpe) -- sets
 		movement[6] = true
 	end
 end)
+
+
+
+coroutine.resume(coroutine.create(function()
+	local function flingplayer(tofling,dsskey)
+
+		local pos = tofling.HumanoidRootPart.Position - tofling.HumanoidRootPart.CFrame.LookVector * .000001
+		local hum = nil
+
+		local ussr = game:GetService("RunService").RenderStepped:Connect(function()
+			workspace.CurrentCamera.CameraSubject = tofling.HumanoidRootPart
+			pos = tofling.HumanoidRootPart.Position - tofling.HumanoidRootPart.CFrame.LookVector * .000001
+
+			if not hum then
+				hum = game.Players.LocalPlayer.Character:FindFirstChild("HumanoidRootPart")
+			end
+			hum.CFrame = CFrame.new(pos)
+			game.Players.LocalPlayer.Character.Humanoid.Parent = nil
+		end)
+		local huge = 999999 * 10
+		local bp = Instance.new("BodyThrust",hum)
+		bp.Force = Vector3.new(huge,0,huge)
+		local bp3 = Instance.new("BodyVelocity",hum)
+		bp3.Velocity = Vector3.new(9e9999,9e9999,9e9999)
+		bp3.MaxForce = Vector3.new(9e9999,9e9999,9e9999)
+		bp3.CFrame = hum.CFrame
+		local d = -1
+		repeat wait()
+			if game.Players.LocalPlayer:FindFirstChild("LeftFoot") then
+				for _, kop in pairs(game.Players.LocalPlayer.Character:GetChildren()) do
+					if kop.Name ~= "HumanoidRootPart" and kop.Name ~= "Humanoid" then
+						kop:Destroy()
+					end
+				end
+			end
+			if not game.Players.LocalPlayer.Character:FindFirstChild("Humanoid") and hum then
+				d *= -1
+				workspace.CurrentCamera.CameraSubject = hum 
+				bp.Location = game.Players.LocalPlayer.Character.HumanoidRootPart.Position
+
+
+				hum.CFrame = CFrame.new(pos)
+				game.Players.LocalPlayer.Character:FindFirstChild("HumanoidRootPart").CanCollide = true
+				local bp2 = Instance.new("BodyGyro",hum)
+				bp2.P = math.huge
+				bp2.MaxTorque = Vector3.new(1,1,1)
+				bp2.CFrame = CFrame.new(hum.Position + (tofling.HumanoidRootPart.CFrame.RightVector*(5*d)))
+				
+				hum.Anchored = false
+				pos = tofling.HumanoidRootPart.Position 
+				hum.CFrame = CFrame.new(pos)
+			end
+		until tofling == nil or dsskey.Text == "false"
+		ussr:Disconnect()
+	end
+	local canfling = true
+	while wait() do
+		if dropDownInvFling[2][1].Text == "true" then
+			local plrf = nil
+			for _, gameUser in pairs(game.Players:GetPlayers()) do
+				if string.find(string.lower(gameUser.DisplayName),string.lower(dropDownInvFling[2][2].Text)) then
+					plrf = gameUser
+					break
+				end
+				if string.find(string.lower(gameUser.Name),string.lower(dropDownInvFling[2][2].Text)) then
+					plrf = gameUser
+					break
+				end
+			end
+			if plrf then
+				if plrf == game.Players.LocalPlayer then
+					dropDownInvFling[2][1].Text = "false"
+					notify("Warning","Hey Everyone! ".. game.Players.LocalPlayer.Name.. " IS A IDIOT TRYING TO FLING HIMSELF" ,Color3.fromRGB(255, 255, 127),"http://www.roblox.com/asset/?id=6254819318",Color3.fromRGB(255, 255, 127))
+				else
+					notify("Module Toggled","Flinging : ".. plrf.Name,Color3.fromRGB(85, 255, 127),"http://www.roblox.com/asset/?id=2828150111",Color3.fromRGB(70, 211, 103))
+					flingplayer(plrf.Character,dropDownInvFling[2][1])
+				end
+				
+			else
+				dropDownInvFling[2][1].Text = "false"
+				notify("Warning","No Player With Name [".. dropDownInvFling[2][2].Text.. "] You Idiot" ,Color3.fromRGB(255, 255, 127),"http://www.roblox.com/asset/?id=6254819318",Color3.fromRGB(255, 255, 127))
+			end
+		end
+	end
+end))
+
+
+
+
+
 game:GetService("UserInputService").InputBegan:Connect(function(key,gpe)
 	for _, hop in pairs(_gui_mf_Open_blatant:GetDescendants()) do
 		if hop.Name == "key" and not gpe then
