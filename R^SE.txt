@@ -28,7 +28,7 @@ R^SE R^SE R^SE R^SE R^SE R^SE R^SE R^SE R^SE R^SE R^SE R^SE R^SE R^SE R^SE R^SE 
 
 local keyAct = Enum.KeyCode.RightControl
 
-local doorParent = game.Players.LocalPlayer.CoreGui
+local doorParent = game.CoreGui
 
 if doorParent:FindFirstChild("_R^SE") then
 	warn("Another R^SE UI Detected: Removing Self;")
