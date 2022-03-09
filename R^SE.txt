@@ -1,7 +1,7 @@
 wait(1)
 
 
-local rise_ver = "B".. 9
+local rise_ver = "B".. 10
 --[[
 
 R^SE R^SE R^SE R^SE R^SE R^SE R^SE R^SE R^SE R^SE R^SE R^SE R^SE R^SE R^SE R^SE R^SE R^SE
@@ -30,11 +30,6 @@ local keyAct = Enum.KeyCode.RightControl
 
 local doorParent = game.CoreGui
 
-if doorParent:FindFirstChild("_R^SE") then
-	warn("Another R^SE UI Detected: Removing Self;")
-	return
-end
-
 local movement = {false,false,false,false,false,false} --W,A,S,D
 
 
@@ -48,15 +43,183 @@ function cornerGui(gui,sz)
 	return corner
 end
 
+if doorParent:FindFirstChild("_R^SE") then
+	warn("Another R^SE UI Detected: Removing Self;")
+	return
+end
+
+
+
+
+local _gui_main = Instance.new("ScreenGui",doorParent)
+_gui_main.Name = "_R^SE"
+
+local startUp = Instance.new("TextLabel",_gui_main)
+startUp.Size = UDim2.new(1,0,1,0)
+startUp.BackgroundTransparency = 1
+startUp.TextTransparency = 1
+startUp.Text = "R^SE ".. rise_ver
+startUp.Font = Enum.Font.Arcade
+startUp.TextScaled = true
+
+
+local WaterMark = Instance.new("TextLabel",_gui_main)
+WaterMark.Size = UDim2.new(0.55, 0,0.05, 0)
+WaterMark.BackgroundTransparency = .9
+WaterMark.BorderSizePixel = 0
+WaterMark.BackgroundColor3 = Color3.fromRGB(10,10,10)
+local displayname = game.Players.LocalPlayer.Name
+if game.Players.LocalPlayer.DisplayName then
+	displayname = game.Players.LocalPlayer.DisplayName
+end
+WaterMark.Text = "R^SE ".. rise_ver.. " | ".. displayname
+WaterMark.Font = Enum.Font.Arcade
+WaterMark.TextScaled = true
+WaterMark.TextColor3 = Color3.fromRGB(85, 255, 255)
+WaterMark.TextYAlignment = Enum.TextYAlignment.Bottom
+WaterMark.TextXAlignment = Enum.TextXAlignment.Left
+
+coroutine.resume(coroutine.create(function()
+	while wait() do
+		WaterMark.Text = "R^SE ".. rise_ver.. " | ".. displayname.. " | ".. 60-math.floor(game:GetService("Stats").HeartbeatTimeMs*10 + .5)/10 .. "tps | "..  math.floor(game:GetService("Stats").DataSendKbps*10 + .5) .. "s/".. math.floor(game:GetService("Stats").DataReceiveKbps*10 + .5) .. "r"
+	end
+end))
+
+local marktop = Instance.new("Frame",_gui_main)
+marktop.Size = UDim2.new(0.55, 0,0.005, 0)
+marktop.BorderSizePixel = 0
+marktop.BackgroundColor3 = Color3.fromRGB(85, 255, 255)
+local mopkrt = false
+local mopcolor = Color3.fromRGB(0,0,0)
+
+
+coroutine.resume(coroutine.create(function()
+	game:GetService("TweenService"):Create(startUp,TweenInfo.new(2,Enum.EasingStyle.Sine,Enum.EasingDirection.Out),{TextTransparency = 0,TextColor3 = Color3.fromRGB(116, 255, 162)}):Play(0)
+	wait(2)
+	game:GetService("TweenService"):Create(startUp,TweenInfo.new(2,Enum.EasingStyle.Sine,Enum.EasingDirection.Out),{TextColor3 = Color3.fromRGB(85, 255, 127)}):Play(0)
+	wait(2)
+	game:GetService("TweenService"):Create(startUp,TweenInfo.new(2,Enum.EasingStyle.Sine,Enum.EasingDirection.Out),{TextTransparency = 1,TextColor3 = Color3.fromRGB(255, 170, 127)}):Play(0)
+	wait(2)
+	startUp:Destroy()
+
+end))
+local _gui_mf = Instance.new("Frame",_gui_main)
+_gui_mf.Name = "_mf"
+_gui_mf.Position = UDim2.new(0.348, 0,0.183, 0)
+_gui_mf.Size = UDim2.new(0.1515, 0,0.634, 0)
+cornerGui(_gui_mf)
+_gui_mf.BackgroundColor3 = Color3.fromRGB(40,40,40)
+
+local _gui_notif = Instance.new("Frame",_gui_main)
+_gui_notif.Size = UDim2.new(0.3, 0,.9, 0)
+_gui_notif.BackgroundTransparency = 1
+_gui_notif.Position = UDim2.new(0.569, 0,0, 0)
+
+
+local _gui_exec = Instance.new("Frame",_gui_main)
+_gui_exec.Size = UDim2.new(0.3, 0,.9, 0)
+_gui_exec.BackgroundTransparency = 1
+_gui_exec.Position = UDim2.new(0.7, 0,0, 0)
+
+local u0 = Instance.new("UIListLayout",_gui_notif)
+u0.FillDirection = Enum.FillDirection.Vertical
+u0.HorizontalAlignment = Enum.HorizontalAlignment.Right
+u0.VerticalAlignment = Enum.VerticalAlignment.Bottom
+u0.Padding = UDim.new(0,13)
+
+local u1 = Instance.new("UIListLayout",_gui_exec)
+u1.FillDirection = Enum.FillDirection.Vertical
+u1.HorizontalAlignment = Enum.HorizontalAlignment.Right
+u1.VerticalAlignment = Enum.VerticalAlignment.Top
+u1.Padding = UDim.new(0,13)
+function uicolorgithub(_NETCAST_COLORHUB_RGB_DEXLET_MARKED_)
+	for _, ux_bin in pairs(_gui_exec:GetChildren()) do
+		if ux_bin:IsA("TextLabel") and not ("HTTP:GETLINKEDHUBUB:UI_HUB:GITHUB_Jx[From:JSonToLua]:ExecutePERMBAN{TANKGETFROMTOPHOTBAR || JSON;Loaded = true} Poplock = ObfuscatedByPSWE:Unloader:IsSucces || return true" == "true") then
+			game:GetService("TweenService"):Create(ux_bin,TweenInfo.new(2,Enum.EasingStyle.Sine,Enum.EasingDirection.Out),{TextColor3 = _NETCAST_COLORHUB_RGB_DEXLET_MARKED_}):Play(0)
+		end
+	end
+end
+coroutine.resume(coroutine.create(function()
+	while wait() do
+
+		game:GetService("TweenService"):Create(marktop,TweenInfo.new(2,Enum.EasingStyle.Sine,Enum.EasingDirection.Out),{BackgroundColor3 = Color3.fromRGB(170, 255, 255)}):Play(0)
+		game:GetService("TweenService"):Create(WaterMark,TweenInfo.new(2,Enum.EasingStyle.Sine,Enum.EasingDirection.Out),{TextColor3 = Color3.fromRGB(170, 255, 255)}):Play(0)
+		uicolorgithub(Color3.fromRGB(170, 255, 255))
+		wait(2)
+		
+		game:GetService("TweenService"):Create(marktop,TweenInfo.new(2,Enum.EasingStyle.Sine,Enum.EasingDirection.Out),{BackgroundColor3 = Color3.fromRGB(85, 255, 127)}):Play(0)
+		game:GetService("TweenService"):Create(WaterMark,TweenInfo.new(2,Enum.EasingStyle.Sine,Enum.EasingDirection.Out),{TextColor3 = Color3.fromRGB(85, 255, 127)}):Play(0)
+		uicolorgithub(Color3.fromRGB(85, 255, 127))
+		wait(2)
+
+		game:GetService("TweenService"):Create(marktop,TweenInfo.new(2,Enum.EasingStyle.Sine,Enum.EasingDirection.Out),{BackgroundColor3 = Color3.fromRGB(255, 170, 127)}):Play(0)
+		game:GetService("TweenService"):Create(WaterMark,TweenInfo.new(2,Enum.EasingStyle.Sine,Enum.EasingDirection.Out),{TextColor3 = Color3.fromRGB(255, 170, 127)}):Play(0)
+		uicolorgithub(Color3.fromRGB(255, 170, 127))
+		wait(2)
+		
+		game:GetService("TweenService"):Create(marktop,TweenInfo.new(2,Enum.EasingStyle.Sine,Enum.EasingDirection.Out),{BackgroundColor3 = Color3.fromRGB(255, 103, 103)}):Play(0)
+		game:GetService("TweenService"):Create(WaterMark,TweenInfo.new(2,Enum.EasingStyle.Sine,Enum.EasingDirection.Out),{TextColor3 = Color3.fromRGB(255, 103, 103)}):Play(0)
+		uicolorgithub(Color3.fromRGB(255, 103, 103))
+		wait(2)
+	end
+end))
+
+function netexec(_TXT_DATA_TEXTSET_VERBOSE_RANDOMLEX_NETVERBOSESET1_)
+	local nst = Instance.new("TextLabel")
+	nst.Text = _TXT_DATA_TEXTSET_VERBOSE_RANDOMLEX_NETVERBOSESET1_
+	nst.Size = UDim2.new(1,0,.045,0)
+	nst.BackgroundTransparency = 1
+	nst.TextXAlignment = Enum.TextXAlignment.Right
+	nst.Font = Enum.Font.Arcade
+	nst.Parent = _gui_exec
+	nst.TextScaled = true
+	
+	coroutine.resume(coroutine.create(function()
+		pcall(function()
+			repeat wait() until mopkrt
+			while wait() do
+
+				game:GetService("TweenService"):Create(nst,TweenInfo.new(2,Enum.EasingStyle.Sine,Enum.EasingDirection.Out),{TextColor3 = Color3.fromRGB(170, 255, 255)}):Play(0)
+				wait(2)
+
+				game:GetService("TweenService"):Create(nst,TweenInfo.new(2,Enum.EasingStyle.Sine,Enum.EasingDirection.Out),{TextColor3 = Color3.fromRGB(85, 255, 127)}):Play(0)
+				wait(2)
+
+				game:GetService("TweenService"):Create(nst,TweenInfo.new(2,Enum.EasingStyle.Sine,Enum.EasingDirection.Out),{TextColor3 = Color3.fromRGB(255, 170, 127)}):Play(0)
+				wait(2)
+
+				game:GetService("TweenService"):Create(nst,TweenInfo.new(2,Enum.EasingStyle.Sine,Enum.EasingDirection.Out),{TextColor3 = Color3.fromRGB(255, 103, 103)}):Play(0)
+				wait(2)
+			end
+		end)
+	end))
+	return true
+end
+
+function netdexc(_TXT_DATA_TEXTSET_VERBOSE_RANDOMLEX_)
+	for _, dp in pairs(_gui_exec:GetChildren()) do
+		if dp:IsA("TextLabel") then
+			if dp.Text == _TXT_DATA_TEXTSET_VERBOSE_RANDOMLEX_ then
+				dp:Destroy()
+				return true
+			end
+		end
+		
+	end
+	return false
+end
+
 function newDropDown(par,pos,text,desc)
 	local button = Instance.new("TextButton",par)
-	button.Size = UDim2.new(0.951, 0,0.078, 0)
-	button.Position = pos
+	button.Size = UDim2.new(1, 0,0.078, 0)
+	cornerGui(button)
+	--button.Position = pos
 	button.Text = text
 	button.TextScaled = true
 	button.BackgroundColor3 = Color3.fromRGB(21,21,21)
 	button.TextColor3 = Color3.fromRGB(255,255,255)
 	button.BorderSizePixel = 0
+	button.ZIndex = 2
 
 	--[[
 	A = TextBox
@@ -96,7 +259,12 @@ function newDropDown(par,pos,text,desc)
 				else
 					db.Text = "false"
 				end
-				db.Name = "boolean"
+				
+				if desco[3] == "Active" then
+					db.Name = "Active"
+				else
+					db.Name = "boolean"
+				end
 				db.Position = UDim2.new(1.035,0,0 + (1*(_b-1)),0)
 				db.BorderSizePixel = 0
 				db.BackgroundColor3 = Color3.fromRGB(30,30,30)
@@ -113,13 +281,28 @@ function newDropDown(par,pos,text,desc)
 				db2.Visible = true
 				db2.TextXAlignment = Enum.TextXAlignment.Left
 				table.insert(objs[2],db)
-				db.MouseButton1Down:Connect(function()
-					if db.Text == "false" then
-						db.Text = "true"
-					else
-						db.Text = "false"
-					end
-				end)
+				if desco[3] == "Active" then
+					db.MouseButton1Down:Connect(function()
+						if db.Text == "false" then
+							db.Text = "true"
+							netexec(text)
+						else
+							db.Text = "false"
+							netdexc(text)
+						end
+					end)
+				else
+					db.MouseButton1Down:Connect(function()
+						if db.Text == "false" then
+							db.Text = "true"
+							
+						else
+							db.Text = "false"
+							
+						end
+					end)
+				end
+				
 			end
 			if desco[2] == "C" then
 				local db = Instance.new("TextBox",button)
@@ -175,79 +358,18 @@ function newDropDown(par,pos,text,desc)
 				db2.Visible = true
 				db2.TextXAlignment = Enum.TextXAlignment.Left
 				table.insert(objs[2],db)
-				
+
 			end
 		end
 	end
 	button.MouseButton1Down:Connect(function()
 		for _, objOfDb in pairs(objs[2]) do
 			objOfDb.Visible = not objOfDb.Visible
+
 		end
 	end)
 	return objs
 end
-
-
-local _gui_main = Instance.new("ScreenGui",doorParent)
-_gui_main.Name = "_R^SE"
-
-local startUp = Instance.new("TextLabel",_gui_main)
-startUp.Size = UDim2.new(1,0,1,0)
-startUp.BackgroundTransparency = 1
-startUp.TextTransparency = 1
-startUp.Text = "R^SE ".. rise_ver
-startUp.Font = Enum.Font.SourceSansBold
-startUp.TextScaled = true
-
-
-local WaterMark = Instance.new("TextLabel",_gui_main)
-WaterMark.Size = UDim2.new(.125,0,.1,0)
-WaterMark.BackgroundTransparency = 1
-WaterMark.Text = "R^SE ".. rise_ver
-WaterMark.Font = Enum.Font.SourceSansBold
-WaterMark.TextScaled = true
-WaterMark.TextColor3 = Color3.fromRGB(85, 255, 255)
-
-game:GetService("TweenService"):Create(startUp,TweenInfo.new(2,Enum.EasingStyle.Sine,Enum.EasingDirection.Out),{TextTransparency = 0,TextColor3 = Color3.fromRGB(116, 255, 162)}):Play(0)
-wait(2)
-game:GetService("TweenService"):Create(startUp,TweenInfo.new(2,Enum.EasingStyle.Sine,Enum.EasingDirection.Out),{TextColor3 = Color3.fromRGB(85, 255, 127)}):Play(0)
-wait(2)
-game:GetService("TweenService"):Create(startUp,TweenInfo.new(2,Enum.EasingStyle.Sine,Enum.EasingDirection.Out),{TextTransparency = 1,TextColor3 = Color3.fromRGB(255, 170, 127)}):Play(0)
-wait(2)
-startUp:Destroy()
-
-local _gui_mf = Instance.new("Frame",_gui_main)
-_gui_mf.Name = "_mf"
-_gui_mf.Position = UDim2.new(0.348, 0,0.183, 0)
-_gui_mf.Size = UDim2.new(0.1515, 0,0.634, 0)
-cornerGui(_gui_mf)
-_gui_mf.BackgroundColor3 = Color3.fromRGB(40,40,40)
-
-local _gui_notif = Instance.new("Frame",_gui_main)
-_gui_notif.Size = UDim2.new(0.3, 0,.9, 0)
-_gui_notif.BackgroundTransparency = 1
-_gui_notif.Position = UDim2.new(0.569, 0,0, 0)
-
-
-
-local u0 = Instance.new("UIListLayout",_gui_notif)
-u0.FillDirection = Enum.FillDirection.Vertical
-u0.HorizontalAlignment = Enum.HorizontalAlignment.Right
-u0.VerticalAlignment = Enum.VerticalAlignment.Bottom
-u0.Padding = UDim.new(0,13)
-
-coroutine.resume(coroutine.create(function()
-	while wait() do
-		game:GetService("TweenService"):Create(WaterMark,TweenInfo.new(2,Enum.EasingStyle.Sine,Enum.EasingDirection.Out),{TextColor3 = Color3.fromRGB(170, 255, 255)}):Play(0)
-		wait(2)
-		game:GetService("TweenService"):Create(WaterMark,TweenInfo.new(2,Enum.EasingStyle.Sine,Enum.EasingDirection.Out),{TextColor3 = Color3.fromRGB(85, 255, 127)}):Play(0)
-		wait(2)
-		game:GetService("TweenService"):Create(WaterMark,TweenInfo.new(2,Enum.EasingStyle.Sine,Enum.EasingDirection.Out),{TextColor3 = Color3.fromRGB(255, 170, 127)}):Play(0)
-		wait(2)
-		game:GetService("TweenService"):Create(WaterMark,TweenInfo.new(2,Enum.EasingStyle.Sine,Enum.EasingDirection.Out),{TextColor3 = Color3.fromRGB(255, 103, 103)}):Play(0)
-		wait(2)
-	end
-end))
 
 function notify(front,text,colr,mage,magecolor)
 	local func = Instance.new("Frame",_gui_notif)
@@ -309,6 +431,7 @@ _gui_mf_blatant.Text = "Blatant"
 _gui_mf_blatant.Font = Enum.Font.SourceSansBold
 _gui_mf_blatant.TextColor3 = Color3.fromRGB(255,255,255)
 _gui_mf_blatant.TextSize = 30
+_gui_mf_blatant.Modal = true
 
 local _gui_mf_render = Instance.new("TextButton",_gui_mf)
 _gui_mf_render.Name = "Render"
@@ -353,6 +476,12 @@ _gui_mf_Open_blatant.BackgroundColor3 = Color3.fromRGB(40,40,40)
 _gui_mf_Open_blatant.Size = UDim2.new(1,0,1,0)
 _gui_mf_Open_blatant.Text = ""
 _gui_mf_Open_blatant.AutoButtonColor = false
+local keep = Instance.new("UIListLayout",_gui_mf_Open_blatant)
+keep.Padding = UDim.new(0,1)
+keep.FillDirection = Enum.FillDirection.Vertical
+keep.VerticalAlignment = Enum.VerticalAlignment.Top
+keep.HorizontalAlignment = Enum.HorizontalAlignment.Center
+
 
 
 local _gui_mf_Open_Render = Instance.new("TextButton",_gui_mf)
@@ -363,6 +492,11 @@ _gui_mf_Open_Render.BackgroundColor3 = Color3.fromRGB(40,40,40)
 _gui_mf_Open_Render.Size = UDim2.new(1,0,1,0)
 _gui_mf_Open_Render.Text = ""
 _gui_mf_Open_Render.AutoButtonColor = false
+local keep2 = Instance.new("UIListLayout",_gui_mf_Open_Render)
+keep2.Padding = UDim.new(0,1)
+keep2.FillDirection = Enum.FillDirection.Vertical
+keep2.VerticalAlignment = Enum.VerticalAlignment.Top
+keep2.HorizontalAlignment = Enum.HorizontalAlignment.Center
 
 _gui_mf_blatant.MouseEnter:Connect(function()
 	game:GetService("TweenService"):Create(_gui_mf_blatant,TweenInfo.new(.25,Enum.EasingStyle.Sine,Enum.EasingDirection.Out),{Size = UDim2.new(0.46, 0,0.318, 0)}):Play(0)
@@ -406,19 +540,39 @@ _gui_mf_balnk2g.MouseLeave:Connect(function()
 	game:GetService("TweenService"):Create(_gui_mf_balnk2g,TweenInfo.new(.25,Enum.EasingStyle.Sine,Enum.EasingDirection.Out),{Size = UDim2.new(0.45, 0,0.308, 0)}):Play(0)
 end)
 
-local dropDownSpeed = newDropDown(_gui_mf_Open_blatant,UDim2.new(0.022, 0,0.024, 0),"Speed",{{16,"A","Speed"},{"false","B","Active"},{"","C","Key"}})
-local dropDownjp = newDropDown(_gui_mf_Open_blatant,UDim2.new(0.022, 0,0.106, 0),"Jump Power",{{50,"A","JumpPower"},{"false","B","Active"},{"","C","Key"}})
-local dropDownfLY = newDropDown(_gui_mf_Open_blatant,UDim2.new(0.022, 0,0.188, 0),"Fly",{{16,"A","Speed"},{"false","B","Active"},{"","C","Key"},{2,"A","YSpeed"}})
+local dropDownSpeed = newDropDown(_gui_mf_Open_blatant,UDim2.new(0.022, 0,0.024, 0),"Speed",{{16,"A","Speed"},{"false","B","Active"},{"","C","Key"},{"false","B","Velocity"},{"false","B","BHop"}})
+local dropDownjp = newDropDown(_gui_mf_Open_blatant,UDim2.new(0, 0,0.106, 0),"Jump Power",{{50,"A","JumpPower"},{"false","B","Active"},{"","C","Key"}})
+local dropDownfLY = newDropDown(_gui_mf_Open_blatant,UDim2.new(0, 0,0.188, 0),"Fly",{{16,"A","Speed"},{"false","B","Active"},{"","C","Key"},{2,"A","YSpeed"},{"false","B","Bounce"}})
 local dropDownAim = newDropDown(_gui_mf_Open_blatant,UDim2.new(0.022, 0,0.270, 0),"Aimbot",{{"false","B","Active"},{"false","B","HeadLock"},{"","C","Key"},{16,"A","Distance"}})
 local dropDownTP = newDropDown(_gui_mf_Open_blatant,UDim2.new(0.022, 0,0.350, 0),"ClickTp",{{"false","B","Active"},{"","C","Key"}})
 local dropDownDisabler = newDropDown(_gui_mf_Open_blatant,UDim2.new(0.022, 0,0.432, 0),"Disabler",{{"false","B","Active"},{"","C","Key"}})
 local dropDownInvFling = newDropDown(_gui_mf_Open_blatant,UDim2.new(0.022, 0,0.512, 0),"InvFling",{{"false","B","Active"},{"Russia Man","D","PlayerName                        (Display Names Allowed)"},{"","C","Key"}})
 local dropDownNoclip = newDropDown(_gui_mf_Open_blatant,UDim2.new(0.022, 0,0.592, 0),"Noclip",{{"false","B","Active"},{"","C","Key"}})
-local dropDownJumpFly = newDropDown(_gui_mf_Open_blatant,UDim2.new(0.022, 0,0.592, 0),"JumpFly",{{"false","B","Active"},{"","C","Key"}})
-
+local dropDownJumpFly = newDropDown(_gui_mf_Open_blatant,UDim2.new(0.022, 0,0.672, 0),"JumpFly",{{"false","B","Active"},{"","C","Key"}})
+local dropDownlong = newDropDown(_gui_mf_Open_blatant,UDim2.new(0, 0,0.106, 0),"LongJump",{{25,"A","Speed"},{"false","B","Active"},{"","C","Key"}})
 
 
 local dropDownEsp = newDropDown(_gui_mf_Open_Render,UDim2.new(0.022, 0,0.024, 0),"Box Esp",{{"false","B","Active"},{"255","A","R"},{"255","A","G"},{"255","A","B"},{"","C","Key"}})
+local dropDownRejoin = newDropDown(_gui_mf_Open_Render,UDim2.new(0.022, 0,0.104, 0),"Rejoin",{{"false","B","Active"}})
+local dropDownChatHide = newDropDown(_gui_mf_Open_Render,UDim2.new(0.022, 0,0.104, 0),"ChatNameHider",{{"false","B","Active"},{"false","B","HideOthers"},{"User","D","Active"}})
+local dropDownFP = newDropDown(_gui_mf_Open_Render,UDim2.new(0.022, 0,0.104, 0),"FirstPerson",{{"false","B","Active"},{"true","B","Active"}})
+
+coroutine.resume(coroutine.create(function()
+	while wait() do
+		if dropDownFP[2][1].Text == "true" then
+			
+			if dropDownFP[2][2].Text == "true" then
+				game.Players.LocalPlayer.CameraMode = Enum.CameraMode.LockFirstPerson
+			else
+				game.Players.LocalPlayer.CameraMode = Enum.CameraMode.Classic
+				game.Players.LocalPlayer.CameraMinZoomDistance = 10
+				wait()
+				game.Players.LocalPlayer.CameraMinZoomDistance = .5
+			end
+		end
+	end
+end))
+
 
 coroutine.resume(coroutine.create(function()
 	while wait() do
@@ -435,22 +589,92 @@ coroutine.resume(coroutine.create(function()
 			else
 				notify("Warning","No Target Found!",Color3.fromRGB(255, 255, 127),"http://www.roblox.com/asset/?id=6254819318",Color3.fromRGB(255, 255, 127))
 			end
+			netdexc("ClickTp")
 		end
 	end
 end))
 
 coroutine.resume(coroutine.create(function()
-	while wait() do
-		local speed = dropDownSpeed[2][1].Text
+	repeat wait() until dropDownChatHide[2][1].Text == "true"
+	for _, kor in pairs(game.Players.LocalPlayer.PlayerGui:WaitForChild("Chat"):GetDescendants()) do
+		if kor:IsA("TextLabel") or kor:IsA("TextButton") then
+			if string.find(string.lower(kor.Text),string.lower(game.Players.LocalPlayer.Name)) then
+				kor.Text = string.gsub(string.lower(kor.Text),string.lower(game.Players.LocalPlayer.Name),dropDownChatHide[2][3].Text)
+			end
+			if string.find(string.lower(kor.Text),string.lower(game.Players.LocalPlayer.DisplayName)) then
+				kor.Text = string.gsub(string.lower(kor.Text),string.lower(game.Players.LocalPlayer.DisplayName),dropDownChatHide[2][3].Text)
+			end
+		end
+	end
+	game.Players.LocalPlayer.PlayerGui:WaitForChild("Chat").DescendantAdded:Connect(function()
+		wait()
+		if dropDownChatHide[2][1].Text == "true" then
+			for _, kor in pairs(game.Players.LocalPlayer.PlayerGui:WaitForChild("Chat"):GetDescendants()) do
+				if kor:IsA("TextLabel") or kor:IsA("TextButton") then
+				if string.find(string.lower(kor.Text),string.lower(game.Players.LocalPlayer.Name)) then
+					kor.Text = string.gsub(string.lower(kor.Text),string.lower(game.Players.LocalPlayer.Name),dropDownChatHide[2][3].Text)
+				end
+				if string.find(string.lower(kor.Text),string.lower(game.Players.LocalPlayer.DisplayName)) then
+					kor.Text = string.gsub(string.lower(kor.Text),string.lower(game.Players.LocalPlayer.DisplayName),dropDownChatHide[2][3].Text)
+				end
+			end
+		end
+		end
+		
+	end)
+end))
+
+
+coroutine.resume(coroutine.create(function()
+	local waitime = 0
+	while wait(waitime) do
+		local speed = dropDownSpeed[2][1].Text 
 		if not tonumber(speed) then
 			speed = 16
 		end
-		if dropDownSpeed[2][2].Text == "true" then
-			game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = tonumber(speed)
-		else
-			game.Players.LocalPlayer.Character.Humanoid.WalkSpeed =16
-		end
+		pcall(function()
+			if dropDownSpeed[2][2].Text == "true" then
+				if dropDownSpeed[2][5].Text == "true" and (movement[1] or movement[2] or movement[3] or movement[4]) then
+					game.Players.LocalPlayer.Character.Humanoid.Jump = true
+				end
+				if dropDownSpeed[2][4].Text == "true" then
+					waitime = 0
+					game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = 16
+					local dur = Vector3.new(0,0,0)
+					if movement[1] then
+						dur += game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame.LookVector*speed
+					end
+					if movement[2] then
+						dur -= game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame.RightVector*speed
+					end
+					if movement[3] then
+						dur -= game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame.LookVector*speed
+					end
+					if movement[4] then
+						dur += game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame.RightVector*speed
+					end
+					if dur ~= Vector3.new(0,0,0) then
+						game.Players.LocalPlayer.Character.HumanoidRootPart.Velocity = Vector3.new(dur.X,game.Players.LocalPlayer.Character.HumanoidRootPart.Velocity.Y,dur.Z)
+					end
+				else
+					waitime = .1
+					game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = tonumber(speed)
+				end
+				
+			else
+				game.Players.LocalPlayer.Character.Humanoid.WalkSpeed =16
+			end
+		end)
 
+	end
+end))
+coroutine.resume(coroutine.create(function()
+	while wait(1) do
+
+		if dropDownRejoin[2][1].Text == "true" then
+			game:GetService("TeleportService"):Teleport(game.PlaceId,game.Players.LocalPlayer)
+			game.Players.LocalPlayer:Kick("Rejoin Request")
+		end
 	end
 end))
 
@@ -479,23 +703,37 @@ end))
 
 coroutine.resume(coroutine.create(function()
 	local lastac = false
+	local can = false
 	game:GetService("UserInputService").InputBegan:Connect(function(keygr,gpe)
 		if keygr.KeyCode == Enum.KeyCode.Space and lastac and not gpe then
 			game.Players.LocalPlayer.Character.HumanoidRootPart.Velocity += Vector3.new(0,game.Players.LocalPlayer.Character.Humanoid.JumpPower,0)
 		end
 	end)
-	while wait() do
+	game:GetService("RunService").Stepped:Connect(function()
 		if dropDownNoclip[2][1].Text == "true" then
 			lastac = true
-			game.Players.LocalPlayer.Character.Humanoid:ChangeState(11)
+			can = true
 		else
+			can = false
 			if lastac then
-				game.Players.LocalPlayer.Character.Humanoid:ChangeState(Enum.HumanoidStateType.Running)
+				for _ = 0, 10 do
+					game.Players.LocalPlayer.Character.Humanoid:ChangeState(Enum.HumanoidStateType.Running)
+					
+				end
 				lastac = false
 			end
 		end
-
-	end
+	end)
+	game:GetService("RunService").Stepped:Connect(function()
+		if can then
+			game.Players.LocalPlayer.Character.Humanoid:ChangeState(11)
+		end
+	end)
+	game:GetService("RunService").RenderStepped:Connect(function()
+		if can then
+			game.Players.LocalPlayer.Character.Humanoid:ChangeState(11)
+		end
+	end)
 end))
 
 
@@ -517,7 +755,7 @@ coroutine.resume(coroutine.create(function()
 		if dropDownJumpFly[2][1].Text == "false" and dbfr then
 			dbfr = false
 		end
-		if dbfr then
+		if dbfr and game.Players.LocalPlayer.Character.Humanoid.Health > 0 then
 			game.Players.LocalPlayer.Character.HumanoidRootPart.Velocity = Vector3.new(game.Players.LocalPlayer.Character.HumanoidRootPart.Velocity.X,game.Players.LocalPlayer.Character.Humanoid.JumpPower,game.Players.LocalPlayer.Character.HumanoidRootPart.Velocity.Z)
 		end
 	end
@@ -692,22 +930,55 @@ end
 
 
 coroutine.resume(coroutine.create(function()
+	while wait(1) do
+		pcall(function()
+			local speed = dropDownjp[2][1].Text
+			if not tonumber(speed) then
+				speed = 50
+			end
+			if dropDownjp[2][2].Text == "true" then
+				game.Players.LocalPlayer.Character.Humanoid.JumpPower = tonumber(speed)
+			else
+				game.Players.LocalPlayer.Character.Humanoid.JumpPower = 50
+			end
+		end)	
+
+	end
+end))
+
+coroutine.resume(coroutine.create(function()
+	local last = false
 	while wait() do
-		local speed = dropDownjp[2][1].Text
-		if not tonumber(speed) then
-			speed = 50
-		end
-		if dropDownjp[2][2].Text == "true" then
-			game.Players.LocalPlayer.Character.Humanoid.JumpPower = tonumber(speed)
-		else
-			game.Players.LocalPlayer.Character.Humanoid.JumpPower = 50
-		end
+		pcall(function()
+			local speed = dropDownlong[2][1].Text
+			if not tonumber(speed) then
+				speed = 50
+			end
+			if dropDownlong[2][2].Text == "true" then
+				last = true
+				game.Players.LocalPlayer.Character.Humanoid.Jump = true
+				if game.Players.LocalPlayer.Character.HumanoidRootPart.Velocity.Y < 0 then
+					game.Players.LocalPlayer.Character.HumanoidRootPart.Velocity = Vector3.new(0,2,0)
+				end
+				local dbsp = tonumber(dropDownlong[2][1].Text)
+				if not dbsp then
+					dbsp = 25
+				end
+				
+				game.Players.LocalPlayer.Character.HumanoidRootPart.Velocity = Vector3.new((game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame.LookVector * dbsp).X,game.Players.LocalPlayer.Character.HumanoidRootPart.Velocity.Y,(game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame.LookVector * dbsp).Z)
+			else
+				if last then
+					game.Players.LocalPlayer.Character.HumanoidRootPart.Velocity = Vector3.new(0,0,0)
+					last = false
+				end
+			end
+		end)	
 
 	end
 end))
 
 
-
+local flyb = -999
 coroutine.resume(coroutine.create(function()
 	local flyy = 0
 	local last = false
@@ -720,7 +991,10 @@ coroutine.resume(coroutine.create(function()
 			if not tonumber(speed) then
 				speed = 16
 			end
-			if dropDownfLY[2][2].Text == "true" then
+			if dropDownfLY[2][2].Text == "false" and dropDownfLY[2][5].Text == "true" then
+				flyb = -999
+			end
+			if dropDownfLY[2][2].Text == "true" and dropDownfLY[2][5].Text == "false" then
 				local dur = Vector3.new(0,0,0)
 				if movement[1] then
 					dur += game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame.LookVector*speed/10
@@ -755,8 +1029,35 @@ coroutine.resume(coroutine.create(function()
 				bv.Position = Vector3.new(game.Players.LocalPlayer.Character.HumanoidRootPart.Position.X,flyy,game.Players.LocalPlayer.Character.HumanoidRootPart.Position.Z) + dur
 
 			else
-				bv.Parent = doorParent
-				last = false
+				
+				if dropDownfLY[2][5].Text == "true" then
+					local speedy = dropDownfLY[2][4].Text
+					if not tonumber(speedy) then
+						speedy = 2
+					end
+					if movement[5] then
+						flyb += speedy
+					end
+					if movement[6] then
+						flyb -= speedy
+					end
+					bv.Parent = doorParent
+					last = false
+					if flyb == -999 then
+						flyb = game.Players.LocalPlayer.Character.HumanoidRootPart.Position.Y
+					else
+						if game.Players.LocalPlayer.Character.HumanoidRootPart.Position.Y < flyb - 7 then
+							
+							game.Players.LocalPlayer.Character.HumanoidRootPart.Velocity = Vector3.new(game.Players.LocalPlayer.Character.HumanoidRootPart.Velocity.X,game.Players.LocalPlayer.Character.Humanoid.JumpPower,game.Players.LocalPlayer.Character.HumanoidRootPart.Velocity.Z)
+						end
+					end
+					
+				else
+					bv.Parent = doorParent
+					last = false
+					flyb = -999
+				end
+				
 			end
 		else
 
@@ -842,13 +1143,17 @@ end)
 
 coroutine.resume(coroutine.create(function()
 	local function flingplayer(tofling,dsskey)
-
-		local pos = tofling.HumanoidRootPart.Position - tofling.HumanoidRootPart.CFrame.LookVector * .000001
+		
+		notify("Warning","Invisible Fling Is Patched" ,Color3.fromRGB(255, 255, 127),"http://www.roblox.com/asset/?id=6254819318",Color3.fromRGB(255, 255, 127))
+		error("Patched")
+		netdexc("InvFling")
+		local pos = tofling.HumanoidRootPart.Position - tofling.HumanoidRootPart.CFrame.LookVector * .00001
 		local hum = nil
 
 		local ussr = game:GetService("RunService").RenderStepped:Connect(function()
+			game.Players.LocalPlayer.Character.HumanoidRootPart.Transparency = 0
 			workspace.CurrentCamera.CameraSubject = tofling.HumanoidRootPart
-			pos = tofling.HumanoidRootPart.Position - tofling.HumanoidRootPart.CFrame.LookVector * .000001
+			pos = tofling.HumanoidRootPart.Position - tofling.HumanoidRootPart.CFrame.LookVector * .00001
 
 			if not hum then
 				hum = game.Players.LocalPlayer.Character:FindFirstChild("HumanoidRootPart")
@@ -860,17 +1165,20 @@ coroutine.resume(coroutine.create(function()
 		local bp = Instance.new("BodyThrust",hum)
 		bp.Force = Vector3.new(huge,0,huge)
 		local bp3 = Instance.new("BodyVelocity",hum)
-		bp3.Velocity = Vector3.new(9e9999,9e9999,9e9999)
-		bp3.MaxForce = Vector3.new(9e9999,9e9999,9e9999)
+		bp3.Velocity = Vector3.new(math.huge,math.huge,math.huge)
+		bp3.MaxForce = Vector3.new(math.huge,math.huge,math.huge)
 		bp3.CFrame = hum.CFrame
 		local d = -1
 		repeat wait()
-			if game.Players.LocalPlayer:FindFirstChild("LeftFoot") then
-				for _, kop in pairs(game.Players.LocalPlayer.Character:GetChildren()) do
-					if kop.Name ~= "HumanoidRootPart" and kop.Name ~= "Humanoid" then
-						kop:Destroy()
-					end
+			for _, kop in pairs(game.Players.LocalPlayer.Character:GetChildren()) do
+				if kop.Name ~= "HumanoidRootPart" and kop.Name ~= "Humanoid" then
+					kop:Destroy()
 				end
+			end
+			game.Players.LocalPlayer.Character:BreakJoints()
+			if game.Players.LocalPlayer.Character:FindFirstChild("LeftUpperLeg") then
+
+				Instance.new("SelectionBox",game.Players.LocalPlayer.Character.HumanoidRootPart)
 			end
 			if not game.Players.LocalPlayer.Character:FindFirstChild("Humanoid") and hum then
 				d *= -1
@@ -880,16 +1188,17 @@ coroutine.resume(coroutine.create(function()
 
 				hum.CFrame = CFrame.new(pos)
 				game.Players.LocalPlayer.Character:FindFirstChild("HumanoidRootPart").CanCollide = true
-				local bp2 = Instance.new("BodyGyro",hum)
-				bp2.P = math.huge
-				bp2.MaxTorque = Vector3.new(1,1,1)
-				bp2.CFrame = CFrame.new(hum.Position + (tofling.HumanoidRootPart.CFrame.RightVector*(5*d)))
-				
+				local bp2 = Instance.new("BodyAngularVelocity",hum)
+				bp2.AngularVelocity = Vector3.new(0,900,0)
+				bp2.MaxTorque = Vector3.new(0,math.huge,0)
+
+				bp2.P = 1250
+
 				hum.Anchored = false
 				pos = tofling.HumanoidRootPart.Position 
 				hum.CFrame = CFrame.new(pos)
 			end
-		until tofling == nil or dsskey.Text == "false"
+		until tofling == nil or dsskey.Text == "false" or tofling:FindFirstChild("HumanoidRootPart") == nil or tofling.Humanoid.Health == 0
 		ussr:Disconnect()
 	end
 	local canfling = true
@@ -914,7 +1223,7 @@ coroutine.resume(coroutine.create(function()
 					notify("Module Toggled","Flinging : ".. plrf.Name,Color3.fromRGB(85, 255, 127),"http://www.roblox.com/asset/?id=2828150111",Color3.fromRGB(70, 211, 103))
 					flingplayer(plrf.Character,dropDownInvFling[2][1])
 				end
-				
+
 			else
 				dropDownInvFling[2][1].Text = "false"
 				notify("Warning","No Player With Name [".. dropDownInvFling[2][2].Text.. "] You Idiot" ,Color3.fromRGB(255, 255, 127),"http://www.roblox.com/asset/?id=6254819318",Color3.fromRGB(255, 255, 127))
@@ -924,7 +1233,41 @@ coroutine.resume(coroutine.create(function()
 end))
 
 
-
+coroutine.resume(coroutine.create(function()
+	while wait(1) do
+		for _, kop in pairs(_gui_exec:GetChildren()) do
+			if kop:IsA("TextLabel") then
+				for _, hop in pairs(_gui_mf_Open_blatant:GetChildren()) do
+					if hop:IsA("TextButton") then
+						for _, huo in pairs(hop:GetChildren()) do
+							if huo.Name == "Active" then
+								if huo.Text == false then
+									netdexc(hop.Parent.Text)
+								else
+									break
+								end
+							end
+						end
+					end
+				end
+				for _, hop in pairs(_gui_mf_Open_Render:GetChildren()) do
+					if hop:IsA("TextButton") then
+						for _, huo in pairs(hop:GetChildren()) do
+							if huo.Name == "Active" then
+								if huo.Text == false then
+									netdexc(hop.Parent.Text)
+								else
+									break
+								end
+							end
+						end
+					end
+				end
+			end
+		end
+		
+	end
+end))
 
 
 game:GetService("UserInputService").InputBegan:Connect(function(key,gpe)
@@ -933,13 +1276,17 @@ game:GetService("UserInputService").InputBegan:Connect(function(key,gpe)
 			local txt = hop.Text
 			if string.len(txt) == 1 then
 				if string.lower(string.gsub(tostring(key.KeyCode),'Enum.KeyCode.',"")) == string.lower(txt) then
-					if hop.Parent:FindFirstChild("boolean") then
-						if hop.Parent:FindFirstChild("boolean").Text == "false" then
+					if hop.Parent:FindFirstChild("Active") then
+						
+						if hop.Parent:FindFirstChild("Active").Text == "false" then
+							netexec(hop.Parent.Text)
 							notify("Module Toggled",hop.Parent.Text.. " Enabled",Color3.fromRGB(85, 255, 127),"http://www.roblox.com/asset/?id=2828150111",Color3.fromRGB(70, 211, 103))
-							hop.Parent:FindFirstChild("boolean").Text = "true"
+							hop.Parent:FindFirstChild("Active").Text = "true"
 						else
+							netdexc(hop.Parent.Text)
+							
 							notify("Module Toggled",hop.Parent.Text.. " Disabled",Color3.fromRGB(255, 73, 73),"http://www.roblox.com/asset/?id=5640320478",Color3.fromRGB(214, 61, 61))
-							hop.Parent:FindFirstChild("boolean").Text = "false"
+							hop.Parent:FindFirstChild("Active").Text = "false"
 						end
 					end
 				end
@@ -953,9 +1300,11 @@ game:GetService("UserInputService").InputBegan:Connect(function(key,gpe)
 				if string.lower(string.gsub(tostring(key.KeyCode),'Enum.KeyCode.',"")) == string.lower(txt) then
 					if hop.Parent:FindFirstChild("boolean") then
 						if hop.Parent:FindFirstChild("boolean").Text == "false" then
+							netexec(hop.Parent.Text)
 							notify("Module Toggled",hop.Parent.Text.. " Enabled",Color3.fromRGB(85, 255, 127),"http://www.roblox.com/asset/?id=2828150111",Color3.fromRGB(70, 211, 103))
 							hop.Parent:FindFirstChild("boolean").Text = "true"
 						else
+							netdexc(hop.Parent.Text)
 							notify("Module Toggled",hop.Parent.Text.. " Disabled",Color3.fromRGB(255, 73, 73),"http://www.roblox.com/asset/?id=5640320478",Color3.fromRGB(214, 61, 61))
 							hop.Parent:FindFirstChild("boolean").Text = "false"
 						end
