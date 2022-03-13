@@ -985,7 +985,9 @@ coroutine.resume(coroutine.create(function()
 	local bv = Instance.new("BodyPosition")
 	bv.D = 0
 	bv.P = 400
-	while wait(.1) do
+	while wait() do
+		pcall(function()
+			while wait(.1) do
 		if game.Players.LocalPlayer.Character.Humanoid.Health > 0 then
 			local speed = dropDownfLY[2][1].Text
 			if not tonumber(speed) then
@@ -1073,6 +1075,8 @@ coroutine.resume(coroutine.create(function()
 		end
 
 
+	end
+	end)
 	end
 end))
 
