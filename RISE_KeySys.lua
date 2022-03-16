@@ -25,6 +25,8 @@ keyFrame.Position = UDim2.new(0.239892185, 0, 0.253411293, 0)
 keyFrame.Size = UDim2.new(0.51886791, 0, 0.493177384, 0)
 keyFrame.BackgroundTransparency = 1
 keyFrame.Visible = false
+keyFrame.Active = true
+keyFrame.Draggable = true
 
 UICorner.Parent = keyFrame
 
