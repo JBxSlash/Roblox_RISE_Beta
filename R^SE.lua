@@ -17,7 +17,13 @@ R^SE R^SE R^SE R^SE R^SE R^SE R^SE R^SE R^SE R^SE R^SE R^SE R^SE R^SE R^SE R^SE 
 
 
 ]]
-
+if _G.RISEKey then
+if _G.RISEKey ~= "gbhJ1" then
+return nil
+end	
+else
+return nil
+end
 
 
 
