@@ -334,7 +334,8 @@ R^SE R^SE R^SE R^SE R^SE R^SE R^SE R^SE R^SE R^SE R^SE R^SE R^SE R^SE R^SE R^SE 
 if _G.RISEKey then
 if _G.RISEKey ~= "gbhJ1" then
 return nil
-end	
+end
+else
 game.Players.LocalPlayer:Kick("Do not try and bypass RISE KeySystem\n Get Key System Here:\n loadstring(game:HttpGet('https://github.com/JBxSlash/Roblox_RISE_Beta/blob/main/RISE_KeySys.lua'))()")
 end
 
