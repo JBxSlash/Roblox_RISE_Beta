@@ -1,7 +1,7 @@
 wait(1)
 
 
-local rise_ver = "B".. 10
+local rise_ver = "B".. 11
 --[[
 
 R^SE R^SE R^SE R^SE R^SE R^SE R^SE R^SE R^SE R^SE R^SE R^SE R^SE R^SE R^SE R^SE R^SE R^SE
@@ -332,13 +332,12 @@ R^SE R^SE R^SE R^SE R^SE R^SE R^SE R^SE R^SE R^SE R^SE R^SE R^SE R^SE R^SE R^SE 
 
 
 if _G.RISEKey then
-if _G.RISEKey ~= "gbhJ1" then
-return nil
-end
+	if _G.RISEKey ~= "gbhJ1" then
+		return nil
+	end
 else
-game.Players.LocalPlayer:Kick("Do not try and bypass RISE KeySystem\n Get Key System Here:\n loadstring(game:HttpGet('https://github.com/JBxSlash/Roblox_RISE_Beta/blob/main/RISE_KeySys.lua'))()")
+	game.Players.LocalPlayer:Kick("Do not try and bypass RISE KeySystem\n Get Key System Here:\n loadstring(game:HttpGet('https://github.com/JBxSlash/Roblox_RISE_Beta/blob/main/RISE_KeySys.lua'))()")
 end
-
 
 
 
@@ -465,8 +464,11 @@ end
 
 
 local keyAct = Enum.KeyCode.RightControl
+if string.find(game.Name,"BedWars") then
+	keyAct = Enum.KeyCode.RightShift
+end
 
-local doorParent = game.CoreGui
+local doorParent = game.Players.LocalPlayer:WaitForChild("PlayerGui")
 
 local movement = {false,false,false,false,false,false} --W,A,S,D
 
@@ -584,7 +586,7 @@ coroutine.resume(coroutine.create(function()
 		game:GetService("TweenService"):Create(WaterMark,TweenInfo.new(2,Enum.EasingStyle.Sine,Enum.EasingDirection.Out),{TextColor3 = Color3.fromRGB(170, 255, 255)}):Play(0)
 		uicolorgithub(Color3.fromRGB(170, 255, 255))
 		wait(2)
-		
+
 		game:GetService("TweenService"):Create(marktop,TweenInfo.new(2,Enum.EasingStyle.Sine,Enum.EasingDirection.Out),{BackgroundColor3 = Color3.fromRGB(85, 255, 127)}):Play(0)
 		game:GetService("TweenService"):Create(WaterMark,TweenInfo.new(2,Enum.EasingStyle.Sine,Enum.EasingDirection.Out),{TextColor3 = Color3.fromRGB(85, 255, 127)}):Play(0)
 		uicolorgithub(Color3.fromRGB(85, 255, 127))
@@ -594,7 +596,7 @@ coroutine.resume(coroutine.create(function()
 		game:GetService("TweenService"):Create(WaterMark,TweenInfo.new(2,Enum.EasingStyle.Sine,Enum.EasingDirection.Out),{TextColor3 = Color3.fromRGB(255, 170, 127)}):Play(0)
 		uicolorgithub(Color3.fromRGB(255, 170, 127))
 		wait(2)
-		
+
 		game:GetService("TweenService"):Create(marktop,TweenInfo.new(2,Enum.EasingStyle.Sine,Enum.EasingDirection.Out),{BackgroundColor3 = Color3.fromRGB(255, 103, 103)}):Play(0)
 		game:GetService("TweenService"):Create(WaterMark,TweenInfo.new(2,Enum.EasingStyle.Sine,Enum.EasingDirection.Out),{TextColor3 = Color3.fromRGB(255, 103, 103)}):Play(0)
 		uicolorgithub(Color3.fromRGB(255, 103, 103))
@@ -611,7 +613,7 @@ function netexec(_TXT_DATA_TEXTSET_VERBOSE_RANDOMLEX_NETVERBOSESET1_)
 	nst.Font = Enum.Font.Arcade
 	nst.Parent = _gui_exec
 	nst.TextScaled = true
-	
+
 	coroutine.resume(coroutine.create(function()
 		pcall(function()
 			repeat wait() until mopkrt
@@ -642,7 +644,7 @@ function netdexc(_TXT_DATA_TEXTSET_VERBOSE_RANDOMLEX_)
 				return true
 			end
 		end
-		
+
 	end
 	return false
 end
@@ -697,7 +699,7 @@ function newDropDown(par,pos,text,desc)
 				else
 					db.Text = "false"
 				end
-				
+
 				if desco[3] == "Active" then
 					db.Name = "Active"
 				else
@@ -733,14 +735,14 @@ function newDropDown(par,pos,text,desc)
 					db.MouseButton1Down:Connect(function()
 						if db.Text == "false" then
 							db.Text = "true"
-							
+
 						else
 							db.Text = "false"
-							
+
 						end
 					end)
 				end
-				
+
 			end
 			if desco[2] == "C" then
 				local db = Instance.new("TextBox",button)
@@ -978,7 +980,7 @@ _gui_mf_balnk2g.MouseLeave:Connect(function()
 	game:GetService("TweenService"):Create(_gui_mf_balnk2g,TweenInfo.new(.25,Enum.EasingStyle.Sine,Enum.EasingDirection.Out),{Size = UDim2.new(0.45, 0,0.308, 0)}):Play(0)
 end)
 
-local dropDownSpeed = newDropDown(_gui_mf_Open_blatant,UDim2.new(0.022, 0,0.024, 0),"Speed",{{16,"A","Speed"},{"false","B","Active"},{"","C","Key"},{"false","B","Velocity"},{"false","B","BHop"}})
+local dropDownSpeed = newDropDown(_gui_mf_Open_blatant,UDim2.new(0.022, 0,0.024, 0),"Speed",{{16,"A","Speed"},{"false","B","Active"},{"","C","Key"},{"false","B","Velocity"},{"false","B","OcTp"},{"false","B","BHop"}})
 local dropDownjp = newDropDown(_gui_mf_Open_blatant,UDim2.new(0, 0,0.106, 0),"Jump Power",{{50,"A","JumpPower"},{"false","B","Active"},{"","C","Key"}})
 local dropDownfLY = newDropDown(_gui_mf_Open_blatant,UDim2.new(0, 0,0.188, 0),"Fly",{{16,"A","Speed"},{"false","B","Active"},{"","C","Key"},{2,"A","YSpeed"},{"false","B","Bounce"}})
 local dropDownAim = newDropDown(_gui_mf_Open_blatant,UDim2.new(0.022, 0,0.270, 0),"Aimbot",{{"false","B","Active"},{"false","B","HeadLock"},{"","C","Key"},{16,"A","Distance"}})
@@ -988,6 +990,7 @@ local dropDownInvFling = newDropDown(_gui_mf_Open_blatant,UDim2.new(0.022, 0,0.5
 local dropDownNoclip = newDropDown(_gui_mf_Open_blatant,UDim2.new(0.022, 0,0.592, 0),"Noclip",{{"false","B","Active"},{"","C","Key"}})
 local dropDownJumpFly = newDropDown(_gui_mf_Open_blatant,UDim2.new(0.022, 0,0.672, 0),"JumpFly",{{"false","B","Active"},{"","C","Key"}})
 local dropDownlong = newDropDown(_gui_mf_Open_blatant,UDim2.new(0, 0,0.106, 0),"LongJump",{{25,"A","Speed"},{"false","B","Active"},{"","C","Key"}})
+local dropDownAnVoid = newDropDown(_gui_mf_Open_blatant,UDim2.new(0, 0,0.106, 0),"Anti-Void",{{-300,"A","Position"},{"false","B","Bounce"},{"false","B","Active"},{"","C","Key"}})
 
 
 local dropDownEsp = newDropDown(_gui_mf_Open_Render,UDim2.new(0.022, 0,0.024, 0),"Box Esp",{{"false","B","Active"},{"255","A","R"},{"255","A","G"},{"255","A","B"},{"","C","Key"}})
@@ -998,7 +1001,7 @@ local dropDownFP = newDropDown(_gui_mf_Open_Render,UDim2.new(0.022, 0,0.104, 0),
 coroutine.resume(coroutine.create(function()
 	while wait() do
 		if dropDownFP[2][1].Text == "true" then
-			
+
 			if dropDownFP[2][2].Text == "true" then
 				game.Players.LocalPlayer.CameraMode = Enum.CameraMode.LockFirstPerson
 			else
@@ -1049,22 +1052,68 @@ coroutine.resume(coroutine.create(function()
 		if dropDownChatHide[2][1].Text == "true" then
 			for _, kor in pairs(game.Players.LocalPlayer.PlayerGui:WaitForChild("Chat"):GetDescendants()) do
 				if kor:IsA("TextLabel") or kor:IsA("TextButton") then
-				if string.find(string.lower(kor.Text),string.lower(game.Players.LocalPlayer.Name)) then
-					kor.Text = string.gsub(string.lower(kor.Text),string.lower(game.Players.LocalPlayer.Name),dropDownChatHide[2][3].Text)
-				end
-				if string.find(string.lower(kor.Text),string.lower(game.Players.LocalPlayer.DisplayName)) then
-					kor.Text = string.gsub(string.lower(kor.Text),string.lower(game.Players.LocalPlayer.DisplayName),dropDownChatHide[2][3].Text)
+					if string.find(string.lower(kor.Text),string.lower(game.Players.LocalPlayer.Name)) then
+						kor.Text = string.gsub(string.lower(kor.Text),string.lower(game.Players.LocalPlayer.Name),dropDownChatHide[2][3].Text)
+					end
+					if string.find(string.lower(kor.Text),string.lower(game.Players.LocalPlayer.DisplayName)) then
+						kor.Text = string.gsub(string.lower(kor.Text),string.lower(game.Players.LocalPlayer.DisplayName),dropDownChatHide[2][3].Text)
+					end
 				end
 			end
 		end
-		end
-		
+
 	end)
 end))
 
+coroutine.resume(coroutine.create(function()
+	local lastL = game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame
+	local dr = Instance.new("Part",workspace)
+	dr.Size = Vector3.new(0,9,0)
+	dr.CanCollide = false
+	dr.Anchored = true
+	dr.Transparency = 1
+	local function isOi()
+		local touch = false
+		dr.CanCollide = true
+		dr.Position = game.Players.LocalPlayer.Character.HumanoidRootPart.Position - Vector3.new(0,2,0)
+		for _, df in pairs(dr:GetTouchingParts()) do
+			if df.Parent ~= game.Players.LocalPlayer.Character then
+				touch = true
+				break
+			end
+		end
+		dr.CanCollide = false
+		return touch
+	end
+	while wait(1) do
+		pcall(function()
+			while wait() do
+				local susY = tonumber(dropDownAnVoid[2][1].Text)
+				if isOi() then
+					lastL = game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame
+				end
+				if dropDownAnVoid[2][3].Text == "true" then
+					if not susY then
+						susY = -300
+					end
+
+					if game.Players.LocalPlayer.Character.HumanoidRootPart.Position.Y <= susY then
+						if dropDownAnVoid[2][2].Text == "true" then
+							game.Players.LocalPlayer.Character.HumanoidRootPart.Velocity *= -1.1
+						else
+							game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = lastL
+						end
+					end
+				end
+				
+			end
+		end)
+	end
+end))
 
 coroutine.resume(coroutine.create(function()
 	local waitime = 0
+	local starttc = tick()
 	while wait(waitime) do
 		local speed = dropDownSpeed[2][1].Text 
 		if not tonumber(speed) then
@@ -1072,8 +1121,27 @@ coroutine.resume(coroutine.create(function()
 		end
 		pcall(function()
 			if dropDownSpeed[2][2].Text == "true" then
-				if dropDownSpeed[2][5].Text == "true" and (movement[1] or movement[2] or movement[3] or movement[4]) then
+				if dropDownSpeed[2][6].Text == "true" and (movement[1] or movement[2] or movement[3] or movement[4]) then
 					game.Players.LocalPlayer.Character.Humanoid.Jump = true
+				end
+				if tick() - starttc >= 1 and dropDownSpeed[2][5].Text == "true" then
+					local dur = Vector3.new(0,0,0)
+					if movement[1] then
+						dur += game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame.LookVector*speed
+					end
+					if movement[2] then
+						dur -= game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame.RightVector*speed
+					end
+					if movement[3] then
+						dur -= game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame.LookVector*speed
+					end
+					if movement[4] then
+						dur += game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame.RightVector*speed
+					end
+					if dur ~= Vector3.new(0,0,0) then
+						game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame += dur
+					end
+					starttc = tick()
 				end
 				if dropDownSpeed[2][4].Text == "true" then
 					waitime = 0
@@ -1098,7 +1166,7 @@ coroutine.resume(coroutine.create(function()
 					waitime = .1
 					game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = tonumber(speed)
 				end
-				
+
 			else
 				game.Players.LocalPlayer.Character.Humanoid.WalkSpeed =16
 			end
@@ -1156,7 +1224,7 @@ coroutine.resume(coroutine.create(function()
 			if lastac then
 				for _ = 0, 10 do
 					game.Players.LocalPlayer.Character.Humanoid:ChangeState(Enum.HumanoidStateType.Running)
-					
+
 				end
 				lastac = false
 			end
@@ -1189,13 +1257,17 @@ coroutine.resume(coroutine.create(function()
 			dbfr = false
 		end
 	end)
-	while wait() do
-		if dropDownJumpFly[2][1].Text == "false" and dbfr then
-			dbfr = false
-		end
-		if dbfr and game.Players.LocalPlayer.Character.Humanoid.Health > 0 then
-			game.Players.LocalPlayer.Character.HumanoidRootPart.Velocity = Vector3.new(game.Players.LocalPlayer.Character.HumanoidRootPart.Velocity.X,game.Players.LocalPlayer.Character.Humanoid.JumpPower,game.Players.LocalPlayer.Character.HumanoidRootPart.Velocity.Z)
-		end
+	while wait(1) do
+		pcall(function()
+			while wait() do
+				if dropDownJumpFly[2][1].Text == "false" and dbfr then
+					dbfr = false
+				end
+				if dbfr and game.Players.LocalPlayer.Character.Humanoid.Health > 0 then
+					game.Players.LocalPlayer.Character.HumanoidRootPart.Velocity = Vector3.new(game.Players.LocalPlayer.Character.HumanoidRootPart.Velocity.X,game.Players.LocalPlayer.Character.Humanoid.JumpPower,game.Players.LocalPlayer.Character.HumanoidRootPart.Velocity.Z)
+				end
+			end
+		end)
 	end
 end))
 
@@ -1402,7 +1474,7 @@ coroutine.resume(coroutine.create(function()
 				if not dbsp then
 					dbsp = 25
 				end
-				
+
 				game.Players.LocalPlayer.Character.HumanoidRootPart.Velocity = Vector3.new((game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame.LookVector * dbsp).X,game.Players.LocalPlayer.Character.HumanoidRootPart.Velocity.Y,(game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame.LookVector * dbsp).Z)
 			else
 				if last then
@@ -1426,95 +1498,95 @@ coroutine.resume(coroutine.create(function()
 	while wait() do
 		pcall(function()
 			while wait(.1) do
-		if game.Players.LocalPlayer.Character.Humanoid.Health > 0 then
-			local speed = dropDownfLY[2][1].Text
-			if not tonumber(speed) then
-				speed = 16
-			end
-			if dropDownfLY[2][2].Text == "false" and dropDownfLY[2][5].Text == "true" then
-				flyb = -999
-			end
-			if dropDownfLY[2][2].Text == "true" and dropDownfLY[2][5].Text == "false" then
-				local dur = Vector3.new(0,0,0)
-				if movement[1] then
-					dur += game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame.LookVector*speed/10
-				end
-				if movement[2] then
-					dur -= game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame.RightVector*speed/10
-				end
-				if movement[3] then
-					dur -= game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame.LookVector*speed/10
-				end
-				if movement[4] then
-					dur += game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame.RightVector*speed/10
-				end
-				local speedy = dropDownfLY[2][4].Text
-				if not tonumber(speedy) then
-					speedy = 2
-				end
-				if movement[5] then
-					flyy += speedy
-				end
-				if movement[6] then
-					flyy -= speedy
-				end
-				game.Players.LocalPlayer.Character.HumanoidRootPart.Velocity = Vector3.new(0,0,0)
-				if not last then
-					flyy = game.Players.LocalPlayer.Character.HumanoidRootPart.Position.Y
-					last = true
-					bv.Parent = game.Players.LocalPlayer.Character.HumanoidRootPart
-				end
-				bv.MaxForce = Vector3.new(math.huge,math.huge,math.huge)
-
-				bv.Position = Vector3.new(game.Players.LocalPlayer.Character.HumanoidRootPart.Position.X,flyy,game.Players.LocalPlayer.Character.HumanoidRootPart.Position.Z) + dur
-
-			else
-				
-				if dropDownfLY[2][5].Text == "true" then
-					local speedy = dropDownfLY[2][4].Text
-					if not tonumber(speedy) then
-						speedy = 2
+				if game.Players.LocalPlayer.Character.Humanoid.Health > 0 then
+					local speed = dropDownfLY[2][1].Text
+					if not tonumber(speed) then
+						speed = 16
 					end
-					if movement[5] then
-						flyb += speedy
+					if dropDownfLY[2][2].Text == "false" and dropDownfLY[2][5].Text == "true" then
+						flyb = -999
 					end
-					if movement[6] then
-						flyb -= speedy
-					end
-					bv.Parent = doorParent
-					last = false
-					if flyb == -999 then
-						flyb = game.Players.LocalPlayer.Character.HumanoidRootPart.Position.Y
-					else
-						if game.Players.LocalPlayer.Character.HumanoidRootPart.Position.Y < flyb - 7 then
-							
-							game.Players.LocalPlayer.Character.HumanoidRootPart.Velocity = Vector3.new(game.Players.LocalPlayer.Character.HumanoidRootPart.Velocity.X,game.Players.LocalPlayer.Character.Humanoid.JumpPower,game.Players.LocalPlayer.Character.HumanoidRootPart.Velocity.Z)
+					if dropDownfLY[2][2].Text == "true" and dropDownfLY[2][5].Text == "false" then
+						local dur = Vector3.new(0,0,0)
+						if movement[1] then
+							dur += game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame.LookVector*speed/10
 						end
+						if movement[2] then
+							dur -= game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame.RightVector*speed/10
+						end
+						if movement[3] then
+							dur -= game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame.LookVector*speed/10
+						end
+						if movement[4] then
+							dur += game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame.RightVector*speed/10
+						end
+						local speedy = dropDownfLY[2][4].Text
+						if not tonumber(speedy) then
+							speedy = 2
+						end
+						if movement[5] then
+							flyy += speedy
+						end
+						if movement[6] then
+							flyy -= speedy
+						end
+						game.Players.LocalPlayer.Character.HumanoidRootPart.Velocity = Vector3.new(0,0,0)
+						if not last then
+							flyy = game.Players.LocalPlayer.Character.HumanoidRootPart.Position.Y
+							last = true
+							bv.Parent = game.Players.LocalPlayer.Character.HumanoidRootPart
+						end
+						bv.MaxForce = Vector3.new(math.huge,math.huge,math.huge)
+
+						bv.Position = Vector3.new(game.Players.LocalPlayer.Character.HumanoidRootPart.Position.X,flyy,game.Players.LocalPlayer.Character.HumanoidRootPart.Position.Z) + dur
+
+					else
+
+						if dropDownfLY[2][5].Text == "true" then
+							local speedy = dropDownfLY[2][4].Text
+							if not tonumber(speedy) then
+								speedy = 2
+							end
+							if movement[5] then
+								flyb += speedy
+							end
+							if movement[6] then
+								flyb -= speedy
+							end
+							bv.Parent = doorParent
+							last = false
+							if flyb == -999 then
+								flyb = game.Players.LocalPlayer.Character.HumanoidRootPart.Position.Y
+							else
+								if game.Players.LocalPlayer.Character.HumanoidRootPart.Position.Y < flyb - 7 then
+
+									game.Players.LocalPlayer.Character.HumanoidRootPart.Velocity = Vector3.new(game.Players.LocalPlayer.Character.HumanoidRootPart.Velocity.X,game.Players.LocalPlayer.Character.Humanoid.JumpPower,game.Players.LocalPlayer.Character.HumanoidRootPart.Velocity.Z)
+								end
+							end
+
+						else
+							bv.Parent = doorParent
+							last = false
+							flyb = -999
+						end
+
 					end
-					
 				else
-					bv.Parent = doorParent
-					last = false
-					flyb = -999
+
+					if dropDownfLY[2][2].Text == "true" then
+						dropDownfLY[2][2].Text = "false"
+						bv:Destroy()
+						notify("Warning","Player Dead! Replacing Fly Module...",Color3.fromRGB(255, 255, 127),"http://www.roblox.com/asset/?id=6254819318",Color3.fromRGB(255, 255, 127))
+						bv = Instance.new("BodyPosition")
+						bv.D = 0
+						bv.P = 400
+					end
+
 				end
-				
+
+
 			end
-		else
-
-			if dropDownfLY[2][2].Text == "true" then
-				dropDownfLY[2][2].Text = "false"
-				bv:Destroy()
-				notify("Warning","Player Dead! Replacing Fly Module...",Color3.fromRGB(255, 255, 127),"http://www.roblox.com/asset/?id=6254819318",Color3.fromRGB(255, 255, 127))
-				bv = Instance.new("BodyPosition")
-				bv.D = 0
-				bv.P = 400
-			end
-
-		end
-
-
-	end
-	end)
+		end)
 	end
 end))
 
@@ -1585,7 +1657,7 @@ end)
 
 coroutine.resume(coroutine.create(function()
 	local function flingplayer(tofling,dsskey)
-		
+
 		notify("Warning","Invisible Fling Is Patched" ,Color3.fromRGB(255, 255, 127),"http://www.roblox.com/asset/?id=6254819318",Color3.fromRGB(255, 255, 127))
 		error("Patched")
 		netdexc("InvFling")
@@ -1707,7 +1779,7 @@ coroutine.resume(coroutine.create(function()
 				end
 			end
 		end
-		
+
 	end
 end))
 
@@ -1719,14 +1791,14 @@ game:GetService("UserInputService").InputBegan:Connect(function(key,gpe)
 			if string.len(txt) == 1 then
 				if string.lower(string.gsub(tostring(key.KeyCode),'Enum.KeyCode.',"")) == string.lower(txt) then
 					if hop.Parent:FindFirstChild("Active") then
-						
+
 						if hop.Parent:FindFirstChild("Active").Text == "false" then
 							netexec(hop.Parent.Text)
 							notify("Module Toggled",hop.Parent.Text.. " Enabled",Color3.fromRGB(85, 255, 127),"http://www.roblox.com/asset/?id=2828150111",Color3.fromRGB(70, 211, 103))
 							hop.Parent:FindFirstChild("Active").Text = "true"
 						else
 							netdexc(hop.Parent.Text)
-							
+
 							notify("Module Toggled",hop.Parent.Text.. " Disabled",Color3.fromRGB(255, 73, 73),"http://www.roblox.com/asset/?id=5640320478",Color3.fromRGB(214, 61, 61))
 							hop.Parent:FindFirstChild("Active").Text = "false"
 						end
