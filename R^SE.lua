@@ -468,7 +468,7 @@ if game.CreatorId == 5774246 or game.CreatorId == "5774246" then
 	keyAct = Enum.KeyCode.RightShift
 end
 
-local doorParent = game.Players.LocalPlayer:WaitForChild("PlayerGui")
+local doorParent = game.CoreGui
 
 local movement = {false,false,false,false,false,false} --W,A,S,D
 
