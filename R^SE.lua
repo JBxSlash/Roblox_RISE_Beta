@@ -464,7 +464,7 @@ end
 
 
 local keyAct = Enum.KeyCode.RightControl
-if string.find(game.Name,"BedWars") then
+if game.CreatorId == 5774246 or game.CreatorId == "5774246" then
 	keyAct = Enum.KeyCode.RightShift
 end
 
