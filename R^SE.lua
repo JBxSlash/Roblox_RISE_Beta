@@ -1,7 +1,3 @@
-wait(1)
-
-
-local rise_ver = "B".. 11
 --[[
 
 R^SE R^SE R^SE R^SE R^SE R^SE R^SE R^SE R^SE R^SE R^SE R^SE R^SE R^SE R^SE R^SE R^SE R^SE
@@ -132,212 +128,20 @@ R^SE R^SE R^SE R^SE R^SE R^SE R^SE R^SE R^SE R^SE R^SE R^SE R^SE R^SE R^SE R^SE 
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 if _G.RISEKey then
-	if _G.RISEKey ~= "gbhJ1" then
+	if _G.RISEKey ~= "best" then
 		return nil
 	end
 else
 	game.Players.LocalPlayer:Kick("Do not try and bypass RISE KeySystem\n Get Key System Here:\n loadstring(game:HttpGet('https://github.com/JBxSlash/Roblox_RISE_Beta/blob/main/RISE_KeySys.lua'))()")
 end
+local ScreenGui = Instance.new("ScreenGui")
+local ScreenGui = Instance.new("ScreenGui")
+local rse_ver = 12
+local controlButton = Enum.KeyCode.RightControl
+local ownersRS = {
+	5774246
+}
 
 
 
@@ -420,58 +224,80 @@ end
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-local keyAct = Enum.KeyCode.RightControl
-if game.CreatorId == 5774246 or game.CreatorId == "5774246" then
-	keyAct = Enum.KeyCode.RightShift
-end
-
-local doorParent = game.CoreGui
+local ScreenGui = Instance.new("ScreenGui")
+local posStartMF = UDim2.new(0.214028969, 0, 0.440078437, 0)
 
 local movement = {false,false,false,false,false,false} --W,A,S,D
 
+local parent = game.CoreGu
+
+if table.find(ownersRS,game.CreatorId) then
+	controlButton = Enum.KeyCode.RightShift
+end
+local gb_d = false
+--RISE://GetFunctions
+function TweenCreate(part,timeLength,data)
+	game:GetService("TweenService"):Create(part,TweenInfo.new(timeLength,Enum.EasingStyle.Linear,Enum.EasingDirection.Out),data):Play(0)
+end
+function closeAll()
+	coroutine.resume(coroutine.create(function()
+		gb_d = true
+		wait()
+		gb_d = false
+	end))
+end
+function guiAnim(button)
+	local db = false
+	local sz = button.Size
+	button.MouseEnter:Connect(function()
+		if not db then
+			
+			TweenCreate(button,.2,{Size = UDim2.new(sz.X.Scale*1.1,0,sz.Y.Scale*1.1,0)})
+			
+		end
+		
+	end)
+	button.MouseLeave:Connect(function()
+		if not db then
+			
+			TweenCreate(button,.2,{Size = UDim2.new(sz.X.Scale,0,sz.Y.Scale,0)})
+			
+		end
+	end)
+end
+function newSubMenu(name)
+	local frame = Instance.new("Frame")
+	
+	local textName = Instance.new("TextButton")
+	local uiLST = Instance.new("UIListLayout")
+	frame.Size = UDim2.new(.3,0,1,0)
+	
+	frame.BackgroundColor3 = Color3.fromRGB(25,25,25)
+	
+	textName.Size = UDim2.new(1,0,.075,0)
+	textName.Position = UDim2.new(0,0,.96116,0)
+	textName.TextXAlignment = Enum.TextXAlignment.Right
+	textName.Text =  name.. " -> "
+	textName.Font = Enum.Font.Nunito
+	textName.TextScaled = true
+	textName.BackgroundTransparency = 1
+	textName.TextColor3 = Color3.fromRGB(255,255,255)
+	Instance.new("UICorner",frame)
+	frame.Position = UDim2.new(1.2,0,0,0)
+	textName.MouseButton1Down:Connect(function()	
+		TweenCreate(frame,.5,{Position = UDim2.new(1.2,0,0,0)})
+		closeAll()
+	end)
+	frame.Parent = ScreenGui
+	uiLST.Parent = frame
+	uiLST.FillDirection = Enum.FillDirection.Vertical
+	uiLST.Padding = UDim.new(0,.05)
+	uiLST.HorizontalAlignment = Enum.HorizontalAlignment.Left
+	textName.Parent = frame
+	
+	
+	return frame
+end
 
 function cornerGui(gui,sz)
 	local kb = sz
@@ -482,176 +308,9 @@ function cornerGui(gui,sz)
 	corner.CornerRadius = UDim.new(0,kb)
 	return corner
 end
-
-if doorParent:FindFirstChild("_R^SE") then
-	warn("Another R^SE UI Detected: Removing Self;")
-	return
-end
-
-
-
-
-local _gui_main = Instance.new("ScreenGui",doorParent)
-_gui_main.Name = "_R^SE"
-
-local startUp = Instance.new("TextLabel",_gui_main)
-startUp.Size = UDim2.new(1,0,1,0)
-startUp.BackgroundTransparency = 1
-startUp.TextTransparency = 1
-startUp.Text = "R^SE ".. rise_ver
-startUp.Font = Enum.Font.Arcade
-startUp.TextScaled = true
-
-
-local WaterMark = Instance.new("TextLabel",_gui_main)
-WaterMark.Size = UDim2.new(0.55, 0,0.05, 0)
-WaterMark.BackgroundTransparency = .9
-WaterMark.BorderSizePixel = 0
-WaterMark.BackgroundColor3 = Color3.fromRGB(10,10,10)
-local displayname = game.Players.LocalPlayer.Name
-if game.Players.LocalPlayer.DisplayName then
-	displayname = game.Players.LocalPlayer.DisplayName
-end
-WaterMark.Text = "R^SE ".. rise_ver.. " | ".. displayname
-WaterMark.Font = Enum.Font.Arcade
-WaterMark.TextScaled = true
-WaterMark.TextColor3 = Color3.fromRGB(85, 255, 255)
-WaterMark.TextYAlignment = Enum.TextYAlignment.Bottom
-WaterMark.TextXAlignment = Enum.TextXAlignment.Left
-
-coroutine.resume(coroutine.create(function()
-	while wait() do
-		WaterMark.Text = "R^SE ".. rise_ver.. " | ".. displayname.. " | ".. 60-math.floor(game:GetService("Stats").HeartbeatTimeMs*10 + .5)/10 .. "tps | "..  math.floor(game:GetService("Stats").DataSendKbps*10 + .5) .. "s/".. math.floor(game:GetService("Stats").DataReceiveKbps*10 + .5) .. "r"
-	end
-end))
-
-local marktop = Instance.new("Frame",_gui_main)
-marktop.Size = UDim2.new(0.55, 0,0.005, 0)
-marktop.BorderSizePixel = 0
-marktop.BackgroundColor3 = Color3.fromRGB(85, 255, 255)
-local mopkrt = false
-local mopcolor = Color3.fromRGB(0,0,0)
-
-
-coroutine.resume(coroutine.create(function()
-	game:GetService("TweenService"):Create(startUp,TweenInfo.new(2,Enum.EasingStyle.Sine,Enum.EasingDirection.Out),{TextTransparency = 0,TextColor3 = Color3.fromRGB(116, 255, 162)}):Play(0)
-	wait(2)
-	game:GetService("TweenService"):Create(startUp,TweenInfo.new(2,Enum.EasingStyle.Sine,Enum.EasingDirection.Out),{TextColor3 = Color3.fromRGB(85, 255, 127)}):Play(0)
-	wait(2)
-	game:GetService("TweenService"):Create(startUp,TweenInfo.new(2,Enum.EasingStyle.Sine,Enum.EasingDirection.Out),{TextTransparency = 1,TextColor3 = Color3.fromRGB(255, 170, 127)}):Play(0)
-	wait(2)
-	startUp:Destroy()
-
-end))
-local _gui_mf = Instance.new("Frame",_gui_main)
-_gui_mf.Name = "_mf"
-_gui_mf.Position = UDim2.new(0.348, 0,0.183, 0)
-_gui_mf.Size = UDim2.new(0.1515, 0,0.634, 0)
-cornerGui(_gui_mf)
-_gui_mf.BackgroundColor3 = Color3.fromRGB(40,40,40)
-
-local _gui_notif = Instance.new("Frame",_gui_main)
-_gui_notif.Size = UDim2.new(0.3, 0,.9, 0)
-_gui_notif.BackgroundTransparency = 1
-_gui_notif.Position = UDim2.new(0.569, 0,0, 0)
-
-
-local _gui_exec = Instance.new("Frame",_gui_main)
-_gui_exec.Size = UDim2.new(0.3, 0,.9, 0)
-_gui_exec.BackgroundTransparency = 1
-_gui_exec.Position = UDim2.new(0.7, 0,0, 0)
-
-local u0 = Instance.new("UIListLayout",_gui_notif)
-u0.FillDirection = Enum.FillDirection.Vertical
-u0.HorizontalAlignment = Enum.HorizontalAlignment.Right
-u0.VerticalAlignment = Enum.VerticalAlignment.Bottom
-u0.Padding = UDim.new(0,13)
-
-local u1 = Instance.new("UIListLayout",_gui_exec)
-u1.FillDirection = Enum.FillDirection.Vertical
-u1.HorizontalAlignment = Enum.HorizontalAlignment.Right
-u1.VerticalAlignment = Enum.VerticalAlignment.Top
-u1.Padding = UDim.new(0,13)
-function uicolorgithub(_NETCAST_COLORHUB_RGB_DEXLET_MARKED_)
-	for _, ux_bin in pairs(_gui_exec:GetChildren()) do
-		if ux_bin:IsA("TextLabel") and not ("HTTP:GETLINKEDHUBUB:UI_HUB:GITHUB_Jx[From:JSonToLua]:ExecutePERMBAN{TANKGETFROMTOPHOTBAR || JSON;Loaded = true} Poplock = ObfuscatedByPSWE:Unloader:IsSucces || return true" == "true") then
-			game:GetService("TweenService"):Create(ux_bin,TweenInfo.new(2,Enum.EasingStyle.Sine,Enum.EasingDirection.Out),{TextColor3 = _NETCAST_COLORHUB_RGB_DEXLET_MARKED_}):Play(0)
-		end
-	end
-end
-coroutine.resume(coroutine.create(function()
-	while wait() do
-
-		game:GetService("TweenService"):Create(marktop,TweenInfo.new(2,Enum.EasingStyle.Sine,Enum.EasingDirection.Out),{BackgroundColor3 = Color3.fromRGB(170, 255, 255)}):Play(0)
-		game:GetService("TweenService"):Create(WaterMark,TweenInfo.new(2,Enum.EasingStyle.Sine,Enum.EasingDirection.Out),{TextColor3 = Color3.fromRGB(170, 255, 255)}):Play(0)
-		uicolorgithub(Color3.fromRGB(170, 255, 255))
-		wait(2)
-
-		game:GetService("TweenService"):Create(marktop,TweenInfo.new(2,Enum.EasingStyle.Sine,Enum.EasingDirection.Out),{BackgroundColor3 = Color3.fromRGB(85, 255, 127)}):Play(0)
-		game:GetService("TweenService"):Create(WaterMark,TweenInfo.new(2,Enum.EasingStyle.Sine,Enum.EasingDirection.Out),{TextColor3 = Color3.fromRGB(85, 255, 127)}):Play(0)
-		uicolorgithub(Color3.fromRGB(85, 255, 127))
-		wait(2)
-
-		game:GetService("TweenService"):Create(marktop,TweenInfo.new(2,Enum.EasingStyle.Sine,Enum.EasingDirection.Out),{BackgroundColor3 = Color3.fromRGB(255, 170, 127)}):Play(0)
-		game:GetService("TweenService"):Create(WaterMark,TweenInfo.new(2,Enum.EasingStyle.Sine,Enum.EasingDirection.Out),{TextColor3 = Color3.fromRGB(255, 170, 127)}):Play(0)
-		uicolorgithub(Color3.fromRGB(255, 170, 127))
-		wait(2)
-
-		game:GetService("TweenService"):Create(marktop,TweenInfo.new(2,Enum.EasingStyle.Sine,Enum.EasingDirection.Out),{BackgroundColor3 = Color3.fromRGB(255, 103, 103)}):Play(0)
-		game:GetService("TweenService"):Create(WaterMark,TweenInfo.new(2,Enum.EasingStyle.Sine,Enum.EasingDirection.Out),{TextColor3 = Color3.fromRGB(255, 103, 103)}):Play(0)
-		uicolorgithub(Color3.fromRGB(255, 103, 103))
-		wait(2)
-	end
-end))
-
-function netexec(_TXT_DATA_TEXTSET_VERBOSE_RANDOMLEX_NETVERBOSESET1_)
-	local nst = Instance.new("TextLabel")
-	nst.Text = _TXT_DATA_TEXTSET_VERBOSE_RANDOMLEX_NETVERBOSESET1_
-	nst.Size = UDim2.new(1,0,.045,0)
-	nst.BackgroundTransparency = 1
-	nst.TextXAlignment = Enum.TextXAlignment.Right
-	nst.Font = Enum.Font.Arcade
-	nst.Parent = _gui_exec
-	nst.TextScaled = true
-
-	coroutine.resume(coroutine.create(function()
-		pcall(function()
-			repeat wait() until mopkrt
-			while wait() do
-
-				game:GetService("TweenService"):Create(nst,TweenInfo.new(2,Enum.EasingStyle.Sine,Enum.EasingDirection.Out),{TextColor3 = Color3.fromRGB(170, 255, 255)}):Play(0)
-				wait(2)
-
-				game:GetService("TweenService"):Create(nst,TweenInfo.new(2,Enum.EasingStyle.Sine,Enum.EasingDirection.Out),{TextColor3 = Color3.fromRGB(85, 255, 127)}):Play(0)
-				wait(2)
-
-				game:GetService("TweenService"):Create(nst,TweenInfo.new(2,Enum.EasingStyle.Sine,Enum.EasingDirection.Out),{TextColor3 = Color3.fromRGB(255, 170, 127)}):Play(0)
-				wait(2)
-
-				game:GetService("TweenService"):Create(nst,TweenInfo.new(2,Enum.EasingStyle.Sine,Enum.EasingDirection.Out),{TextColor3 = Color3.fromRGB(255, 103, 103)}):Play(0)
-				wait(2)
-			end
-		end)
-	end))
-	return true
-end
-
-function netdexc(_TXT_DATA_TEXTSET_VERBOSE_RANDOMLEX_)
-	for _, dp in pairs(_gui_exec:GetChildren()) do
-		if dp:IsA("TextLabel") then
-			if dp.Text == _TXT_DATA_TEXTSET_VERBOSE_RANDOMLEX_ then
-				dp:Destroy()
-				return true
-			end
-		end
-
-	end
-	return false
-end
-
 function newDropDown(par,pos,text,desc)
 	local button = Instance.new("TextButton",par)
-	button.Size = UDim2.new(1, 0,0.078, 0)
+	button.Size = UDim2.new(1, 0,0.05, 0)
 	cornerGui(button)
 	--button.Position = pos
 	button.Text = text
@@ -672,7 +331,7 @@ function newDropDown(par,pos,text,desc)
 				local db = Instance.new("TextBox",button)
 				db.Size = UDim2.new(.5,0,1,0)
 				db.Text = desco[1]
-				db.Position = UDim2.new(1.035,0,0 + (1*(_b-1)),0)
+				db.Position = UDim2.new(-1.035,0,0 + (1*(_b-1)),0)
 				db.BorderSizePixel = 0
 				db.PlaceholderText = desco[1]
 				db.BackgroundColor3 = Color3.fromRGB(30,30,30)
@@ -690,6 +349,14 @@ function newDropDown(par,pos,text,desc)
 				db2.Visible = true
 				db2.TextXAlignment = Enum.TextXAlignment.Left
 				table.insert(objs[2],db)
+				coroutine.resume(coroutine.create(function()
+					while wait() do
+
+						if gb_d then
+							db.Visible = false
+						end
+					end
+				end))
 			end
 			if desco[2] == "B" then
 				local db = Instance.new("TextButton",button)
@@ -705,7 +372,7 @@ function newDropDown(par,pos,text,desc)
 				else
 					db.Name = "boolean"
 				end
-				db.Position = UDim2.new(1.035,0,0 + (1*(_b-1)),0)
+				db.Position = UDim2.new(-1.035,0,0 + (1*(_b-1)),0)
 				db.BorderSizePixel = 0
 				db.BackgroundColor3 = Color3.fromRGB(30,30,30)
 				db.TextColor3 = Color3.fromRGB(255,255,255)
@@ -721,10 +388,19 @@ function newDropDown(par,pos,text,desc)
 				db2.Visible = true
 				db2.TextXAlignment = Enum.TextXAlignment.Left
 				table.insert(objs[2],db)
+				coroutine.resume(coroutine.create(function()
+					while wait() do
+
+						if gb_d then
+							db.Visible = false
+						end
+					end
+				end))
 				if desco[3] == "Active" then
 					db.MouseButton1Down:Connect(function()
 						if db.Text == "false" then
 							db.Text = "true"
+							
 							netexec(text)
 						else
 							db.Text = "false"
@@ -735,7 +411,7 @@ function newDropDown(par,pos,text,desc)
 					db.MouseButton1Down:Connect(function()
 						if db.Text == "false" then
 							db.Text = "true"
-
+							
 						else
 							db.Text = "false"
 
@@ -749,7 +425,7 @@ function newDropDown(par,pos,text,desc)
 				db.Name = "key"
 				db.Size = UDim2.new(.5,0,1,0)
 				db.Text = desco[1]
-				db.Position = UDim2.new(1.035,0,0 + (1*(_b-1)),0)
+				db.Position = UDim2.new(-1.035,0,0 + (1*(_b-1)),0)
 				db.BorderSizePixel = 0
 				db.PlaceholderText = desco[1]
 				db.BackgroundColor3 = Color3.fromRGB(30,30,30)
@@ -772,6 +448,9 @@ function newDropDown(par,pos,text,desc)
 						if string.len(db.Text) > 1 then
 							db.Text = string.sub(db.Text,1,1)
 						end
+						if gb_d then
+							db.Visible = false
+						end
 					end
 				end))
 			end
@@ -780,7 +459,7 @@ function newDropDown(par,pos,text,desc)
 				db.Name = "key"
 				db.Size = UDim2.new(.5,0,1,0)
 				db.Text = desco[1]
-				db.Position = UDim2.new(1.035,0,0 + (1*(_b-1)),0)
+				db.Position = UDim2.new(-1.035,0,0 + (1*(_b-1)),0)
 				db.BorderSizePixel = 0
 				db.PlaceholderText = desco[1]
 				db.BackgroundColor3 = Color3.fromRGB(30,30,30)
@@ -798,18 +477,202 @@ function newDropDown(par,pos,text,desc)
 				db2.Visible = true
 				db2.TextXAlignment = Enum.TextXAlignment.Left
 				table.insert(objs[2],db)
-
+				coroutine.resume(coroutine.create(function()
+					while wait() do
+						
+						if gb_d then
+							db.Visible = false
+						end
+					end
+				end))
 			end
 		end
 	end
 	button.MouseButton1Down:Connect(function()
+		local ghj = false
 		for _, objOfDb in pairs(objs[2]) do
 			objOfDb.Visible = not objOfDb.Visible
-
+			if objOfDb.Visible and ghj == false then
+				ghj = true
+				closeAll()
+				wait()
+				objOfDb.Visible = true
+			end
 		end
 	end)
 	return objs
 end
+
+
+
+
+
+local mf = Instance.new("Frame")
+local UICorner = Instance.new("UICorner")
+local Frame = Instance.new("Frame")
+local UICorner_2 = Instance.new("UICorner")
+local mf_2 = Instance.new("Frame")
+local Blatant = Instance.new("ImageButton")
+local UICorner_3 = Instance.new("UICorner")
+local UIListLayout = Instance.new("UIListLayout")
+local Render = Instance.new("ImageButton")
+local UICorner_4 = Instance.new("UICorner")
+local PlaceHolder = Instance.new("ImageButton")
+local UICorner_5 = Instance.new("UICorner")
+local PlaceHolder_2 = Instance.new("ImageButton")
+local UICorner_6 = Instance.new("UICorner")
+local PlaceHolder_3 = Instance.new("ImageButton")
+local UICorner_7 = Instance.new("UICorner")
+local PlaceHolder_4 = Instance.new("ImageButton")
+local UICorner_8 = Instance.new("UICorner")
+local rse = Instance.new("TextLabel")
+local TextLabel = Instance.new("TextLabel")
+
+ScreenGui.Parent = parent
+ScreenGui.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
+
+mf.Name = "mf"
+mf.Parent = ScreenGui
+mf.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+mf.BackgroundTransparency = 0.600
+mf.Position = UDim2.new(0.214028969, 0, 1.05, 0)
+mf.Size = UDim2.new(0.6034711, 0, 0.157412812, 0)
+
+UICorner.CornerRadius = UDim.new(1, 0)
+UICorner.Parent = mf
+
+Frame.Parent = mf
+Frame.BackgroundColor3 = Color3.fromRGB(45, 45, 45)
+Frame.Position = UDim2.new(-0.0267991759, 0, -0.123834834, 0)
+Frame.Size = UDim2.new(0.99999994, 0, 0.999999642, 0)
+
+UICorner_2.CornerRadius = UDim.new(1, 0)
+UICorner_2.Parent = Frame
+
+mf_2.Name = "mf"
+mf_2.Parent = Frame
+mf_2.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+mf_2.BackgroundTransparency = 1.000
+mf_2.Position = UDim2.new(0.00893304776, 0, 0, 0)
+mf_2.Size = UDim2.new(0.982133746, 0, 1, 0)
+
+Blatant.Name = "Blatant"
+Blatant.Parent = mf_2
+Blatant.BackgroundColor3 = Color3.fromRGB(25, 25, 25)
+Blatant.Position = UDim2.new(-0.0133995702, 0, -0.0619173795, 0)
+Blatant.Size = UDim2.new(0.158000007, 0, 0.875999987, 0)
+Blatant.Image = "http://www.roblox.com/asset/?id=2572666627"
+
+UICorner_3.CornerRadius = UDim.new(1, 0)
+UICorner_3.Parent = Blatant
+
+UIListLayout.Parent = mf_2
+UIListLayout.FillDirection = Enum.FillDirection.Horizontal
+UIListLayout.SortOrder = Enum.SortOrder.LayoutOrder
+UIListLayout.VerticalAlignment = Enum.VerticalAlignment.Center
+UIListLayout.Padding = UDim.new(0.00999999978, 0)
+
+Render.Name = "Render"
+Render.Parent = mf_2
+Render.BackgroundColor3 = Color3.fromRGB(25, 25, 25)
+Render.Position = UDim2.new(-0.0133995702, 0, -0.0619173795, 0)
+Render.Size = UDim2.new(0.158000007, 0, 0.875999987, 0)
+Render.Image = "http://www.roblox.com/asset/?id=6793694694"
+Render.ImageColor3 = Color3.fromRGB(85, 0, 255)
+
+UICorner_4.CornerRadius = UDim.new(1, 0)
+UICorner_4.Parent = Render
+
+PlaceHolder.Name = "PlaceHolder"
+PlaceHolder.Parent = mf_2
+PlaceHolder.BackgroundColor3 = Color3.fromRGB(25, 25, 25)
+PlaceHolder.Position = UDim2.new(-0.0133995702, 0, -0.0619173795, 0)
+PlaceHolder.Size = UDim2.new(0.158000007, 0, 0.875999987, 0)
+PlaceHolder.Image = "http://www.roblox.com/asset/?id=403653614"
+PlaceHolder.ImageColor3 = Color3.fromRGB(85, 255, 127)
+
+UICorner_5.CornerRadius = UDim.new(1, 0)
+UICorner_5.Parent = PlaceHolder
+
+PlaceHolder_2.Name = "PlaceHolder"
+PlaceHolder_2.Parent = mf_2
+PlaceHolder_2.BackgroundColor3 = Color3.fromRGB(25, 25, 25)
+PlaceHolder_2.Position = UDim2.new(-0.0133995702, 0, -0.0619173795, 0)
+PlaceHolder_2.Size = UDim2.new(0.158000007, 0, 0.875999987, 0)
+PlaceHolder_2.Image = "http://www.roblox.com/asset/?id=403653614"
+PlaceHolder_2.ImageColor3 = Color3.fromRGB(0, 255, 255)
+
+UICorner_6.CornerRadius = UDim.new(1, 0)
+UICorner_6.Parent = PlaceHolder_2
+
+PlaceHolder_3.Name = "PlaceHolder"
+PlaceHolder_3.Parent = mf_2
+PlaceHolder_3.BackgroundColor3 = Color3.fromRGB(25, 25, 25)
+PlaceHolder_3.Position = UDim2.new(-0.0133995702, 0, -0.0619173795, 0)
+PlaceHolder_3.Size = UDim2.new(0.158000007, 0, 0.875999987, 0)
+PlaceHolder_3.Image = "http://www.roblox.com/asset/?id=403653614"
+PlaceHolder_3.ImageColor3 = Color3.fromRGB(255, 255, 127)
+
+UICorner_7.CornerRadius = UDim.new(1, 0)
+UICorner_7.Parent = PlaceHolder_3
+
+PlaceHolder_4.Name = "PlaceHolder"
+PlaceHolder_4.Parent = mf_2
+PlaceHolder_4.BackgroundColor3 = Color3.fromRGB(25, 25, 25)
+PlaceHolder_4.Position = UDim2.new(-0.0133995702, 0, -0.0619173795, 0)
+PlaceHolder_4.Size = UDim2.new(0.158000007, 0, 0.875999987, 0)
+PlaceHolder_4.Image = "http://www.roblox.com/asset/?id=403653614"
+PlaceHolder_4.ImageColor3 = Color3.fromRGB(255, 0, 127)
+
+UICorner_8.CornerRadius = UDim.new(1, 0)
+UICorner_8.Parent = PlaceHolder_4
+
+rse.Name = "rse"
+rse.Parent = Frame
+rse.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+rse.BackgroundTransparency = 1.000
+rse.Position = UDim2.new(-0.218859673, 0, -1.89467263, 0)
+rse.Size = UDim2.new(1.4354862, 0, 2.1021297, 0)
+rse.Font = Enum.Font.Nunito
+rse.Text = "RISE"
+rse.TextColor3 = Color3.fromRGB(85, 0, 255)
+rse.TextScaled = true
+rse.TextSize = 14.000
+rse.TextWrapped = true
+
+TextLabel.Parent = Frame
+TextLabel.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+TextLabel.BackgroundTransparency = 1.000
+TextLabel.Position = UDim2.new(0.163028121, 0, -0.817309618, 0)
+TextLabel.Size = UDim2.new(0.660544395, 0, 0.578961611, 0)
+TextLabel.Font = Enum.Font.SourceSansItalic
+TextLabel.Text = "BUILD ".. rse_ver
+TextLabel.TextColor3 = Color3.fromRGB(255, 255, 255)
+TextLabel.TextScaled = true
+TextLabel.TextSize = 14.000
+TextLabel.TextWrapped = true
+
+--RISE://LEGACY_FUNC
+local _gui_notif = Instance.new("Frame",ScreenGui)
+_gui_notif.Size = UDim2.new(0.3, 0,.9, 0)
+_gui_notif.BackgroundTransparency = 1
+_gui_notif.Position = UDim2.new(0.569, 0,0, 0)
+
+
+local _gui_exec = Instance.new("Frame",ScreenGui)
+_gui_exec.Size = UDim2.new(0.3, 0,.9, 0)
+_gui_exec.BackgroundTransparency = 1
+_gui_exec.Position = UDim2.new(0.7, 0,0, 0)
+local u1 = Instance.new("UIListLayout",_gui_exec)
+u1.FillDirection = Enum.FillDirection.Vertical
+u1.HorizontalAlignment = Enum.HorizontalAlignment.Right
+u1.VerticalAlignment = Enum.VerticalAlignment.Top
+u1.Padding = UDim.new(0,13)
+local u0 = Instance.new("UIListLayout",_gui_notif)
+u0.FillDirection = Enum.FillDirection.Vertical
+u0.HorizontalAlignment = Enum.HorizontalAlignment.Right
+u0.VerticalAlignment = Enum.VerticalAlignment.Bottom
+u0.Padding = UDim.new(0,13)
 
 function notify(front,text,colr,mage,magecolor)
 	local func = Instance.new("Frame",_gui_notif)
@@ -861,159 +724,129 @@ function notify(front,text,colr,mage,magecolor)
 	end))
 end
 
-local _gui_mf_blatant = Instance.new("TextButton",_gui_mf)
-_gui_mf_blatant.Name = "Blatant"
-_gui_mf_blatant.Size = UDim2.new(0.45, 0,0.308, 0)
-_gui_mf_blatant.Position = UDim2.new(0.036, 0,0.022, 0)
-cornerGui(_gui_mf_blatant)
-_gui_mf_blatant.BackgroundColor3 = Color3.fromRGB(19, 19, 19)
-_gui_mf_blatant.Text = "Blatant"
-_gui_mf_blatant.Font = Enum.Font.SourceSansBold
-_gui_mf_blatant.TextColor3 = Color3.fromRGB(255,255,255)
-_gui_mf_blatant.TextSize = 30
-_gui_mf_blatant.Modal = true
+function netexec(_TXT_DATA_TEXTSET_VERBOSE_RANDOMLEX_NETVERBOSESET1_)
+	local nst = Instance.new("TextLabel")
+	nst.Text = _TXT_DATA_TEXTSET_VERBOSE_RANDOMLEX_NETVERBOSESET1_
+	nst.Size = UDim2.new(1,0,.045,0)
+	nst.BackgroundTransparency = 1
+	nst.TextXAlignment = Enum.TextXAlignment.Right
+	nst.Font = Enum.Font.Arcade
+	nst.Parent = _gui_exec
+	nst.TextScaled = true
+	nst.TextColor3 = Color3.fromRGB(85, 0, 255)
 
-local _gui_mf_render = Instance.new("TextButton",_gui_mf)
-_gui_mf_render.Name = "Render"
-_gui_mf_render.Size = UDim2.new(0.45, 0,0.308, 0)
-_gui_mf_render.Position = UDim2.new(0.514, 0,0.022, 0)
-cornerGui(_gui_mf_render)
-_gui_mf_render.BackgroundColor3 = Color3.fromRGB(19, 19, 19)
-_gui_mf_render.Text = "Render"
-_gui_mf_render.Font = Enum.Font.SourceSansBold
-_gui_mf_render.TextColor3 = Color3.fromRGB(255,255,255)
-_gui_mf_render.TextSize = 30
+	return true
+end
 
-local _gui_mf_balnk1 = _gui_mf_render:Clone()
-_gui_mf_balnk1.Parent = _gui_mf
-_gui_mf_balnk1.Position = UDim2.new(0.514, 0,0.345, 0)
-_gui_mf_balnk1.Name = ""
-_gui_mf_balnk1.Text = ""
+function netdexc(_TXT_DATA_TEXTSET_VERBOSE_RANDOMLEX_)
+	for _, dp in pairs(_gui_exec:GetChildren()) do
+		if dp:IsA("TextLabel") then
+			if dp.Text == _TXT_DATA_TEXTSET_VERBOSE_RANDOMLEX_ then
+				dp:Destroy()
+				return true
+			end
+		end
 
-local _gui_mf_balnk2 = _gui_mf_render:Clone()
-_gui_mf_balnk2.Parent = _gui_mf
-_gui_mf_balnk2.Position = UDim2.new(0.514, 0,0.67, 0)
-_gui_mf_balnk2.Name = ""
-_gui_mf_balnk2.Text = ""
+	end
+	return false
+end
 
-local _gui_mf_balnk1g = _gui_mf_blatant:Clone()
-_gui_mf_balnk1g.Parent = _gui_mf
-_gui_mf_balnk1g.Position = UDim2.new(0.036, 0,0.345, 0)
-_gui_mf_balnk1g.Name = ""
-_gui_mf_balnk1g.Text = ""
+local open_menu = false
 
-local _gui_mf_balnk2g = _gui_mf_blatant:Clone()
-_gui_mf_balnk2g.Parent = _gui_mf
-_gui_mf_balnk2g.Position = UDim2.new(0.036, 0,0.67, 0)
-_gui_mf_balnk2g.Name = ""
-_gui_mf_balnk2g.Text = ""
+--RISE://SET_ANIM
+guiAnim(Blatant)
+guiAnim(Render)
+guiAnim(PlaceHolder)
+guiAnim(PlaceHolder_2)
+guiAnim(PlaceHolder_3)
+guiAnim(PlaceHolder_4)
 
-local _gui_mf_Open_blatant = Instance.new("TextButton",_gui_mf)
-_gui_mf_Open_blatant.Name = "_blantant_open"
-cornerGui(_gui_mf_Open_blatant)
-_gui_mf_Open_blatant.Position = UDim2.new(0,0,0,0)
-_gui_mf_Open_blatant.BackgroundColor3 = Color3.fromRGB(40,40,40)
-_gui_mf_Open_blatant.Size = UDim2.new(1,0,1,0)
-_gui_mf_Open_blatant.Text = ""
-_gui_mf_Open_blatant.AutoButtonColor = false
-local keep = Instance.new("UIListLayout",_gui_mf_Open_blatant)
-keep.Padding = UDim.new(0,1)
-keep.FillDirection = Enum.FillDirection.Vertical
-keep.VerticalAlignment = Enum.VerticalAlignment.Top
-keep.HorizontalAlignment = Enum.HorizontalAlignment.Center
+local blatant_main = newSubMenu("Blatant")
+local render_main = newSubMenu("Render")
+
+local dropDownSpeed = newDropDown(blatant_main,UDim2.new(0.022, 0,0.024, 0),"Speed",{{16,"A","Speed"},{"false","B","Active"},{"","C","Key"},{"false","B","Velocity"},{"false","B","OcTp"},{"false","B","BHop"}})
+local dropDownjp = newDropDown(blatant_main,UDim2.new(0, 0,0.106, 0),"Jump Power",{{50,"A","JumpPower"},{"false","B","Active"},{"","C","Key"}})
+local dropDownfLY = newDropDown(blatant_main,UDim2.new(0, 0,0.188, 0),"Fly",{{16,"A","Speed"},{"false","B","Active"},{"","C","Key"},{2,"A","YSpeed"},{"false","B","Bounce"}})
+local dropDownAim = newDropDown(blatant_main,UDim2.new(0.022, 0,0.270, 0),"Aimbot",{{"false","B","Active"},{"false","B","HeadLock"},{"","C","Key"},{16,"A","Distance"}})
+local dropDownTP = newDropDown(blatant_main,UDim2.new(0.022, 0,0.350, 0),"ClickTp",{{"false","B","Active"},{"","C","Key"}})
+local dropDownDisabler = newDropDown(blatant_main,UDim2.new(0.022, 0,0.432, 0),"Disabler",{{"false","B","Active"},{"","C","Key"}})
+local dropDownInvFling = newDropDown(blatant_main,UDim2.new(0.022, 0,0.512, 0),"InvFling",{{"false","B","Active"},{"Russia Man","D","PlayerName                        (Display Names Allowed)"},{"","C","Key"}})
+local dropDownNoclip = newDropDown(blatant_main,UDim2.new(0.022, 0,0.592, 0),"Noclip",{{"false","B","Active"},{"","C","Key"}})
+local dropDownJumpFly = newDropDown(blatant_main,UDim2.new(0.022, 0,0.672, 0),"JumpFly",{{"false","B","Active"},{"","C","Key"}})
+local dropDownlong = newDropDown(blatant_main,UDim2.new(0, 0,0.106, 0),"LongJump",{{25,"A","Speed"},{"false","B","Active"},{"","C","Key"}})
+local dropDownAnVoid = newDropDown(blatant_main,UDim2.new(0, 0,0.106, 0),"Anti-Void",{{-300,"A","Position"},{"false","B","Bounce"},{"false","B","Active"},{"","C","Key"}})
 
 
-
-local _gui_mf_Open_Render = Instance.new("TextButton",_gui_mf)
-_gui_mf_Open_Render.Name = "_render_open"
-cornerGui(_gui_mf_Open_Render)
-_gui_mf_Open_Render.Position = UDim2.new(0,0,0,0)
-_gui_mf_Open_Render.BackgroundColor3 = Color3.fromRGB(40,40,40)
-_gui_mf_Open_Render.Size = UDim2.new(1,0,1,0)
-_gui_mf_Open_Render.Text = ""
-_gui_mf_Open_Render.AutoButtonColor = false
-local keep2 = Instance.new("UIListLayout",_gui_mf_Open_Render)
-keep2.Padding = UDim.new(0,1)
-keep2.FillDirection = Enum.FillDirection.Vertical
-keep2.VerticalAlignment = Enum.VerticalAlignment.Top
-keep2.HorizontalAlignment = Enum.HorizontalAlignment.Center
-
-_gui_mf_blatant.MouseEnter:Connect(function()
-	game:GetService("TweenService"):Create(_gui_mf_blatant,TweenInfo.new(.25,Enum.EasingStyle.Sine,Enum.EasingDirection.Out),{Size = UDim2.new(0.46, 0,0.318, 0)}):Play(0)
-end)
-_gui_mf_blatant.MouseLeave:Connect(function()
-	game:GetService("TweenService"):Create(_gui_mf_blatant,TweenInfo.new(.25,Enum.EasingStyle.Sine,Enum.EasingDirection.Out),{Size = UDim2.new(0.45, 0,0.308, 0),Position = UDim2.new(0.036, 0,0.022, 0)}):Play(0)
-end)
-
-_gui_mf_render.MouseEnter:Connect(function()
-	game:GetService("TweenService"):Create(_gui_mf_render,TweenInfo.new(.25,Enum.EasingStyle.Sine,Enum.EasingDirection.Out),{Size = UDim2.new(0.46, 0,0.318, 0)}):Play(0)
-end)
-_gui_mf_render.MouseLeave:Connect(function()
-	game:GetService("TweenService"):Create(_gui_mf_render,TweenInfo.new(.25,Enum.EasingStyle.Sine,Enum.EasingDirection.Out),{Size = UDim2.new(0.45, 0,0.308, 0)}):Play(0)
-end)
-
-_gui_mf_balnk1.MouseEnter:Connect(function()
-	game:GetService("TweenService"):Create(_gui_mf_balnk1,TweenInfo.new(.25,Enum.EasingStyle.Sine,Enum.EasingDirection.Out),{Size = UDim2.new(0.46, 0,0.318, 0)}):Play(0)
-end)
-_gui_mf_balnk1.MouseLeave:Connect(function()
-	game:GetService("TweenService"):Create(_gui_mf_balnk1,TweenInfo.new(.25,Enum.EasingStyle.Sine,Enum.EasingDirection.Out),{Size = UDim2.new(0.45, 0,0.308, 0)}):Play(0)
-end)
-
-_gui_mf_balnk2.MouseEnter:Connect(function()
-	game:GetService("TweenService"):Create(_gui_mf_balnk2,TweenInfo.new(.25,Enum.EasingStyle.Sine,Enum.EasingDirection.Out),{Size = UDim2.new(0.46, 0,0.318, 0)}):Play(0)
-end)
-_gui_mf_balnk2.MouseLeave:Connect(function()
-	game:GetService("TweenService"):Create(_gui_mf_balnk2,TweenInfo.new(.25,Enum.EasingStyle.Sine,Enum.EasingDirection.Out),{Size = UDim2.new(0.45, 0,0.308, 0)}):Play(0)
-end)
-
-_gui_mf_balnk1g.MouseEnter:Connect(function()
-	game:GetService("TweenService"):Create(_gui_mf_balnk1g,TweenInfo.new(.25,Enum.EasingStyle.Sine,Enum.EasingDirection.Out),{Size = UDim2.new(0.46, 0,0.318, 0)}):Play(0)
-end)
-_gui_mf_balnk1g.MouseLeave:Connect(function()
-	game:GetService("TweenService"):Create(_gui_mf_balnk1g,TweenInfo.new(.25,Enum.EasingStyle.Sine,Enum.EasingDirection.Out),{Size = UDim2.new(0.45, 0,0.308, 0)}):Play(0)
-end)
-
-_gui_mf_balnk2g.MouseEnter:Connect(function()
-	game:GetService("TweenService"):Create(_gui_mf_balnk2g,TweenInfo.new(.25,Enum.EasingStyle.Sine,Enum.EasingDirection.Out),{Size = UDim2.new(0.46, 0,0.318, 0)}):Play(0)
-end)
-_gui_mf_balnk2g.MouseLeave:Connect(function()
-	game:GetService("TweenService"):Create(_gui_mf_balnk2g,TweenInfo.new(.25,Enum.EasingStyle.Sine,Enum.EasingDirection.Out),{Size = UDim2.new(0.45, 0,0.308, 0)}):Play(0)
-end)
-
-local dropDownSpeed = newDropDown(_gui_mf_Open_blatant,UDim2.new(0.022, 0,0.024, 0),"Speed",{{16,"A","Speed"},{"false","B","Active"},{"","C","Key"},{"false","B","Velocity"},{"false","B","OcTp"},{"false","B","BHop"}})
-local dropDownjp = newDropDown(_gui_mf_Open_blatant,UDim2.new(0, 0,0.106, 0),"Jump Power",{{50,"A","JumpPower"},{"false","B","Active"},{"","C","Key"}})
-local dropDownfLY = newDropDown(_gui_mf_Open_blatant,UDim2.new(0, 0,0.188, 0),"Fly",{{16,"A","Speed"},{"false","B","Active"},{"","C","Key"},{2,"A","YSpeed"},{"false","B","Bounce"}})
-local dropDownAim = newDropDown(_gui_mf_Open_blatant,UDim2.new(0.022, 0,0.270, 0),"Aimbot",{{"false","B","Active"},{"false","B","HeadLock"},{"","C","Key"},{16,"A","Distance"}})
-local dropDownTP = newDropDown(_gui_mf_Open_blatant,UDim2.new(0.022, 0,0.350, 0),"ClickTp",{{"false","B","Active"},{"","C","Key"}})
-local dropDownDisabler = newDropDown(_gui_mf_Open_blatant,UDim2.new(0.022, 0,0.432, 0),"Disabler",{{"false","B","Active"},{"","C","Key"}})
-local dropDownInvFling = newDropDown(_gui_mf_Open_blatant,UDim2.new(0.022, 0,0.512, 0),"InvFling",{{"false","B","Active"},{"Russia Man","D","PlayerName                        (Display Names Allowed)"},{"","C","Key"}})
-local dropDownNoclip = newDropDown(_gui_mf_Open_blatant,UDim2.new(0.022, 0,0.592, 0),"Noclip",{{"false","B","Active"},{"","C","Key"}})
-local dropDownJumpFly = newDropDown(_gui_mf_Open_blatant,UDim2.new(0.022, 0,0.672, 0),"JumpFly",{{"false","B","Active"},{"","C","Key"}})
-local dropDownlong = newDropDown(_gui_mf_Open_blatant,UDim2.new(0, 0,0.106, 0),"LongJump",{{25,"A","Speed"},{"false","B","Active"},{"","C","Key"}})
-local dropDownAnVoid = newDropDown(_gui_mf_Open_blatant,UDim2.new(0, 0,0.106, 0),"Anti-Void",{{-300,"A","Position"},{"false","B","Bounce"},{"false","B","Active"},{"","C","Key"}})
-
-
-local dropDownEsp = newDropDown(_gui_mf_Open_Render,UDim2.new(0.022, 0,0.024, 0),"Box Esp",{{"false","B","Active"},{"255","A","R"},{"255","A","G"},{"255","A","B"},{"","C","Key"}})
-local dropDownRejoin = newDropDown(_gui_mf_Open_Render,UDim2.new(0.022, 0,0.104, 0),"Rejoin",{{"false","B","Active"}})
-local dropDownChatHide = newDropDown(_gui_mf_Open_Render,UDim2.new(0.022, 0,0.104, 0),"ChatNameHider",{{"false","B","Active"},{"false","B","HideOthers"},{"User","D","Active"}})
-local dropDownFP = newDropDown(_gui_mf_Open_Render,UDim2.new(0.022, 0,0.104, 0),"FirstPerson",{{"false","B","Active"},{"true","B","Active"}})
-
-coroutine.resume(coroutine.create(function()
-	while wait() do
-		if dropDownFP[2][1].Text == "true" then
-
-			if dropDownFP[2][2].Text == "true" then
-				game.Players.LocalPlayer.CameraMode = Enum.CameraMode.LockFirstPerson
+local dropDownEsp = newDropDown(render_main,UDim2.new(0.022, 0,0.024, 0),"Box Esp",{{"false","B","Active"},{"255","A","R"},{"255","A","G"},{"255","A","B"},{"","C","Key"}})
+local dropDownRejoin = newDropDown(render_main,UDim2.new(0.022, 0,0.104, 0),"Rejoin",{{"false","B","Active"}})
+local dropDownChatHide = newDropDown(render_main,UDim2.new(0.022, 0,0.104, 0),"ChatNameHider",{{"false","B","Active"},{"false","B","HideOthers"},{"User","D","Active"}})
+local dropDownFP = newDropDown(render_main,UDim2.new(0.022, 0,0.104, 0),"FirstPerson",{{"false","B","Active"},{"true","B","Active"}})
+--RISE://OPEN_MENU
+game:GetService("UserInputService").InputBegan:Connect(function(key,gpe)
+	if not gpe then
+		if key.KeyCode == controlButton then
+			if open_menu == false then
+				closeAll()
+				TweenCreate(blatant_main,.5,{Position = UDim2.new(1.2,0,0,0)})
+				TweenCreate(render_main,.5,{Position = UDim2.new(1.2,0,0,0)})
+				open_menu = true
+				TweenCreate(mf,.5,{Position = posStartMF})
+				
 			else
-				game.Players.LocalPlayer.CameraMode = Enum.CameraMode.Classic
-				game.Players.LocalPlayer.CameraMinZoomDistance = 10
-				wait()
-				game.Players.LocalPlayer.CameraMinZoomDistance = .5
+				closeAll()
+				open_menu = false
+				TweenCreate(mf,.5,{Position = UDim2.new(0.214028969, 0, 1.05, 0)})
+				
 			end
 		end
 	end
-end))
+end)
 
+--RISE://GET_MOVEMENT
+game:GetService("UserInputService").InputBegan:Connect(function(key,gpe)
+	
+end)
+
+--RISE://ENABLE
+game:GetService("UserInputService").InputBegan:Connect(function(key,gpe)
+	
+end)
+
+--RISE://BLATANT
+
+Blatant.MouseButton1Down:Connect(function()
+	if blatant_main.Position == UDim2.new(1.2,0,0,0) then
+		
+		TweenCreate(blatant_main,.5,{Position = UDim2.new(.7,0,0,0)})
+		TweenCreate(render_main,.5,{Position = UDim2.new(1.2,0,0,0)})
+		open_menu = false
+		TweenCreate(mf,.5,{Position = UDim2.new(0.214028969, 0, 1.05, 0)})
+	else
+		if blatant_main.Position == UDim2.new(.7,0,0,0) then
+			closeAll()
+			TweenCreate(blatant_main,.5,{Position = UDim2.new(1.2,0,0,0)})
+			TweenCreate(render_main,.5,{Position = UDim2.new(1.2,0,0,0)})
+		end
+		
+	end
+end)
+
+Render.MouseButton1Down:Connect(function()
+	if render_main.Position == UDim2.new(1.2,0,0,0) then
+		
+		TweenCreate(blatant_main,.5,{Position = UDim2.new(1.2,0,0,0)})
+		TweenCreate(render_main,.5,{Position = UDim2.new(.7,0,0,0)})
+		open_menu = false
+		TweenCreate(mf,.5,{Position = UDim2.new(0.214028969, 0, 1.05, 0)})
+	else
+		if blatant_main.Position == UDim2.new(.7,0,0,0) then
+			closeAll()
+			TweenCreate(blatant_main,.5,{Position = UDim2.new(1.2,0,0,0)})
+			TweenCreate(render_main,.5,{Position = UDim2.new(1.2,0,0,0)})
+		end
+
+	end
+end)
 
 coroutine.resume(coroutine.create(function()
 	while wait() do
@@ -1105,7 +938,7 @@ coroutine.resume(coroutine.create(function()
 						end
 					end
 				end
-				
+
 			end
 		end)
 	end
@@ -1553,7 +1386,7 @@ coroutine.resume(coroutine.create(function()
 							if movement[6] then
 								flyb -= speedy
 							end
-							bv.Parent = doorParent
+							bv.Parent = parent
 							last = false
 							if flyb == -999 then
 								flyb = game.Players.LocalPlayer.Character.HumanoidRootPart.Position.Y
@@ -1565,7 +1398,7 @@ coroutine.resume(coroutine.create(function()
 							end
 
 						else
-							bv.Parent = doorParent
+							bv.Parent = parent
 							last = false
 							flyb = -999
 						end
@@ -1575,6 +1408,7 @@ coroutine.resume(coroutine.create(function()
 
 					if dropDownfLY[2][2].Text == "true" then
 						dropDownfLY[2][2].Text = "false"
+						netdexc("Fly")
 						bv:Destroy()
 						notify("Warning","Player Dead! Replacing Fly Module...",Color3.fromRGB(255, 255, 127),"http://www.roblox.com/asset/?id=6254819318",Color3.fromRGB(255, 255, 127))
 						bv = Instance.new("BodyPosition")
@@ -1590,23 +1424,6 @@ coroutine.resume(coroutine.create(function()
 	end
 end))
 
-_gui_mf_Open_blatant.Visible = false
-_gui_mf_blatant.MouseButton1Down:Connect(function()
-	_gui_mf_Open_blatant.Visible = true
-	_gui_mf_Open_blatant.Size = UDim2.new(1, 0,0, 0)
-	game:GetService("TweenService"):Create(_gui_mf_Open_blatant,TweenInfo.new(.25,Enum.EasingStyle.Sine,Enum.EasingDirection.Out),{Size = UDim2.new(1,0,1,0)}):Play(0)
-	wait(.25)
-end)
-
-_gui_mf_Open_Render.Visible = false
-_gui_mf_render.MouseButton1Down:Connect(function()
-	_gui_mf_Open_Render.Visible = true
-	_gui_mf_Open_Render.Size = UDim2.new(1, 0,0, 0)
-	game:GetService("TweenService"):Create(_gui_mf_Open_Render,TweenInfo.new(.25,Enum.EasingStyle.Sine,Enum.EasingDirection.Out),{Size = UDim2.new(1,0,1,0)}):Play(0)
-	wait(.25)
-end)
-
-_gui_mf.Visible = false
 
 
 game:GetService("UserInputService").InputEnded:Connect(function(key,gpe) -- sets movement/false
@@ -1751,7 +1568,7 @@ coroutine.resume(coroutine.create(function()
 	while wait(1) do
 		for _, kop in pairs(_gui_exec:GetChildren()) do
 			if kop:IsA("TextLabel") then
-				for _, hop in pairs(_gui_mf_Open_blatant:GetChildren()) do
+				for _, hop in pairs(blatant_main:GetChildren()) do
 					if hop:IsA("TextButton") then
 						for _, huo in pairs(hop:GetChildren()) do
 							if huo.Name == "Active" then
@@ -1764,7 +1581,7 @@ coroutine.resume(coroutine.create(function()
 						end
 					end
 				end
-				for _, hop in pairs(_gui_mf_Open_Render:GetChildren()) do
+				for _, hop in pairs(render_main:GetChildren()) do
 					if hop:IsA("TextButton") then
 						for _, huo in pairs(hop:GetChildren()) do
 							if huo.Name == "Active" then
@@ -1785,7 +1602,7 @@ end))
 
 
 game:GetService("UserInputService").InputBegan:Connect(function(key,gpe)
-	for _, hop in pairs(_gui_mf_Open_blatant:GetDescendants()) do
+	for _, hop in pairs(blatant_main:GetDescendants()) do
 		if hop.Name == "key" and not gpe then
 			local txt = hop.Text
 			if string.len(txt) == 1 then
@@ -1807,7 +1624,7 @@ game:GetService("UserInputService").InputBegan:Connect(function(key,gpe)
 			end
 		end
 	end
-	for _, hop in pairs(_gui_mf_Open_Render:GetDescendants()) do
+	for _, hop in pairs(render_main:GetDescendants()) do
 		if hop.Name == "key" and not gpe then
 			local txt = hop.Text
 			if string.len(txt) == 1 then
@@ -1827,37 +1644,5 @@ game:GetService("UserInputService").InputBegan:Connect(function(key,gpe)
 			end
 		end
 	end
-	if not gpe and key.KeyCode == keyAct then
-		if not _gui_mf.Visible then
-			_gui_mf.Visible = true
-			_gui_mf.Size = UDim2.new(0.303, 0,0, 0)
-			game:GetService("TweenService"):Create(_gui_mf,TweenInfo.new(.25,Enum.EasingStyle.Sine,Enum.EasingDirection.Out),{Size = UDim2.new(0.303, 0,0.634, 0)}):Play(0)
-			wait(.25)
-		else
-			if _gui_mf_Open_blatant.Visible then
-				_gui_mf_Open_blatant.Visible = true
-				_gui_mf_Open_blatant.Size = UDim2.new(1, 0,1, 0)
-				game:GetService("TweenService"):Create(_gui_mf_Open_blatant,TweenInfo.new(.25,Enum.EasingStyle.Sine,Enum.EasingDirection.Out),{Size = UDim2.new(1,0,0,0)}):Play(0)
-
-				wait(.25)
-				_gui_mf_Open_blatant.Visible = false
-			else
-				if _gui_mf_Open_Render.Visible then
-					_gui_mf_Open_Render.Visible = true
-					_gui_mf_Open_Render.Size = UDim2.new(1, 0,1, 0)
-					game:GetService("TweenService"):Create(_gui_mf_Open_Render,TweenInfo.new(.25,Enum.EasingStyle.Sine,Enum.EasingDirection.Out),{Size = UDim2.new(1,0,0,0)}):Play(0)
-
-					wait(.25)
-					_gui_mf_Open_Render.Visible = false
-				else
-					warn("Close")
-					_gui_mf.Size = UDim2.new(0.303, 0,0.634, 0)
-					game:GetService("TweenService"):Create(_gui_mf,TweenInfo.new(.25,Enum.EasingStyle.Sine,Enum.EasingDirection.Out),{Size = UDim2.new(0.303, 0,0, 0)}):Play(0)
-					wait(.25)
-					_gui_mf.Visible = false
-				end
-			end
-
-		end
-	end
+	
 end)
