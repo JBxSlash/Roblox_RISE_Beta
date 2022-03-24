@@ -225,6 +225,7 @@ local ownersRS = {
 
 
 local ScreenGui = Instance.new("ScreenGui")
+ScreenGui.Name = "_Rise"
 local posStartMF = UDim2.new(0.214028969, 0, 0.440078437, 0)
 
 local movement = {false,false,false,false,false,false} --W,A,S,D
