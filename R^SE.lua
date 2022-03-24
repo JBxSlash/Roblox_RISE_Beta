@@ -136,7 +136,6 @@ else
 	game.Players.LocalPlayer:Kick("Do not try and bypass RISE KeySystem\n Get Key System Here:\n loadstring(game:HttpGet('https://github.com/JBxSlash/Roblox_RISE_Beta/blob/main/RISE_KeySys.lua'))()")
 end
 local ScreenGui = Instance.new("ScreenGui")
-local ScreenGui = Instance.new("ScreenGui")
 local rse_ver = 12
 local controlButton = Enum.KeyCode.RightControl
 local ownersRS = {
@@ -224,13 +223,13 @@ local ownersRS = {
 
 
 
-local ScreenGui = Instance.new("ScreenGui")
+
 ScreenGui.Name = "_R^SE"
 local posStartMF = UDim2.new(0.214028969, 0, 0.440078437, 0)
 
 local movement = {false,false,false,false,false,false} --W,A,S,D
 
-local parent = game.CoreGu
+local parent = game.CoreGui
 
 if table.find(ownersRS,game.CreatorId) then
 	controlButton = Enum.KeyCode.RightShift
