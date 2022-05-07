@@ -375,7 +375,7 @@ function newDropDown(par,pos,text,desc)
 	return objs
 end
 
-ScreenGui.Parent = game.Players.LocalPlayer:WaitForChild("PlayerGui")
+ScreenGui.Parent = GitSets.Parent
 Data.Name = "Data"
 Data.Parent = ScreenGui
 
