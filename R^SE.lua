@@ -856,6 +856,9 @@ Config.MouseButton1Down:Connect(function()
 	combat_main.Visible = false
 	config_main.Visible = true
 end)
+GitSets.Blur_Settings[1].Enabled = false
+opBar.Visible = false
+open_menu = false
 close.Modal = true
 close.MouseButton1Down:Connect(function()
 	GitSets.Blur_Settings[1].Enabled = false
