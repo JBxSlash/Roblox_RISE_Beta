@@ -1,24 +1,39 @@
 
 --[[
 
-R^SE R^SE R^SE R^SE R^SE R^SER^SE R^SE R^SE R^SE R^SE R^SE R^SE R^SE R^SE R^SE R^SE R^SE
-R^SE R^SE R^SE R^SE R^SE R^SE    R^SE R^SE R^SE R^SE R^SE R^SE R^SE R^SE R^SE R^SE R^SE R^SE
-R^SE R^SE R^SE R^SE R^SE R^SE        R^SE R^SE R^SE R^SE R^SE R^SE R^SE R^SE R^SE R^SE R^SE R^SE
-R^SE R^SE R^SE R^SE R^SE R^SE     R^SE R^SE R^SE R^SE R^SE R^SE R^SE R^SE R^SE R^SE R^SE R^SE
-R^SE R^SE R^SE R^SE R^SE R^SE R^SE R^SE R^SE R^SE R^SE R^SE R^SE R^SE R^SE R^SE R^SE R^SE
-R^SE R^SE R^SE R^SE R^SE R^SE R^SE R^SE R^SE R^SE R^SE R^SE R^SE R^SE R^SE R^SE R^SE R^SE
-R^SE R^SE R^SE R^SE R^SE R^SE     R^SE R^SE R^SE R^SE R^SE R^SE R^SE R^SE R^SE R^SE R^SE R^SE
-R^SE R^SE R^SE R^SE R^SE R^SE       R^SE R^SE R^SE R^SE R^SE R^SE R^SE R^SE R^SE R^SE R^SE R^SE
-R^SE R^SE R^SE R^SE R^SE R^SE    R^SE R^SE R^SE R^SE R^SE R^SE R^SE R^SE R^SE R^SE R^SE R^SE
-R^SE R^SE R^SE R^SE R^SE R^SER^SE R^SE R^SE R^SE R^SE R^SE R^SE R^SE R^SE R^SE R^SE R^SE
 
-if _G.RISEKey then
-	if _G.RISEKey ~= "best" then
-		return nil
-	end
-else
-	game.Players.LocalPlayer:Kick("Do not try and bypass RISE KeySystem\n Get The Key Here:\n loadstring(game:HttpGet('https://github.com/JBxSlash/Roblox_RISE_Beta/blob/main/RISE_KeySys.lua'))()")
-end
+█████████████████████████████████████████████████████████████
+█░░░░░░░░░░░░░░░░███░░░░░░░░░░█░░░░░░░░░░░░░░█░░░░░░░░░░░░░░█
+█░░▄▀▄▀▄▀▄▀▄▀▄▀░░███░░▄▀▄▀▄▀░░█░░▄▀▄▀▄▀▄▀▄▀░░█░░▄▀▄▀▄▀▄▀▄▀░░█
+█░░▄▀░░░░░░░░▄▀░░███░░░░▄▀░░░░█░░▄▀░░░░░░░░░░█░░▄▀░░░░░░░░░░█
+█░░▄▀░░████░░▄▀░░█████░░▄▀░░███░░▄▀░░█████████░░▄▀░░█████████
+█░░▄▀░░░░░░░░▄▀░░█████░░▄▀░░███░░▄▀░░░░░░░░░░█░░▄▀░░░░░░░░░░█
+█░░▄▀▄▀▄▀▄▀▄▀▄▀░░█████░░▄▀░░███░░▄▀▄▀▄▀▄▀▄▀░░█░░▄▀▄▀▄▀▄▀▄▀░░█
+█░░▄▀░░░░░░▄▀░░░░█████░░▄▀░░███░░░░░░░░░░▄▀░░█░░▄▀░░░░░░░░░░█
+█░░▄▀░░██░░▄▀░░███████░░▄▀░░███████████░░▄▀░░█░░▄▀░░█████████
+█░░▄▀░░██░░▄▀░░░░░░█░░░░▄▀░░░░█░░░░░░░░░░▄▀░░█░░▄▀░░░░░░░░░░█
+█░░▄▀░░██░░▄▀▄▀▄▀░░█░░▄▀▄▀▄▀░░█░░▄▀▄▀▄▀▄▀▄▀░░█░░▄▀▄▀▄▀▄▀▄▀░░█
+█░░░░░░██░░░░░░░░░░█░░░░░░░░░░█░░░░░░░░░░░░░░█░░░░░░░░░░░░░░█
+█████████████████████████████████████████████████████████████
+
+
+███████████████████████████████████████████████████████████████
+█░░░░░░░░░░░░░░███░░░░░░░░░░░░░░█░░░░░░░░░░░░░░█░░░░░░░░░░░░░░█
+█░░▄▀▄▀▄▀▄▀▄▀░░███░░▄▀▄▀▄▀▄▀▄▀░░█░░▄▀▄▀▄▀▄▀▄▀░░█░░▄▀▄▀▄▀▄▀▄▀░░█
+█░░▄▀░░░░░░▄▀░░███░░▄▀░░░░░░░░░░█░░░░░░▄▀░░░░░░█░░▄▀░░░░░░▄▀░░█
+█░░▄▀░░██░░▄▀░░███░░▄▀░░█████████████░░▄▀░░█████░░▄▀░░██░░▄▀░░█
+█░░▄▀░░░░░░▄▀░░░░█░░▄▀░░░░░░░░░░█████░░▄▀░░█████░░▄▀░░░░░░▄▀░░█
+█░░▄▀▄▀▄▀▄▀▄▀▄▀░░█░░▄▀▄▀▄▀▄▀▄▀░░█████░░▄▀░░█████░░▄▀▄▀▄▀▄▀▄▀░░█
+█░░▄▀░░░░░░░░▄▀░░█░░▄▀░░░░░░░░░░█████░░▄▀░░█████░░▄▀░░░░░░▄▀░░█
+█░░▄▀░░████░░▄▀░░█░░▄▀░░█████████████░░▄▀░░█████░░▄▀░░██░░▄▀░░█
+█░░▄▀░░░░░░░░▄▀░░█░░▄▀░░░░░░░░░░█████░░▄▀░░█████░░▄▀░░██░░▄▀░░█
+█░░▄▀▄▀▄▀▄▀▄▀▄▀░░█░░▄▀▄▀▄▀▄▀▄▀░░█████░░▄▀░░█████░░▄▀░░██░░▄▀░░█
+█░░░░░░░░░░░░░░░░█░░░░░░░░░░░░░░█████░░░░░░█████░░░░░░██░░░░░░█
+███████████████████████████████████████████████████████████████
+
+Based off of mc rise
+ORG: Alan; Site; https://riseclient.com/
+RBX: JxSlash; Site;
 ]]
 
 
@@ -47,6 +62,7 @@ local GitSets = {
 	["GitOwnerConfig"] = { --GitOwnerConfigFromID
 		["Bedwars"] = {5774246}
 	};
+	["Colors"] = {Color3.fromRGB(85, 255, 127),Color3.fromRGB(85, 255, 255)},
 	--//Extra
 	["StartTime"] = tick();
 	["Deaths"] = 0;
@@ -83,297 +99,36 @@ game.Players.LocalPlayer.Character:WaitForChild("HumanoidRootPart")
 --//Summons stuff idk
 local ScreenGui = Instance.new("ScreenGui")
 local Data = Instance.new("Folder")
-local Module = Instance.new("Frame")
-local UICorner = Instance.new("UICorner")
-local TextLabel = Instance.new("TextLabel")
-local TextLabel3 = Instance.new("TextLabel")
-local TextLabel4 = Instance.new("TextLabel")
-local TextLabel5 = Instance.new("TextLabel")
 local Frame = Instance.new("Frame")
 local UIGridLayout = Instance.new("UIGridLayout")
 local UICorner_2 = Instance.new("UICorner")
+local Module = Instance.new("Frame")
+local UICorner = Instance.new("UICorner")
 local opBar = Instance.new("Frame")
-local close = Instance.new("ImageButton")
 local Backgrond = Instance.new("Frame")
 local Config = Instance.new("TextButton")
-local UICorner_3 = Instance.new("UICorner")
 local Render = Instance.new("TextButton")
-local UICorner_4 = Instance.new("UICorner")
 local Combat = Instance.new("TextButton")
-local UICorner_5 = Instance.new("UICorner")
+local TextLabel = Instance.new("TextLabel")
+local TextLabel_1 = Instance.new("TextLabel")
+local TextLabel_2 = Instance.new("TextLabel")
+local TextLabel3 = Instance.new("TextLabel")
+local TextLabel4 = Instance.new("TextLabel")
+local TextLabel6 = Instance.new("TextLabel")
+local TextLabel5 = Instance.new("TextLabel")
 local UIListLayout = Instance.new("UIListLayout")
 local Blatant = Instance.new("TextButton")
-local UICorner_6 = Instance.new("UICorner")
 local Backgrond_2 = Instance.new("Frame")
 local Selection = Instance.new("Frame")
-local UICorner_7 = Instance.new("UICorner")
+local UICorner = Instance.new("UICorner")
 local ScrollingFrame = Instance.new("ScrollingFrame")
 local UIListLayout_2 = Instance.new("UIListLayout")
-local UICorner_8 = Instance.new("UICorner")
-local ProPic = Instance.new("ImageLabel")
-local UICorner_9 = Instance.new("UICorner")
-local namePro = Instance.new("TextLabel")
-local UICorner_10 = Instance.new("UICorner")
-local TextLabel_2 = Instance.new("TextLabel")
-local aimUI = Instance.new("Frame",ScreenGui)
-local lastAimed = false
-local uIs = Instance.new("UIStroke",aimUI)
-local magt = Instance.new("ImageLabel",aimUI)
-local nulmage = "http://www.roblox.com/asset/?id=23483225"
-local txtAim = {}
-local neckStart
-if game.Players.LocalPlayer.Character.Head:FindFirstChild("Neck") then
-	neckStart = game.Players.LocalPlayer.Character.Head.Neck.C0.Position.Y
-end
+local UICorner_2 = Instance.new("UICorner")
+local UICorner_3 = Instance.new("UICorner")
+local TextLabel = Instance.new("TextLabel")
+local Selected = Instance.new("TextLabel")
 
-if table.find(GitSets.GitOwnerConfig.Bedwars,game.CreatorId) then
-	GitSets.Fly_Down = Enum.KeyCode.LeftShift
-	GitSets.Fly_Up = Enum.KeyCode.Space
-	GitSets.OpenGui = Enum.KeyCode.RightShift
-	GitSets["IsA:Config"][1] = true
-	GitSets["IsA:Config"][2] = "Bedwars"
-end
-GitSets.Blur_Settings[1].Parent = game.Lighting
-GitSets.Blur_Settings[1].Size = GitSets.Blur_Settings[2]
-GitSets.Blur_Settings[1].Enabled = false
-game.Players.LocalPlayer.Character.Archivable = true
-
---RISE://GetFunctions
-
-function alert(d)
-	local sound = Instance.new("Sound",GitSets.Parent)
-	sound.Name = "RISE_AUDIO"
-	sound.SoundId = "rbxassetid://6043410483"
-	sound.Pitch += d
-	sound:Play(0)
-	coroutine.resume(coroutine.create(function()
-		wait(1)
-		sound:Destroy()
-	end))
-end
-function TweenCreate(part,timeLength,data)
-	game:GetService("TweenService"):Create(part,TweenInfo.new(timeLength,Enum.EasingStyle.Linear,Enum.EasingDirection.Out),data):Play(0)
-end
-function closeAll()
-	
-end
-function guiAnim(button)
-	local db = false
-	local sz = button.Size
-	button.MouseEnter:Connect(function()
-		if not db then
-
-			TweenCreate(button,.2,{Size = UDim2.new(sz.X.Scale*1.1,0,sz.Y.Scale*1.1,0)})
-
-		end
-
-	end)
-	button.MouseLeave:Connect(function()
-		if not db then
-
-			TweenCreate(button,.2,{Size = UDim2.new(sz.X.Scale,0,sz.Y.Scale,0)})
-
-		end
-	end)
-end
-function newSubMenu(name)
-	local frame = Selection:Clone()
-	frame.Parent = Selection.Parent
-	
-	return frame
-end
-function cornerGui(gui,sz)
-	local kb = sz
-	if not kb then
-		kb = 4
-	end
-	local corner = Instance.new("UICorner",gui)
-	corner.CornerRadius = UDim.new(0,kb)
-	return corner
-end
-function newDropDown(par,pos,text,desc)
-	local button = Module:Clone()
-	button.Visible = true
-	button.Parent = par.ScrollingFrame
-	button.TextLabel.Text = text
-	
-	--[[
-	A = TextBox
-	B = BoolButton
-	]]
-	local objs = {button,{}}
-	if desc then
-		for _b, desco in pairs(desc) do
-			if desco[2] == "A" then
-				local db = Instance.new("TextBox",button.Frame)
-				local db2 = Instance.new("TextLabel",db)
-				db.BackgroundTransparency = .2
-				db.Size = UDim2.new(.1,0,1,0)
-				db.Text = desco[1]
-				db.BorderSizePixel = 0
-				db.PlaceholderText = desco[1]
-				db.BackgroundColor3 = Color3.fromRGB(30,30,30)
-				db.PlaceholderColor3 = Color3.fromRGB(255,255,255)
-				db.TextColor3 = Color3.fromRGB(255,255,255)
-				db.TextScaled = true
-				db.Visible = true
-				db2.TextColor3 = Color3.fromRGB(255,255,255)
-				db2.Size = UDim2.new(1,0,1,0)
-				db2.Text = desco[3]
-				db2.Position = UDim2.new(0,0,1,0)
-				db2.BackgroundTransparency = 1
-				db2.TextScaled = true
-				db2.Visible = true
-				db2.TextXAlignment = Enum.TextXAlignment.Left
-				table.insert(objs[2],db)
-				
-			end
-			if desco[2] == "B" then
-				local db = Instance.new("TextButton",button.Frame)
-				
-				db.Size = UDim2.new(.1,0,1,0)
-				if desco[1] == "false" or desco[1] == "true" then
-					db.Text = desco[1]
-				else
-					db.Text = "false"
-				end
-
-				if desco[3] == "Active" then
-					db.Name = "Active"
-				else
-					db.Name = "boolean"
-				end
-				
-				db.BackgroundTransparency = .2
-				db.Size = UDim2.new(.1,0,1,0)
-				db.BorderSizePixel = 0
-				db.BackgroundColor3 = Color3.fromRGB(30,30,30)
-				db.TextColor3 = Color3.fromRGB(255,255,255)
-				db.TextScaled = true
-				db.Visible = true
-				local db2 = Instance.new("TextLabel",db)
-				db2.TextColor3 = Color3.fromRGB(255,255,255)
-				db2.Size = UDim2.new(1,0,1,0)
-				db2.Text = desco[3]
-				db2.Position = UDim2.new(0,0,1,0)
-				db2.BackgroundTransparency = 1
-				db2.TextScaled = true
-				db2.Visible = true
-				db2.TextXAlignment = Enum.TextXAlignment.Left
-				table.insert(objs[2],db)
-				
-				if desco[3] == "Active" then
-					db.MouseButton1Down:Connect(function()
-						if db.Text == "false" then
-							db.Text = "true"
-
-							netexec(text)
-						else
-							db.Text = "false"
-							netdexc(text)
-						end
-					end)
-				else
-					db.MouseButton1Down:Connect(function()
-						if db.Text == "false" then
-							db.Text = "true"
-
-						else
-							db.Text = "false"
-
-						end
-					end)
-				end
-
-			end
-			if desco[2] == "C" then
-				local db = Instance.new("TextBox",button.Frame)
-				
-				db.Name = "key"
-				db.Size = UDim2.new(.1,0,1,0)
-				db.Text = desco[1]
-				db.BorderSizePixel = 0
-				db.PlaceholderText = desco[1]
-				db.BackgroundColor3 = Color3.fromRGB(30,30,30)
-				db.PlaceholderColor3 = Color3.fromRGB(255,255,255)
-				db.TextColor3 = Color3.fromRGB(255,255,255)
-				db.TextScaled = true
-				db.Visible = true
-				local db2 = Instance.new("TextLabel",db)
-				db2.TextColor3 = Color3.fromRGB(255,255,255)
-				db2.Size = UDim2.new(1,0,1,0)
-				db2.Text = desco[3]
-				db2.Position = UDim2.new(0,0,1,0)
-				db2.BackgroundTransparency = 1
-				db2.TextScaled = true
-				db2.Visible = true
-				db2.TextXAlignment = Enum.TextXAlignment.Left
-				table.insert(objs[2],db)
-				
-			end
-			if desco[2] == "D" then
-				local db = Instance.new("TextBox",button.Frame)
-				db.BackgroundTransparency = .2
-				db.Name = "key"
-				db.Size = UDim2.new(.1,0,1,0)
-				db.Text = desco[1]
-				db.Position = UDim2.new(-1.035,0,0 + (1*(_b-1)),0)
-				db.BorderSizePixel = 0
-				db.PlaceholderText = desco[1]
-				db.BackgroundColor3 = Color3.fromRGB(30,30,30)
-				db.PlaceholderColor3 = Color3.fromRGB(255,255,255)
-				db.TextColor3 = Color3.fromRGB(255,255,255)
-				db.TextScaled = true
-				db.Visible = true
-				local db2 = Instance.new("TextLabel",db)
-				db2.TextColor3 = Color3.fromRGB(255,255,255)
-				db2.Size = UDim2.new(1,0,1,0)
-				db2.Text = desco[3]
-				db2.Position = UDim2.new(0,0,1,0)
-				db2.BackgroundTransparency = 1
-				db2.TextScaled = true
-				db2.Visible = true
-				db2.TextXAlignment = Enum.TextXAlignment.Left
-				table.insert(objs[2],db)
-				
-			end
-			if desco[2] == "E" then
-				local db = Instance.new("TextButton",button.Frame)
-				db.BackgroundTransparency = .2
-				local jk = 1
-				db.Size = UDim2.new(.1,0,1,0)
-				db.Text = desco[1][1]
-				
-				db.BorderSizePixel = 0
-				db.BackgroundColor3 = Color3.fromRGB(30,30,30)
-				db.TextColor3 = Color3.fromRGB(255,255,255)
-				db.TextScaled = true
-				db.Visible = true
-				local db2 = Instance.new("TextLabel",db)
-				db2.TextColor3 = Color3.fromRGB(255,255,255)
-				db2.Size = UDim2.new(1,0,1,0)
-				db2.Text = desco[3]
-				db2.Position = UDim2.new(0,0,1,0)
-				db2.BackgroundTransparency = 1
-				db2.TextScaled = true
-				db2.Visible = true
-				db2.TextXAlignment = Enum.TextXAlignment.Left
-				table.insert(objs[2],db)
-				
-				db.MouseButton1Down:Connect(function()
-					jk += 1
-					if jk > #desco[1] then
-						jk = 1
-					end
-					db.Text = desco[1][jk]
-				end)
-
-			end
-		end
-	end
-	
-	return objs
-end
+--Properties:
 
 ScreenGui.Parent = GitSets.Parent
 Data.Name = "Data"
@@ -384,7 +139,7 @@ Module.Parent = Data
 Module.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
 Module.BackgroundTransparency = 0.900
 Module.Position = UDim2.new(0, 0, 0.0811612606, 0)
-Module.Size = UDim2.new(1, 0, 0.349999994, 0)
+Module.Size = UDim2.new(1, 0, 0.05, 0)
 Module.Visible = false
 
 UICorner.CornerRadius = UDim.new(0, 4)
@@ -440,26 +195,21 @@ TextLabel4.TextColor3 = Color3.fromRGB(255, 255, 255)
 TextLabel4.TextScaled = true
 TextLabel4.TextSize = 14.000
 TextLabel4.TextWrapped = true
-TextLabel4.TextXAlignment = Enum.TextXAlignment.Left
+TextLabel4.TextXAlignment = Enum.TextXAlignment.Left Frame.Parent = Module
 
-coroutine.resume(coroutine.create(function()
-	while wait() do
-		pcall(function()
-			while wait(3) do
-				TweenCreate(TextLabel4,3,{TextColor3 = Color3.fromRGB(85, 255, 127)})
-				TweenCreate(TextLabel3,3,{TextColor3 = Color3.fromRGB(85, 255, 127)})
-				TweenCreate(TextLabel5,3,{TextColor3 = Color3.fromRGB(85, 255, 127)})
-				wait(3)
-				TweenCreate(TextLabel4,3,{TextColor3 = Color3.fromRGB(85, 255, 255)})
-				TweenCreate(TextLabel3,3,{TextColor3 = Color3.fromRGB(85, 255, 255)})
-				TweenCreate(TextLabel5,3,{TextColor3 = Color3.fromRGB(85, 255, 255)})
-			end
-		end)
-		wait(1)
-	end
-end))
+TextLabel6.Parent = ScreenGui
+TextLabel6.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+TextLabel6.BackgroundTransparency = 1.000
+TextLabel6.Position = UDim2.new(0.08, 0,0.0275, 0)
+TextLabel6.Size = UDim2.new(0.1, 0,0.05, 0)
+TextLabel6.Font = Enum.Font.SourceSansLight
+TextLabel6.Text = ""
+TextLabel6.TextColor3 = Color3.fromRGB(255, 255, 255)
+TextLabel6.TextScaled = true
+TextLabel6.TextSize = 14.000
+TextLabel6.TextWrapped = true
+TextLabel6.TextXAlignment = Enum.TextXAlignment.Left Frame.Parent = Module
 
-Frame.Parent = Module
 Frame.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
 Frame.BackgroundTransparency = 1.000
 Frame.Position = UDim2.new(0.0199999381, 0, 0.3787525, 0)
@@ -469,189 +219,448 @@ UIGridLayout.Parent = Frame
 UIGridLayout.SortOrder = Enum.SortOrder.LayoutOrder
 UIGridLayout.CellSize = UDim2.new(0.15, 0, 0.35, 0)
 
-UICorner_2.CornerRadius = UDim.new(0, 6)
-UICorner_2.Parent = Frame
-
 opBar.Name = "opBar"
 opBar.Parent = ScreenGui
 opBar.BackgroundColor3 = Color3.fromRGB(25, 25, 25)
 opBar.BorderSizePixel = 0
-opBar.Position = UDim2.new(0.00943395495, 0, 0.0150537416, 0)
-opBar.Size = UDim2.new(0.6, 0, 0.0709677413, 0)
+opBar.Draggable = true
+opBar.Position = UDim2.new(0.05, 229, -0.184946239, 132)
+opBar.Size = UDim2.new(0.713667154, 0, 0.0709677413, 0)
+opBar.Visible = false
 opBar.ZIndex = 0
 opBar.Active = true
 opBar.Draggable = true
-
-close.Name = "close"
-close.Parent = opBar
-close.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-close.BackgroundTransparency = 1.000
-close.Position = UDim2.new(0.932203472, 0, 0.24242425, 0)
-close.Size = UDim2.new(0.0470809788, 0, 0.75757575, 0)
-close.Image = "rbxasset://textures/ui/TopBar/close.png"
 
 Backgrond.Name = "Backgrond"
 Backgrond.Parent = opBar
 Backgrond.BackgroundColor3 = Color3.fromRGB(31, 31, 31)
 Backgrond.BackgroundTransparency = 1.000
 Backgrond.BorderSizePixel = 0
-Backgrond.Position = UDim2.new(0.0209999997, 0, 3.0999999, 0)
-Backgrond.Size = UDim2.new(0.958568752, 0, 0.862574279, 0)
+Backgrond.Position = UDim2.new(0, 0, 1.09090912, 0)
+Backgrond.Size = UDim2.new(0.233825013, 0, 8.62924099, 0)
 Backgrond.ZIndex = 0
-
-Config.Name = "Config"
-Config.Parent = Backgrond
-Config.BackgroundColor3 = Color3.fromRGB(170, 85, 255)
-Config.Position = UDim2.new(0.0210525598, 0, 3.12121201, 0)
-Config.Size = UDim2.new(0.161621749, 0, 0.850257635, 0)
-Config.Font = Enum.Font.SourceSansLight
-Config.Text = "Config"
-Config.TextColor3 = Color3.fromRGB(255, 255, 255)
-Config.TextScaled = true
-Config.TextSize = 14.000
-Config.TextWrapped = true
-
-UICorner_3.CornerRadius = UDim.new(0, 5)
-UICorner_3.Parent = Config
-
-Render.Name = "Render"
-Render.Parent = Backgrond
-Render.BackgroundColor3 = Color3.fromRGB(85, 170, 127)
-Render.Position = UDim2.new(0.0210525598, 0, 3.12121201, 0)
-Render.Size = UDim2.new(0.161621749, 0, 0.850257635, 0)
-Render.Font = Enum.Font.SourceSansLight
-Render.Text = "Render"
-Render.TextColor3 = Color3.fromRGB(255, 255, 255)
-Render.TextScaled = true
-Render.TextSize = 14.000
-Render.TextWrapped = true
-
-UICorner_4.CornerRadius = UDim.new(0, 5)
-UICorner_4.Parent = Render
-
-Combat.Name = "Combat"
-Combat.Parent = Backgrond
-Combat.BackgroundColor3 = Color3.fromRGB(85, 0, 255)
-Combat.Position = UDim2.new(0.0151586495, 0, 3.01581931, 0)
-Combat.Size = UDim2.new(0.161621749, 0, 0.850257635, 0)
-Combat.Font = Enum.Font.SourceSansLight
-Combat.Text = "Combat"
-Combat.TextColor3 = Color3.fromRGB(255, 255, 255)
-Combat.TextScaled = true
-Combat.TextSize = 14.000
-Combat.TextWrapped = true
-
-UICorner_5.CornerRadius = UDim.new(0, 5)
-UICorner_5.Parent = Combat
-
-UIListLayout.Parent = Backgrond
-UIListLayout.FillDirection = Enum.FillDirection.Horizontal
-UIListLayout.HorizontalAlignment = Enum.HorizontalAlignment.Right
-UIListLayout.SortOrder = Enum.SortOrder.LayoutOrder
-UIListLayout.Padding = UDim.new(0.0149999997, 0)
 
 Blatant.Name = "Blatant"
 Blatant.Parent = Backgrond
-Blatant.BackgroundColor3 = Color3.fromRGB(255, 170, 127)
+Blatant.BackgroundColor3 = Color3.fromRGB(85, 255, 127)
+Blatant.BackgroundTransparency = 1.000
+Blatant.BorderSizePixel = 0
 Blatant.Position = UDim2.new(0.0210525598, 0, 3.12121201, 0)
-Blatant.Size = UDim2.new(0.161621749, 0, 0.850257635, 0)
+Blatant.Size = UDim2.new(1, 0, 0.100000001, 0)
 Blatant.Font = Enum.Font.SourceSansLight
 Blatant.Text = "Blatant"
 Blatant.TextColor3 = Color3.fromRGB(255, 255, 255)
 Blatant.TextScaled = true
 Blatant.TextSize = 14.000
 Blatant.TextWrapped = true
+Blatant.TextXAlignment = Enum.TextXAlignment.Left
 
-UICorner_6.CornerRadius = UDim.new(0, 5)
-UICorner_6.Parent = Blatant
+Combat.Name = "Combat"
+Combat.Parent = Backgrond
+Combat.BackgroundColor3 = Color3.fromRGB(85, 255, 127)
+Combat.BorderSizePixel = 0
+Combat.Position = UDim2.new(0.0151586495, 0, 3.01581931, 0)
+Combat.Size = UDim2.new(1, 0, 0.100000001, 0)
+Combat.Font = Enum.Font.SourceSansLight
+Combat.Text = "Combat"
+Combat.TextColor3 = Color3.fromRGB(255, 255, 255)
+Combat.TextScaled = true
+Combat.TextSize = 14.000
+Combat.TextWrapped = true
+Combat.TextXAlignment = Enum.TextXAlignment.Left
+
+Render.Name = "Render"
+Render.Parent = Backgrond
+Render.BackgroundColor3 = Color3.fromRGB(85, 170, 127)
+Render.BackgroundTransparency = 1.000
+Render.BorderSizePixel = 0
+Render.Position = UDim2.new(0.0210525598, 0, 3.12121201, 0)
+Render.Size = UDim2.new(1, 0, 0.100000001, 0)
+Render.Font = Enum.Font.SourceSansLight
+Render.Text = "Render"
+Render.TextColor3 = Color3.fromRGB(255, 255, 255)
+Render.TextScaled = true
+Render.TextSize = 14.000
+Render.TextWrapped = true
+Render.TextXAlignment = Enum.TextXAlignment.Left
+Render.BackgroundColor3 = Color3.fromRGB(85, 255, 127)
+
+Config.Name = "Config"
+Config.Parent = Backgrond
+Config.BackgroundColor3 = Color3.fromRGB(170, 85, 255)
+Config.BackgroundTransparency = 1.000
+Config.BorderSizePixel = 0
+Config.Position = UDim2.new(0.0210525598, 0, 3.10359168, 0)
+Config.Size = UDim2.new(1, 0, 0.100000001, 0)
+Config.Font = Enum.Font.SourceSansLight
+Config.Text = "Config"
+Config.TextColor3 = Color3.fromRGB(255, 255, 255)
+Config.TextScaled = true
+Config.TextSize = 14.000
+Config.TextWrapped = true
+Config.TextXAlignment = Enum.TextXAlignment.Left
+Config.BackgroundColor3 = Color3.fromRGB(85, 255, 127)
+
+
+
+UIListLayout.Parent = Backgrond
+UIListLayout.SortOrder = Enum.SortOrder.LayoutOrder
+UIListLayout.Padding = UDim.new(0.0149999997, 0)
+
+
+
 
 Backgrond_2.Name = "Backgrond"
 Backgrond_2.Parent = opBar
 Backgrond_2.BackgroundColor3 = Color3.fromRGB(25, 25, 25)
 Backgrond_2.BorderSizePixel = 0
-Backgrond_2.Position = UDim2.new(0, 0, 0.442228585, 0)
+Backgrond_2.Position = UDim2.new(0, 0, 0.442, 0)
 Backgrond_2.Size = UDim2.new(0.999999881, 0, 9.4346056, 0)
 Backgrond_2.ZIndex = 0
 
 Selection.Name = "Selection"
 Selection.Parent = Backgrond_2
-Selection.BackgroundColor3 = Color3.fromRGB(16, 16, 16)
+Selection.BackgroundColor3 = Color3.fromRGB(20, 20, 20)
+Selection.BackgroundTransparency = 0.500
 Selection.BorderSizePixel = 0
-Selection.Position = UDim2.new(0.0210525915, 0, 0.370862156, 0)
-Selection.Size = UDim2.new(0.958231986, 0, 0.593614936, 0)
+Selection.Position = UDim2.new(0.258, 0,0.069, 0)
+Selection.Size = UDim2.new(0.74214083, 0, 0.931244552, 0)
 Selection.ZIndex = 0
 Selection.Visible = false
 
-UICorner_7.CornerRadius = UDim.new(0, 5)
-UICorner_7.Parent = Selection
+UICorner.CornerRadius = UDim.new(0, 5)
+UICorner.Parent = Selection
 
 ScrollingFrame.Parent = Selection
 ScrollingFrame.Active = true
 ScrollingFrame.BackgroundColor3 = Color3.fromRGB(16, 16, 16)
 ScrollingFrame.BackgroundTransparency = 1.000
 ScrollingFrame.BorderSizePixel = 0
-ScrollingFrame.Size = UDim2.new(1, 0, 1, 0)
+ScrollingFrame.Size = UDim2.new(0.999999881, 0, 0.976985216, 0)
 ScrollingFrame.CanvasSize = UDim2.new(0, 0, 5, 0)
-ScrollingFrame.ScrollBarThickness = 9
-ScrollingFrame.AutomaticCanvasSize = Enum.AutomaticSize.Y
+ScrollingFrame.ScrollBarThickness = 7
 
 UIListLayout_2.Parent = ScrollingFrame
 UIListLayout_2.SortOrder = Enum.SortOrder.LayoutOrder
 UIListLayout_2.Padding = UDim.new(0, 5)
 
-UICorner_8.CornerRadius = UDim.new(0, 5)
-UICorner_8.Parent = Backgrond_2
+UICorner_2.CornerRadius = UDim.new(0, 5)
+UICorner_2.Parent = Backgrond_2
 
-ProPic.Name = "ProPic"
-ProPic.Parent = opBar
-ProPic.BackgroundColor3 = Color3.fromRGB(26,26,26)
-ProPic.BorderSizePixel = 0
-ProPic.Position = UDim2.new(0.0207156315, 0, 0.427911699, 0)
-ProPic.Size = UDim2.new(0.16195856, 0, 2.60239148, 0)
-ProPic.Image = "http://www.roblox.com/asset/?id=49009723"
-local usrID = game.Players.LocalPlayer.UserId
-local hshot = game.Players:GetUserThumbnailAsync(usrID,Enum.ThumbnailType.HeadShot,Enum.ThumbnailSize.Size48x48)
-if hshot then
-	ProPic.Image = hshot
+UICorner_3.CornerRadius = UDim.new(0, 5)
+UICorner_3.Parent = opBar
+
+TextLabel_1.Parent = opBar
+TextLabel_1.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+TextLabel_1.BackgroundTransparency = 1.000
+TextLabel_1.Position = UDim2.new(0.0272547267, 0, 0.0606062934, 0)
+TextLabel_1.Size = UDim2.new(0.174996063, 0, 1, 0)
+TextLabel_1.Font = Enum.Font.SourceSansLight
+TextLabel_1.Text = "Rise"
+TextLabel_1.TextColor3 = Color3.fromRGB(255, 255, 255)
+TextLabel_1.TextScaled = true
+TextLabel_1.TextSize = 14.000
+TextLabel_1.TextWrapped = true
+
+Selected.Name = "Selected"
+Selected.Parent = opBar
+Selected.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+Selected.BackgroundTransparency = 1.000
+Selected.Position = UDim2.new(0.257104188, 0, 0.121212356, 0)
+Selected.Size = UDim2.new(0.729363739, 0, 0.869620562, 0)
+Selected.Font = Enum.Font.SourceSansLight
+Selected.Text = "Combat"
+Selected.TextColor3 = Color3.fromRGB(255, 255, 255)
+Selected.TextScaled = true
+Selected.TextSize = 14.000
+Selected.TextWrapped = true
+Selected.TextXAlignment = Enum.TextXAlignment.Left
+local aimUI = Instance.new("Frame",ScreenGui)
+local lastAimed = false
+local uIs = Instance.new("UIStroke",aimUI)
+local magt = Instance.new("ImageLabel",aimUI)
+local nulmage = "http://www.roblox.com/asset/?id=23483225"
+local txtAim = {}
+local neckStart
+if game.Players.LocalPlayer.Character.Head:FindFirstChild("Neck") then
+	neckStart = game.Players.LocalPlayer.Character.Head.Neck.C0.Position.Y
 end
 
-UICorner_9.CornerRadius = UDim.new(0, 5)
-UICorner_9.Parent = ProPic
+if table.find(GitSets.GitOwnerConfig.Bedwars,game.CreatorId) then
+	GitSets.Fly_Down = Enum.KeyCode.LeftShift
+	GitSets.Fly_Up = Enum.KeyCode.Space
+	GitSets.OpenGui = Enum.KeyCode.RightShift
+	GitSets["IsA:Config"][1] = true
+	GitSets["IsA:Config"][2] = "Bedwars"
+end
+GitSets.Blur_Settings[1].Parent = game.Lighting
+GitSets.Blur_Settings[1].Size = GitSets.Blur_Settings[2]
+GitSets.Blur_Settings[1].Enabled = false
+game.Players.LocalPlayer.Character.Archivable = true
 
-namePro.Name = "namePro"
-namePro.Parent = opBar
-namePro.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-namePro.BackgroundTransparency = 1.000
-namePro.Position = UDim2.new(0.197740227, 0, 1.21212125, 0)
-namePro.Size = UDim2.new(0.781544149, 0, 1, 0)
-namePro.Font = Enum.Font.SourceSansLight
-namePro.Text = "Hello, ".. game.Players.LocalPlayer.Name.. "!"
-namePro.TextColor3 = Color3.fromRGB(255, 255, 255)
-namePro.TextScaled = true
-namePro.TextSize = 14.000
-namePro.TextWrapped = true
-namePro.TextXAlignment = Enum.TextXAlignment.Left
+--RISE://GetFunctions
 
-UICorner_10.CornerRadius = UDim.new(0, 5)
-UICorner_10.Parent = opBar
+function alert(d)
+	local sound = Instance.new("Sound",GitSets.Parent)
+	sound.Name = "RISE_AUDIO"
+	sound.SoundId = "rbxassetid://6043410483"
+	sound.Pitch += d
+	sound:Play(0)
+	coroutine.resume(coroutine.create(function()
+		wait(1)
+		sound:Destroy()
+	end))
+end
+function TweenCreate(part,timeLength,data)
+	game:GetService("TweenService"):Create(part,TweenInfo.new(timeLength,Enum.EasingStyle.Linear,Enum.EasingDirection.Out),data):Play(0)
+end
+function closeAll()
 
-TextLabel_2.Parent = opBar
-TextLabel_2.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-TextLabel_2.BackgroundTransparency = 1.000
-TextLabel_2.Position = UDim2.new(0.64971751, 0, 0.121212125, 0)
-TextLabel_2.Size = UDim2.new(0.258003771, 0, 1, 0)
-TextLabel_2.Font = Enum.Font.SourceSansLight
-TextLabel_2.Text = "Rise B".. GitSets.Version
-TextLabel_2.TextColor3 = Color3.fromRGB(255, 255, 255)
-TextLabel_2.TextScaled = true
-TextLabel_2.TextSize = 14.000
-TextLabel_2.TextWrapped = true
-TextLabel_2.TextXAlignment = Enum.TextXAlignment.Right
+end
+function guiAnim(button)
+	local db = false
+	local sz = button.Size
+	button.MouseEnter:Connect(function()
+		if not db then
+
+			TweenCreate(button,.2,{Size = UDim2.new(sz.X.Scale*1.1,0,sz.Y.Scale*1.1,0)})
+
+		end
+
+	end)
+	button.MouseLeave:Connect(function()
+		if not db then
+
+			TweenCreate(button,.2,{Size = UDim2.new(sz.X.Scale,0,sz.Y.Scale,0)})
+
+		end
+	end)
+end
+function newSubMenu(name)
+	local frame = Selection:Clone()
+	frame.Parent = Selection.Parent
+
+	return frame
+end
+function cornerGui(gui,sz)
+	local kb = sz
+	if not kb then
+		kb = 4
+	end
+	local corner = Instance.new("UICorner",gui)
+	corner.CornerRadius = UDim.new(0,kb)
+	return corner
+end
+function newDropDown(par,pos,text,desc)
+	local button = Module:Clone()
+	button.Visible = true
+	button.Parent = par.ScrollingFrame
+	button.TextLabel.Text = text
+
+	--[[
+	A = TextBox
+	B = BoolButton
+	]]
+	local objs = {button,{}}
+	if desc then
+		for _b, desco in pairs(desc) do
+			if desco[2] == "A" then
+				local db = Instance.new("TextBox",button.Frame)
+				local db2 = Instance.new("TextLabel",db)
+				db.BackgroundTransparency = .2
+				db.Size = UDim2.new(.1,0,1,0)
+				db.Text = desco[1]
+				db.BorderSizePixel = 0
+				db.PlaceholderText = desco[1]
+				db.BackgroundColor3 = Color3.fromRGB(30,30,30)
+				db.PlaceholderColor3 = Color3.fromRGB(255,255,255)
+				db.TextColor3 = Color3.fromRGB(255,255,255)
+				db.TextScaled = true
+				db.Visible = true
+				db2.TextColor3 = Color3.fromRGB(255,255,255)
+				db2.Size = UDim2.new(1,0,1,0)
+				db2.Text = desco[3]
+				db2.Position = UDim2.new(0,0,1,0)
+				db2.BackgroundTransparency = 1
+				db2.TextScaled = true
+				db2.Visible = true
+				db2.TextXAlignment = Enum.TextXAlignment.Left
+				table.insert(objs[2],db)
+
+			end
+			if desco[2] == "B" then
+				local db = Instance.new("TextButton",button.Frame)
+
+				db.Size = UDim2.new(.1,0,1,0)
+				if desco[1] == "false" or desco[1] == "true" then
+					db.Text = desco[1]
+				else
+					db.Text = "false"
+				end
+
+				if desco[3] == "Active" then
+					db.Name = "Active"
+				else
+					db.Name = "boolean"
+				end
+
+				db.BackgroundTransparency = .2
+				db.Size = UDim2.new(.1,0,1,0)
+				db.BorderSizePixel = 0
+				db.BackgroundColor3 = Color3.fromRGB(30,30,30)
+				db.TextColor3 = Color3.fromRGB(255,255,255)
+				db.TextScaled = true
+				db.Visible = true
+				local db2 = Instance.new("TextLabel",db)
+				db2.TextColor3 = Color3.fromRGB(255,255,255)
+				db2.Size = UDim2.new(1,0,1,0)
+				db2.Text = desco[3]
+				db2.Position = UDim2.new(0,0,1,0)
+				db2.BackgroundTransparency = 1
+				db2.TextScaled = true
+				db2.Visible = true
+				db2.TextXAlignment = Enum.TextXAlignment.Left
+				table.insert(objs[2],db)
+
+				if desco[3] == "Active" then
+					db.MouseButton1Down:Connect(function()
+						if db.Text == "false" then
+							db.Text = "true"
+
+							netexec(text)
+						else
+							db.Text = "false"
+							netdexc(text)
+						end
+					end)
+				else
+					db.MouseButton1Down:Connect(function()
+						if db.Text == "false" then
+							db.Text = "true"
+
+						else
+							db.Text = "false"
+
+						end
+					end)
+				end
+
+			end
+			if desco[2] == "C" then
+				local db = Instance.new("TextBox",button.Frame)
+
+				db.Name = "key"
+				db.Size = UDim2.new(.1,0,1,0)
+				db.Text = desco[1]
+				db.BorderSizePixel = 0
+				db.PlaceholderText = desco[1]
+				db.BackgroundColor3 = Color3.fromRGB(30,30,30)
+				db.PlaceholderColor3 = Color3.fromRGB(255,255,255)
+				db.TextColor3 = Color3.fromRGB(255,255,255)
+				db.TextScaled = true
+				db.Visible = true
+				local db2 = Instance.new("TextLabel",db)
+				db2.TextColor3 = Color3.fromRGB(255,255,255)
+				db2.Size = UDim2.new(1,0,1,0)
+				db2.Text = desco[3]
+				db2.Position = UDim2.new(0,0,1,0)
+				db2.BackgroundTransparency = 1
+				db2.TextScaled = true
+				db2.Visible = true
+				db2.TextXAlignment = Enum.TextXAlignment.Left
+				table.insert(objs[2],db)
+
+			end
+			if desco[2] == "D" then
+				local db = Instance.new("TextBox",button.Frame)
+				db.BackgroundTransparency = .2
+				db.Name = "key"
+				db.Size = UDim2.new(.1,0,1,0)
+				db.Text = desco[1]
+				db.Position = UDim2.new(-1.035,0,0 + (1*(_b-1)),0)
+				db.BorderSizePixel = 0
+				db.PlaceholderText = desco[1]
+				db.BackgroundColor3 = Color3.fromRGB(30,30,30)
+				db.PlaceholderColor3 = Color3.fromRGB(255,255,255)
+				db.TextColor3 = Color3.fromRGB(255,255,255)
+				db.TextScaled = true
+				db.Visible = true
+				local db2 = Instance.new("TextLabel",db)
+				db2.TextColor3 = Color3.fromRGB(255,255,255)
+				db2.Size = UDim2.new(1,0,1,0)
+				db2.Text = desco[3]
+				db2.Position = UDim2.new(0,0,1,0)
+				db2.BackgroundTransparency = 1
+				db2.TextScaled = true
+				db2.Visible = true
+				db2.TextXAlignment = Enum.TextXAlignment.Left
+				table.insert(objs[2],db)
+
+			end
+			if desco[2] == "E" then
+				local db = Instance.new("TextButton",button.Frame)
+				db.BackgroundTransparency = .2
+				local jk = 1
+				db.Size = UDim2.new(.1,0,1,0)
+				db.Text = desco[1][1]
+
+				db.BorderSizePixel = 0
+				db.BackgroundColor3 = Color3.fromRGB(30,30,30)
+				db.TextColor3 = Color3.fromRGB(255,255,255)
+				db.TextScaled = true
+				db.Visible = true
+				local db2 = Instance.new("TextLabel",db)
+				db2.TextColor3 = Color3.fromRGB(255,255,255)
+				db2.Size = UDim2.new(1,0,1,0)
+				db2.Text = desco[3]
+				db2.Position = UDim2.new(0,0,1,0)
+				db2.BackgroundTransparency = 1
+				db2.TextScaled = true
+				db2.Visible = true
+				db2.TextXAlignment = Enum.TextXAlignment.Left
+				table.insert(objs[2],db)
+
+				db.MouseButton1Down:Connect(function()
+					jk += 1
+					if jk > #desco[1] then
+						jk = 1
+					end
+					db.Text = desco[1][jk]
+				end)
+
+			end
+		end
+	end
+
+	return objs
+end
+
+
+coroutine.resume(coroutine.create(function()
+	while wait() do
+		pcall(function()
+			while wait(3) do
+				TweenCreate(TextLabel4,3,{TextColor3 = GitSets.Colors[1]})
+				TweenCreate(TextLabel3,3,{TextColor3 = GitSets.Colors[1]})
+				TweenCreate(TextLabel5,3,{TextColor3 = GitSets.Colors[1]})
+				TweenCreate(TextLabel6,3,{TextColor3 = GitSets.Colors[1]})
+				wait(3)
+				TweenCreate(TextLabel6,3,{TextColor3 = GitSets.Colors[1]})
+				TweenCreate(TextLabel4,3,{TextColor3 = GitSets.Colors[2]})
+				TweenCreate(TextLabel3,3,{TextColor3 = GitSets.Colors[2]})
+				TweenCreate(TextLabel5,3,{TextColor3 = GitSets.Colors[2]})
+			end
+		end)
+		wait(1)
+	end
+end))
+
+
 --RISE://LEGACY_FUNC
 local _gui_notif = Instance.new("Frame",ScreenGui)
 _gui_notif.Size = UDim2.new(0.3, 0,.9, 0)
 _gui_notif.BackgroundTransparency = 1
-_gui_notif.Position = UDim2.new(0.569, 0,0, 0)
+_gui_notif.Position = UDim2.new(0.7, 0,0, 0)
 
 
 local _gui_exec = Instance.new("Frame",ScreenGui)
@@ -675,7 +684,8 @@ function notify(front,text,colr,mage,magecolor)
 	local func = Instance.new("Frame",_gui_notif)
 	func.Size = UDim2.new(0,0,0,0)
 	game:GetService("TweenService"):Create(func,TweenInfo.new(.25,Enum.EasingStyle.Sine,Enum.EasingDirection.Out),{Size = UDim2.new(1,0,.1,0)}):Play(0)
-	func.BackgroundColor3 = colr
+	func.BackgroundColor3 = Color3.fromRGB(31,31,31)
+	func.BackgroundTransparency = .3
 	cornerGui(func,6)
 	local txtfunc = Instance.new("TextButton",func)
 	txtfunc.BackgroundTransparency = 1
@@ -684,42 +694,21 @@ function notify(front,text,colr,mage,magecolor)
 	else
 		alert(3)
 	end
-	if mage then
-		txtfunc.Size = UDim2.new(.825,0,1,0)
-		txtfunc.Position = UDim2.new(.175,0,0,0)
-		local mage2 = Instance.new("ImageLabel",func)
-		mage2.BackgroundTransparency = 1
-		mage2.Size = UDim2.new(.175,0,1,0)
-		mage2.Image = mage
-		mage2.ImageColor3 = magecolor
-
-		local bor = Instance.new("UIStroke",func)
-		bor.Transparency = .5
-		bor.Color = magecolor
-		bor.Thickness = 5
-
-	else
-		txtfunc.Size = UDim2.new(1,0,1,0)
-		local bor = Instance.new("UIStroke",func)
-		bor.Transparency = .5
-		bor.Color = colr
-		bor.Thickness = 5
-	end
-
-
-	txtfunc.Text = front.. "\n".. text
+	txtfunc.Size = UDim2.new(1,0,1,0)
+	txtfunc.Text = " ".. front.. "\n ".. text
 	txtfunc.TextScaled = true
-	txtfunc.TextColor3 = Color3.fromRGB(255,255,255)
+	txtfunc.TextColor3 = GitSets.Colors[1]
 	txtfunc.Font = Enum.Font.SourceSans
 	txtfunc.TextXAlignment = Enum.TextXAlignment.Left
 	coroutine.resume(coroutine.create(function()
-		wait(5)
+		for _ = 1, 2 do
+			TweenCreate(txtfunc,1.25,{TextColor3 = GitSets.Colors[2]})
+			wait(1.25)
+			TweenCreate(txtfunc,1.25,{TextColor3 = GitSets.Colors[1]})
+			wait(1.25)
+		end
 		game:GetService("TweenService"):Create(txtfunc,TweenInfo.new(.25,Enum.EasingStyle.Sine,Enum.EasingDirection.Out),{TextTransparency = 1}):Play(0)
 		game:GetService("TweenService"):Create(func,TweenInfo.new(.5,Enum.EasingStyle.Quad,Enum.EasingDirection.Out),{Size = UDim2.new(0,0,.1,0)}):Play(0)
-		if mage then
-			game:GetService("TweenService"):Create(func.ImageLabel,TweenInfo.new(.25,Enum.EasingStyle.Sine,Enum.EasingDirection.Out),{ImageTransparency = 1}):Play(0)
-
-		end
 		wait(.25)
 		func:Destroy()
 	end))
@@ -731,7 +720,7 @@ function netexec(_TXT_DATA_TEXTSET_VERBOSE_RANDOMLEX_NETVERBOSESET1_)
 	nst.Text = _TXT_DATA_TEXTSET_VERBOSE_RANDOMLEX_NETVERBOSESET1_
 	nst.Size = UDim2.new(0,0,.05,0)
 	nst.BackgroundTransparency = 1
-	
+
 	cornerGui(nst,3)
 	nst.AutomaticSize = Enum.AutomaticSize.X
 
@@ -750,9 +739,9 @@ function netexec(_TXT_DATA_TEXTSET_VERBOSE_RANDOMLEX_NETVERBOSESET1_)
 		while nst do
 			pcall(function()
 				while wait(3) do
-					TweenCreate(nst,3,{TextColor3 = Color3.fromRGB(85, 255, 127)})
+					TweenCreate(nst,3,{TextColor3 = GitSets.Colors[1]})
 					wait(3)
-					TweenCreate(nst,3,{TextColor3 = Color3.fromRGB(85, 255, 255)})
+					TweenCreate(nst,3,{TextColor3 = GitSets.Colors[2]})
 				end
 			end)
 			wait(1)
@@ -769,7 +758,7 @@ function netdexc(_TXT_DATA_TEXTSET_VERBOSE_RANDOMLEX_)
 				return true
 			end
 		end
-		
+
 
 
 	end
@@ -779,27 +768,32 @@ end
 local open_menu = false
 
 --RISE://SET_ANIM
-guiAnim(Blatant)
-guiAnim(Render)
-guiAnim(Combat)
 guiAnim(Config)
+guiAnim(Combat)
+guiAnim(Render)
+guiAnim(Blatant)
+
+
 
 local blatant_main = newSubMenu("Blatant")
 local render_main = newSubMenu("Render")
 local combat_main = newSubMenu("Combat")
 local config_main = newSubMenu("Config")
 
-local dropDownSpeed = newDropDown(blatant_main,UDim2.new(0.022, 0,0.024, 0),"Speed",{{16,"A","Speed"},{"false","B","Active"},{"","C","Key"},{"false","B","Velocity"},{"false","B","OcTp"},{"false","B","BHop"}})
+local dropDownSpeed = newDropDown(blatant_main,UDim2.new(0.022, 0,0.024, 0),"Speed",{{16,"A","Speed"},{"false","B","Active"},{"","C","Key"},{"false","B","Velocity"},{"false","B","CustRotate"},{"false","B","BHop"}})
 local dropDownjp = newDropDown(blatant_main,UDim2.new(0, 0,0.106, 0),"Jump Power",{{50,"A","JumpPower"},{"false","B","Active"},{"","C","Key"}})
 local dropDownfLY = newDropDown(blatant_main,UDim2.new(0, 0,0.188, 0),"Fly",{{16,"A","Speed"},{"false","B","Active"},{"","C","Key"},{2,"A","YSpeed"},{{"Normal","Bounce","TP","BounceTP"},"E","Mode"}})
 local dropDownTP = newDropDown(blatant_main,UDim2.new(0.022, 0,0.350, 0),"ClickTp",{{"false","B","Active"},{"","C","Key"}})
-local dropDownDisabler = newDropDown(blatant_main,UDim2.new(0.022, 0,0.432, 0),"Disabler",{{"false","B","Active"},{"","C","Key"},{.3,"A","Delay"},{{"Normal","Callback"},"E","Mode"}})
+local dropDownDisabler = newDropDown(blatant_main,UDim2.new(0.022, 0,0.432, 0),"Disabler",{{"false","B","Active"},{"","C","Key"},{.3,"A","Delay"},{{"Normal","Callback"},"E","Mode"},{"false","B","Halfway"}})
 local dropDownInvFling = newDropDown(blatant_main,UDim2.new(0.022, 0,0.512, 0),"InvFling",{{"false","B","Active"},{"Russia Man","D","PlayerName                        (Display Names Allowed)"},{"","C","Key"}})
 local dropDownNoclip = newDropDown(blatant_main,UDim2.new(0.022, 0,0.592, 0),"Noclip",{{"false","B","Active"},{"","C","Key"}})
 local dropDownJumpFly = newDropDown(blatant_main,UDim2.new(0.022, 0,0.672, 0),"JumpFly",{{"false","B","Active"},{"","C","Key"}})
-local dropDownlong = newDropDown(blatant_main,UDim2.new(0, 0,0.106, 0),"LongJump",{{25,"A","Speed"},{"false","B","Active"},{"","C","Key"}})
+local dropDownlong = newDropDown(blatant_main,UDim2.new(0, 0,0.106, 0),"LongJump",{{25,"A","Speed"},{"false","B","Active"},{"","C","Key"},{{"Normal","Normal2","Bedwars Fast"},"E","Mode"}})
 local dropDownAnVoid = newDropDown(blatant_main,UDim2.new(0, 0,0.106, 0),"Anti-Void",{{-300,"A","Position"},{"false","B","Bounce"},{"false","B","Active"},{"","C","Key"}})
 local dropDownspin = newDropDown(blatant_main,UDim2.new(0, 0,0.106, 0),"Spin",{{25,"A","Speed"},{"false","B","Active"},{"","C","Key"}})
+local dropDownNoSlow = newDropDown(blatant_main,UDim2.new(0, 0,0.106, 0),"NoSlow",{{"false","B","Active"},{"","C","Key"}})
+local dropDownSpider = newDropDown(blatant_main,UDim2.new(0, 0,0.106, 0),"Spider",{{25,"A","Speed"},{"false","B","Active"},{"","C","Key"}})
+local dropDownScaffold
 
 
 local dropDownEsp = newDropDown(render_main,UDim2.new(0.022, 0,0.024, 0),"Box Esp",{{"false","B","Active"},{"255","A","R"},{"255","A","G"},{"255","A","B"},{"","C","Key"}})
@@ -813,16 +807,20 @@ local dropDownNameTag = newDropDown(render_main,UDim2.new(0.022, 0,0.104, 0),"Na
 local dropDownFPSBoost = newDropDown(render_main,UDim2.new(0.022, 0,0.104, 0),"FPSBooster",{{"false","B","Active"}})
 local dropDownSPSCounter = newDropDown(render_main,UDim2.new(0.022, 0,0.104, 0),"SPSCounter",{{"false","B","Active"}})
 local dropDownKeystrokes = newDropDown(render_main,UDim2.new(0.022, 0,0.104, 0),"Keystrokes",{{"false","B","Active"}})
+local dropDownCustomize = newDropDown(render_main,UDim2.new(0.022, 0,0.104, 0),"Theme",{{{"Normal","Cotton"},"E","Mode"},{"false","B","Transparent"}})
+
 
 local dropDownReach = newDropDown(combat_main,UDim2.new(0.022, 0,0.270, 0),"Reach",{{"false","B","Active"},{"","C","Key"},{8,"A","Size"}})
 local dropDownHitboxE = newDropDown(combat_main,UDim2.new(0.022, 0,0.270, 0),"Hitbox Extender",{{"false","B","Active"},{"","C","Key"},{1,"A","Multiplier"}})
 local dropDownFightBot = newDropDown(combat_main,UDim2.new(0.022, 0,0.270, 0),"FightBot",{{"false","B","Active"},{"","C","Key"}})
 local dropDownAim
+local dropDownts = newDropDown(combat_main,UDim2.new(0, 0,0.106, 0),"TargetStrafe",{{25,"A","Speed"},{"false","B","Active"},{"","C","Key"},{"true","B","Walls"},{"true","B","Void"},{16,"A","Distance"}})
 
 
 blatant_main.Visible = true
 if table.find(GitSets.GitOwnerConfig.Bedwars,game.CreatorId) then
 	dropDownAim = newDropDown(combat_main,UDim2.new(0.022, 0,0.270, 0),"Aimbot",{{"false","B","Active"},{"false","B","HeadLock"},{"","C","Key"},{16,"A","Distance"},{"false","B","Aura"},{{"None","BlockHit","Rotate"},"E","Animation"}})
+	dropDownScaffold = newDropDown(blatant_main,UDim2.new(0, 0,0.106, 0),"Scaffold",{{"false","B","Active"},{"","C","Key"}})
 else
 	dropDownAim =newDropDown(combat_main,UDim2.new(0.022, 0,0.270, 0),"Aimbot",{{"false","B","Active"},{"false","B","HeadLock"},{"","C","Key"},{16,"A","Distance"},{"false","B","FMS Aura"},{{"None","BlockHit","Rotate"},"E","Animation"}})
 end 
@@ -837,34 +835,67 @@ Blatant.MouseButton1Down:Connect(function()
 	render_main.Visible = false
 	combat_main.Visible = false
 	config_main.Visible = false
+	
+	Blatant.BackgroundTransparency = 0
+	Render.BackgroundTransparency = 1
+	Combat.BackgroundTransparency = 1
+	Config.BackgroundTransparency = 1
+	
+	Selected.Text = "Blatant"
+	
 end)
 Render.MouseButton1Down:Connect(function()
 	blatant_main.Visible = false
 	render_main.Visible = true
 	combat_main.Visible = false
 	config_main.Visible = false
+	
+	Blatant.BackgroundTransparency = 1
+	Render.BackgroundTransparency = 0
+	Combat.BackgroundTransparency = 1
+	Config.BackgroundTransparency = 1
+	Selected.Text = "Render"
 end)
 Combat.MouseButton1Down:Connect(function()
 	blatant_main.Visible = false
 	render_main.Visible = false
 	combat_main.Visible = true
 	config_main.Visible = false
+	
+	Blatant.BackgroundTransparency = 1
+	Render.BackgroundTransparency = 1
+	Combat.BackgroundTransparency = 0
+	Config.BackgroundTransparency = 1
+	Selected.Text = "Combat"
 end)
 Config.MouseButton1Down:Connect(function()
 	blatant_main.Visible = false
 	render_main.Visible = false
 	combat_main.Visible = false
 	config_main.Visible = true
+	
+	Blatant.BackgroundTransparency = 1
+	Render.BackgroundTransparency = 1
+	Combat.BackgroundTransparency = 1
+	Config.BackgroundTransparency = 0
+	Selected.Text = "Config"
 end)
+blatant_main.Visible = true
+render_main.Visible = false
+combat_main.Visible = false
+config_main.Visible = false
+
+Blatant.BackgroundTransparency = 0
+Render.BackgroundTransparency = 1
+Combat.BackgroundTransparency = 1
+Config.BackgroundTransparency = 1
+
+Selected.Text = "Blatant"
+
+
 GitSets.Blur_Settings[1].Enabled = false
 opBar.Visible = false
 open_menu = false
-close.Modal = true
-close.MouseButton1Down:Connect(function()
-	GitSets.Blur_Settings[1].Enabled = false
-	opBar.Visible = false
-	open_menu = false
-end)
 game:GetService("UserInputService").InputBegan:Connect(function(key,gpe)
 	if not gpe then
 		if key.KeyCode == GitSets.OpenGui then
@@ -872,6 +903,10 @@ game:GetService("UserInputService").InputBegan:Connect(function(key,gpe)
 				GitSets.Blur_Settings[1].Enabled = true
 				opBar.Visible = true
 				open_menu = true
+				opBar.Size = UDim2.new(0.6, 0, 0.06, 0)
+				opBar.AnchorPoint = Vector2.new(.5,.5)
+				TweenCreate(opBar,.1,{Size = UDim2.new(0.713667154, 0, 0.0709677413, 0)})
+				
 			else
 				GitSets.Blur_Settings[1].Enabled = false
 				opBar.Visible = false
@@ -899,6 +934,28 @@ coroutine.resume(coroutine.create(function()
 		end
 	end
 end))
+
+coroutine.resume(coroutine.create(function()
+	while wait(1) do
+		if dropDownCustomize[2][1].Text == "Normal" then
+			GitSets.Colors = {Color3.fromRGB(85, 255, 127),Color3.fromRGB(85, 255, 255)}
+			
+		elseif dropDownCustomize[2][1].Text == "Cotton" then
+			GitSets.Colors = {Color3.fromRGB(255, 85, 255),Color3.fromRGB(85, 170, 255)}
+		end
+		if dropDownCustomize[2][2].Text == "true" then
+			opBar.BackgroundTransparency = .2
+			Backgrond_2.BackgroundTransparency = .3
+		else
+			opBar.BackgroundTransparency = 0
+			Backgrond_2.BackgroundTransparency = 0
+		end
+		Blatant.BackgroundColor3 = GitSets.Colors[1]
+		Combat.BackgroundColor3 = GitSets.Colors[1]
+		Config.BackgroundColor3 = GitSets.Colors[1]
+		Render.BackgroundColor3 = GitSets.Colors[1]
+	end
+end))
 coroutine.resume(coroutine.create(function()
 	local blur = Instance.new("BlurEffect") 
 	blur.Size = 0
@@ -923,6 +980,49 @@ coroutine.resume(coroutine.create(function()
 		end
 	end
 end))
+function roundPos(vec,pd)
+	return Vector3.new(math.floor((vec.X)/pd + .5),math.floor((vec.Y)/pd + .5),math.floor((vec.Z)/pd + .5))
+end
+coroutine.resume(coroutine.create(function()
+	if dropDownScaffold then
+		while wait(1) do
+			pcall(function()
+				while wait() do
+		if dropDownScaffold[2][1].Text == "true" then
+		local raycastParams = RaycastParams.new()
+		raycastParams.FilterType = Enum.RaycastFilterType.Blacklist
+		raycastParams.FilterDescendantsInstances = {game.Players.LocalPlayer.Character:GetDescendants()}
+		raycastParams.IgnoreWater = true
+
+		local raycastResult5 = workspace:Raycast(game.Players.LocalPlayer.Character.HumanoidRootPart.Position - Vector3.new(0,(game.Players.LocalPlayer.Character.Humanoid.HipHeight/2),0), game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame.UpVector * -3/2, raycastParams)
+		local cd = game.Players.LocalPlayer.Character.HumanoidRootPart.Position - Vector3.new(0,game.Players.LocalPlayer.Character.Humanoid.HipHeight+(game.Players.LocalPlayer.Character.Humanoid.HipHeight/2),0) + Vector3.new(game.Players.LocalPlayer.Character.HumanoidRootPart.Velocity.X/5,game.Players.LocalPlayer.Character.HumanoidRootPart.Velocity.Y/45,game.Players.LocalPlayer.Character.HumanoidRootPart.Velocity.Z/5)
+		local args = {
+			[1] = {
+				["position"] = roundPos(cd,3);
+				["blockType"] = "wool_".. string.lower(game.Players.LocalPlayer.Team.Name)
+			}
+		}
+	
+		if not raycastResult5 then
+			game:GetService("ReplicatedStorage").rbxts_include.node_modules.net.out._NetManaged.PlaceBlock:InvokeServer(unpack(args))
+			raycastResult5 = workspace:Raycast(game.Players.LocalPlayer.Character.HumanoidRootPart.Position - Vector3.new(0,(game.Players.LocalPlayer.Character.Humanoid.HipHeight/2),0), game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame.UpVector * -3/2, raycastParams)
+			if raycastResult5 then
+				cd = game.Players.LocalPlayer.Character.HumanoidRootPart.Position - Vector3.new(0,game.Players.LocalPlayer.Character.Humanoid.HipHeight+(game.Players.LocalPlayer.Character.Humanoid.HipHeight/2),0) 
+				local args = {
+				[1] = {
+					["position"] = roundPos(cd,3);
+					["blockType"] = "wool_".. string.lower(game.Players.LocalPlayer.Team.Name)
+					}
+				}
+				game:GetService("ReplicatedStorage").rbxts_include.node_modules.net.out._NetManaged.PlaceBlock:InvokeServer(unpack(args))
+			end
+		end
+			end
+		end
+			end)
+		end
+	end
+end))
 coroutine.resume(coroutine.create(function()
 	while wait() do
 		if dropDownSPSCounter[2][1].Text == "true" then
@@ -933,7 +1033,7 @@ coroutine.resume(coroutine.create(function()
 			wait(1)
 		end
 	end
-	
+
 end))
 coroutine.resume(coroutine.create(function()
 	local Keystrokes = Instance.new("Frame")
@@ -1052,15 +1152,15 @@ coroutine.resume(coroutine.create(function()
 			if ly.KeyCode == Enum.KeyCode.W then
 				w.BackgroundColor3 = Color3.fromRGB(0,0,0)
 			end
-			
+
 			if ly.KeyCode == Enum.KeyCode.A then
 				a.BackgroundColor3 = Color3.fromRGB(0,0,0)
 			end
-			
+
 			if ly.KeyCode == Enum.KeyCode.S then
 				s.BackgroundColor3 = Color3.fromRGB(0,0,0)
 			end
-			
+
 			if ly.KeyCode == Enum.KeyCode.D then
 				d.BackgroundColor3 = Color3.fromRGB(0,0,0)
 			end
@@ -1069,22 +1169,22 @@ coroutine.resume(coroutine.create(function()
 	game:GetService("UserInputService").InputEnded:Connect(function(ly,gpe)
 		if not gpe then
 			if ly.KeyCode == Enum.KeyCode.W then
-				
+
 				w.BackgroundColor3 = Color3.fromRGB(22, 22, 22)
 			end
 
 			if ly.KeyCode == Enum.KeyCode.A then
-				
+
 				a.BackgroundColor3 = Color3.fromRGB(22, 22, 22)
 			end
 
 			if ly.KeyCode == Enum.KeyCode.S then
-				
+
 				s.BackgroundColor3 = Color3.fromRGB(22, 22, 22)
 			end
 
 			if ly.KeyCode == Enum.KeyCode.D then
-				
+
 				d.BackgroundColor3 = Color3.fromRGB(22, 22, 22)
 			end
 		end
@@ -1111,7 +1211,78 @@ coroutine.resume(coroutine.create(function()
 	end
 
 end))
+coroutine.resume(coroutine.create(function()
+	local lastTarget = nil
+	--[[{{25,"A","Speed"},{"false","B","Active"},{"","C","Key"},{"true","B","Walls"},{"true","B","Void"},{25,"A","Distance"}}]]
+	while wait(1) do
+		pcall(function()
+			while wait(.1) do
+				local function closestPlayer(d)
+					local cpr = {d,nil}
+					for _, jko in pairs(game.Players:GetChildren()) do
+						if jko then
+							if jko.Character then
+								if jko.Character:FindFirstChild("HumanoidRootPart") and not jko.Character:FindFirstChild("ForceField") then
+									if (jko.Character.HumanoidRootPart.Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude <= cpr[1] and jko.Character.Humanoid.Health > 0 and jko.Character ~= game.Players.LocalPlayer.Character then
+										cpr[1] = (jko.Character.HumanoidRootPart.Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude
+										cpr[2] = jko
+									end
+								end
+							end
+						end
 
+					end
+					return cpr
+				end
+				local speed = tonumber(dropDownts[2][1].Text)
+				local dst = tonumber(dropDownts[2][6].Text)
+				if not speed then
+					speed = 25
+				end
+				if not dst then
+					dst = 15.9
+				else
+					dst -= .1
+				end
+				if dropDownts[2][2].Text == "true" then
+					local cls = closestPlayer(dst + .1)
+					if cls[2] then
+						local raycastParams = RaycastParams.new()
+						raycastParams.FilterType = Enum.RaycastFilterType.Blacklist
+						raycastParams.FilterDescendantsInstances = {game.Players.LocalPlayer.Character:GetDescendants()}
+						raycastParams.IgnoreWater = true
+
+						local raycastResult1 = workspace:Raycast(game.Players.LocalPlayer.Character.HumanoidRootPart.Position - Vector3.new(0,(game.Players.LocalPlayer.Character.Humanoid.HipHeight/2),0), game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame.LookVector * 2, raycastParams)
+						local raycastResult2 = workspace:Raycast(game.Players.LocalPlayer.Character.HumanoidRootPart.Position - Vector3.new(0,(game.Players.LocalPlayer.Character.Humanoid.HipHeight/2),0), game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame.LookVector * -2, raycastParams)
+						local raycastResult3 = workspace:Raycast(game.Players.LocalPlayer.Character.HumanoidRootPart.Position - Vector3.new(0,(game.Players.LocalPlayer.Character.Humanoid.HipHeight/2),0), game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame.RightVector * 2, raycastParams)
+						local raycastResult4 = workspace:Raycast(game.Players.LocalPlayer.Character.HumanoidRootPart.Position - Vector3.new(0,(game.Players.LocalPlayer.Character.Humanoid.HipHeight/2),0), game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame.RightVector * -2, raycastParams)
+						local raycastResult5 = workspace:Raycast(game.Players.LocalPlayer.Character.HumanoidRootPart.Position - Vector3.new(0,(game.Players.LocalPlayer.Character.Humanoid.HipHeight/2),0), game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame.UpVector * -10, raycastParams)
+
+						local cn = true
+
+						if dropDownts[2][3].Text == "true" then
+							if not raycastResult1 and not raycastResult2 and not raycastResult3 and not raycastResult4 then
+								cn = false
+							end
+						end
+						if dropDownts[2][4].Text == "true" then
+							if not raycastResult5 then
+								cn = false
+							end
+						end
+
+						if cn then
+							local char = game.Playrs.LocalPlayer.Character.HumanoidRootPart
+							char.CFrame = CFrame.new(char.Position,cls[2].HumanoidRootPart.Position)
+							char.CFrame += char.CFrame.LookVector * (dst - cls[1]) + char.CFrame.RightVector  * (speed/10)
+
+						end
+					end
+				end
+			end
+		end)
+	end
+end))
 coroutine.resume(coroutine.create(function()
 	repeat wait() until dropDownChatHide[2][1].Text == "true"
 	for _, kor in pairs(game.Players.LocalPlayer.PlayerGui:WaitForChild("Chat"):GetDescendants()) do
@@ -1144,7 +1315,7 @@ end))
 
 coroutine.resume(coroutine.create(function()
 	local lastL = game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame
-	local dr = Instance.new("Part",workspace)
+	local dr = Instance.new("Part",game.Players.LocalPlayer.Character)
 	dr.Size = Vector3.new(0,9,0)
 	dr.CanCollide = false
 	dr.Anchored = true
@@ -1163,6 +1334,7 @@ coroutine.resume(coroutine.create(function()
 		return touch
 	end
 	while wait(1) do
+		dr.Name = "AnvOid"
 		pcall(function()
 			while wait() do
 				local susY = tonumber(dropDownAnVoid[2][1].Text)
@@ -1185,6 +1357,14 @@ coroutine.resume(coroutine.create(function()
 
 			end
 		end)
+		if not dr then
+			repeat wait() until game.Players.LocalPlayer.Character:FindFirstChild("Humanoid")
+			dr = Instance.new("Part",game.Players.LocalPlayer.Character)
+			dr.Size = Vector3.new(0,9,0)
+			dr.CanCollide = false
+			dr.Anchored = true
+			dr.Transparency = 1
+		end
 	end
 end))
 coroutine.resume(coroutine.create(function()
@@ -1209,8 +1389,38 @@ coroutine.resume(coroutine.create(function()
 
 end))
 coroutine.resume(coroutine.create(function()
+	while wait(1) do
+		pcall(function()
+			while wait() do
+				if dropDownNoSlow[2][1].Text == "true" then
+					if dropDownSpeed[2][2].Text == "true" then
+						local speed = dropDownSpeed[2][1].Text 
+						if not tonumber(speed) then
+							speed = 16
+						end
+						if dropDownSpeed[2][4].Text == "true" then
+							if game.Players.LocalPlayer.Character.Humanoid.WalkSpeed < 16 then
+								game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = 16
+							end
+						else
+							if game.Players.LocalPlayer.Character.Humanoid.WalkSpeed < speed then
+								game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = speed
+							end
+						end
+					else
+						if game.Players.LocalPlayer.Character.Humanoid.WalkSpeed < 16 then
+							game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = 16
+						end
+					end
+				end
+			end
+		end)
+	end
+end))
+coroutine.resume(coroutine.create(function()
 	local waitime = 0
 	local starttc = tick()
+	local lastc = false
 	while wait(waitime) do
 		local speed = dropDownSpeed[2][1].Text 
 		if not tonumber(speed) then
@@ -1218,43 +1428,32 @@ coroutine.resume(coroutine.create(function()
 		end
 		pcall(function()
 			if dropDownSpeed[2][2].Text == "true" then
+				lastc = true
 				if dropDownSpeed[2][6].Text == "true" and (GitSets.Move_W or GitSets.Move_A or GitSets.Move_S or GitSets.Move_D) then
 					game.Players.LocalPlayer.Character.Humanoid.Jump = true
 				end
-				if tick() - starttc >= 1 and dropDownSpeed[2][5].Text == "true" then
-					local dur = Vector3.new(0,0,0)
-					if GitSets.Move_W then
-						dur += game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame.LookVector*speed
-					end
-					if GitSets.Move_A then
-						dur -= game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame.RightVector*speed
-					end
-					if GitSets.Move_S then
-						dur -= game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame.LookVector*speed
-					end
-					if GitSets.Move_D then
-						dur += game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame.RightVector*speed
-					end
-					if dur ~= Vector3.new(0,0,0) then
-						game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame += dur
-					end
-					starttc = tick()
-				end
+				
 				if dropDownSpeed[2][4].Text == "true" then
 					waitime = 0
 					game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = 16
 					local dur = Vector3.new(0,0,0)
-					if GitSets.Move_W then
-						dur += game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame.LookVector*speed
-					end
-					if GitSets.Move_A then
-						dur -= game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame.RightVector*speed
-					end
-					if GitSets.Move_S then
-						dur -= game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame.LookVector*speed
-					end
-					if GitSets.Move_D then
-						dur += game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame.RightVector*speed
+					if dropDownSpeed[2][5].Text == "false" then
+						if GitSets.Move_W or GitSets.Move_A or GitSets.Move_S or GitSets.Move_D then
+							dur += game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame.LookVector*speed
+						end
+					else
+						if GitSets.Move_W then
+							dur += game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame.LookVector*speed
+						end
+						if GitSets.Move_A then
+							dur -= game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame.RightVector*speed
+						end
+						if GitSets.Move_S then
+							dur -= game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame.LookVector*speed
+						end
+						if GitSets.Move_D then
+							dur += game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame.RightVector*speed
+						end
 					end
 					if dur ~= Vector3.new(0,0,0) then
 						game.Players.LocalPlayer.Character.HumanoidRootPart.Velocity = Vector3.new(dur.X,game.Players.LocalPlayer.Character.HumanoidRootPart.Velocity.Y,dur.Z)
@@ -1265,7 +1464,10 @@ coroutine.resume(coroutine.create(function()
 				end
 
 			else
-				game.Players.LocalPlayer.Character.Humanoid.WalkSpeed =16
+				if lastc then
+					game.Players.LocalPlayer.Character.Humanoid.WalkSpeed =16
+					lastc = false
+				end
 			end
 		end)
 
@@ -1278,6 +1480,60 @@ coroutine.resume(coroutine.create(function()
 			game:GetService("TeleportService"):Teleport(game.PlaceId,game.Players.LocalPlayer)
 			game.Players.LocalPlayer:Kick("Rejoin Request")
 		end
+	end
+end))
+coroutine.resume(coroutine.create(function()
+	while wait(1) do
+		pcall(function()
+			while wait() do
+				if dropDownSpider[2][2].Text == "true" then
+					local amt = tonumber(dropDownSpider[2][1].Text)
+					if not amt then
+						amt = 25
+					end
+					local raycastParams = RaycastParams.new()
+					raycastParams.FilterType = Enum.RaycastFilterType.Blacklist
+					raycastParams.FilterDescendantsInstances = {game.Players.LocalPlayer.Character:GetDescendants()}
+					raycastParams.IgnoreWater = true
+
+					local raycastResult1 = workspace:Raycast(game.Players.LocalPlayer.Character.HumanoidRootPart.Position - Vector3.new(0,(game.Players.LocalPlayer.Character.Humanoid.HipHeight/2),0), game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame.LookVector * 2, raycastParams)
+					local raycastResult2 = workspace:Raycast(game.Players.LocalPlayer.Character.HumanoidRootPart.Position - Vector3.new(0,(game.Players.LocalPlayer.Character.Humanoid.HipHeight/2),0), game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame.LookVector * -2, raycastParams)
+					local raycastResult3 = workspace:Raycast(game.Players.LocalPlayer.Character.HumanoidRootPart.Position - Vector3.new(0,(game.Players.LocalPlayer.Character.Humanoid.HipHeight/2),0), game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame.RightVector * 2, raycastParams)
+					local raycastResult4 = workspace:Raycast(game.Players.LocalPlayer.Character.HumanoidRootPart.Position - Vector3.new(0,(game.Players.LocalPlayer.Character.Humanoid.HipHeight/2),0), game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame.RightVector * -2, raycastParams)
+
+					if raycastResult1 and GitSets.Move_W then
+						local rc = raycastResult1.Instance
+						local rc2 = rc.Position + (rc.Size)/2
+
+						local chr = game.Players.LocalPlayer.Character.HumanoidRootPart
+						chr.Velocity = Vector3.new(chr.Velocity.X,amt,chr.Velocity.Z)
+						game.Players.LocalPlayer.Character.Humanoid.Jump = true
+					elseif raycastResult2 and GitSets.Move_S then
+						local rc = raycastResult2.Instance
+						local rc2 = rc.Position + (rc.Size)/2
+
+						local chr = game.Players.LocalPlayer.Character.HumanoidRootPart
+						chr.Velocity = Vector3.new(chr.Velocity.X,amt,chr.Velocity.Z)
+						game.Players.LocalPlayer.Character.Humanoid.Jump = true
+					elseif raycastResult3 and GitSets.Move_D then
+						local rc = raycastResult3.Instance
+						local rc2 = rc.Position + (rc.Size)/2
+
+						local chr = game.Players.LocalPlayer.Character.HumanoidRootPart
+						chr.Velocity = Vector3.new(chr.Velocity.X,amt,chr.Velocity.Z)
+						game.Players.LocalPlayer.Character.Humanoid.Jump = true
+					elseif raycastResult4 and GitSets.Move_A then
+						local rc = raycastResult4.Instance
+						local rc2 = rc.Position + (rc.Size)/2
+
+						local chr = game.Players.LocalPlayer.Character.HumanoidRootPart
+						chr.Velocity = Vector3.new(chr.Velocity.X,amt,chr.Velocity.Z)
+						game.Players.LocalPlayer.Character.Humanoid.Jump = true
+					end
+				end
+
+			end
+		end)
 	end
 end))
 coroutine.resume(coroutine.create(function()
@@ -1342,7 +1598,7 @@ coroutine.resume(coroutine.create(function()
 		end
 		local charClone = nil
 		local char = nil
-		pcall(function()
+		local ebor, msh = pcall(function()
 
 			if dropDownDisabler[2][4].Text == "Callback" then
 				if dropDownDisabler[2][1].Text == "true" then
@@ -1362,106 +1618,124 @@ coroutine.resume(coroutine.create(function()
 
 
 			elseif dropDownDisabler[2][1].Text == "true" then
-				local ui = game.Players.LocalPlayer.PlayerGui:GetChildren()
-				for _, db in pairs(ui) do db.Parent = workspace end
-				char = game.Players.LocalPlayer.Character
-				charClone = char:Clone()
+				local hb = {}
+				for _, kl in pairs(game.Players.LocalPlayer.PlayerGui:GetChildren()) do
+					table.insert(hb,#hb+1,kl)
+					kl.Parent = workspace
+				end
+				game.Players.LocalPlayer.Character.Archivable = true 
 
-				workspace.CurrentCamera.CameraSubject = charClone.Humanoid
-				charClone.PrimaryPart.CFrame = char.PrimaryPart.CFrame
-				game.Players.LocalPlayer.Character = charClone
+				local clone = game.Players.LocalPlayer:Clone()
 
-				charClone.Parent = workspace
-				for _, db in pairs(ui) do db.Parent = game.Players.LocalPlayer.PlayerGui end
-				local jk = game:GetService("RunService").Stepped:Connect(function()
-					for _, db in pairs(charClone:GetDescendants()) do
-						if db:IsA("BasePart") then
-							db.CanCollide = false
-						end
+				game.Players.LocalPlayer.Character.Archivable = true
+				local char = game.Players.LocalPlayer.Character
+				local clone = char:Clone()
+				local cr = false
+				local can = true
+
+				clone.Parent = workspace
+				game.Players.LocalPlayer.Character = clone
+
+
+				local rn = game:GetService("RunService").Stepped:Connect(function()
+					if char:FindFirstChild("HumanoidRootPart") then
+						char.HumanoidRootPart.Velocity = Vector3.new(0,0,0)
 					end
-					workspace.CurrentCamera.CameraSubject = charClone.Humanoid
+					clone.Humanoid.Health = char.Humanoid.Health
 					char.Humanoid:ChangeState(Enum.HumanoidStateType.Running)
-					for _, db in pairs(charClone:GetDescendants()) do
-						if db:IsA("BasePart") then
-							db.CanCollide = false
+					if can then
+						for _, db in pairs(char:GetDescendants()) do
+							if db:IsA("BasePart") then
+								db.CanCollide = false
+							end
 						end
+
 					end
 				end)
-				local jk2 = game:GetService("RunService").Stepped:Connect(function()
-					for _, db in pairs(charClone:GetDescendants()) do
-						if db:IsA("BasePart") then
-							db.CanCollide = false
-						end
-					end
-					workspace.CurrentCamera.CameraSubject = charClone.Humanoid
-					char.Humanoid:ChangeState(Enum.HumanoidStateType.Running)
-					for _, db in pairs(charClone:GetDescendants()) do
-						if db:IsA("BasePart") then
-							db.CanCollide = false
-						end
-					end
-				end)
-				local bp = Instance.new("BodyPosition")
-				bp.P = 41000
-				bp.MaxForce = Vector3.new(9e9,9e9,9e9)
-				bp.Position = charClone.PrimaryPart.Position
 
-				local bg = Instance.new("BodyGyro")
-				bg.CFrame = charClone.PrimaryPart.CFrame
-				bg.P = 100000000
-				bg.MaxTorque = Vector3.new(9e9,9e9,9e9)
-				local done = false
 				char.Humanoid.Died:Connect(function()
-					jk:Disconnect()
-					jk2:Disconnect()
-					done = true
-					charClone:Destroy()
 					game.Players.LocalPlayer.Character = char
-					char.Humanoid.Health = 0
+					can = false
+					rn:Disconnect()
 				end)
-				charClone.Humanoid.Died:Connect(function()
-					jk:Disconnect()
-					jk2:Disconnect()
-					done = true
-					charClone:Destroy()
-					game.Players.LocalPlayer.Character = char
-					char.Humanoid.Health = 0
-				end)
-				charClone.Humanoid.DisplayName = "Rise B".. GitSets.Version
-				local zk = tonumber(dropDownDisabler[2][3].Text)
-				if not zk then
-					zk = .3
-				end
-				game.Players.LocalPlayer.Character = charClone
+				char.HumanoidRootPart.Changed:Connect(function(obty)
+					if not cr then
+						if obty == "CFrame" then
+							clone.HumanoidRootPart.CFrame = char.HumanoidRootPart.CFrame
+						end
 
-				while wait(zk) and not done do
-					zk = tonumber(dropDownDisabler[2][3].Text)
-					if not zk then
-						zk = .3
 					end
-					bp.Parent = char.PrimaryPart
-					bg.Parent = char.PrimaryPart
+				end)
 
-					bp.Position = charClone.PrimaryPart.Position
-					bg.CFrame = charClone.PrimaryPart.CFrame
-					char.Parent = workspace
-					char.PrimaryPart.Anchored = false
-					wait(0)
-
-					char.Parent = game.Lighting
-					char.PrimaryPart.Anchored = true
-					bp.Parent = workspace
-					bg.Parent = workspace
-
+				game.Workspace.CurrentCamera.CameraSubject = clone.Humanoid
+				wait(1)
+				for _, kl in pairs(hb) do
+					hb.Parent = game.Players.LocalPlayer.PlayerGui
 				end
-				jk:Disconnect()
-				jk2:Disconnect()
-				done = true
-				charClone:Destroy()
-				game.Players.LocalPlayer.Character = char
-				char.Humanoid.Health = 0
+				while true and can and dropDownDisabler[2][1].Text == "true" and clone.Humanoid.Health ~= 0 do
+					char.HumanoidRootPart.Anchored = true
+					cr = false
+					local cb = 0
+
+					wait(gbh/2)
+					if dropDownDisabler[2][5].Text == "true" then
+						cb = clone.PrimaryPart.Position
+					end
+					char.HumanoidRootPart.Anchored = false
+					if char:FindFirstChild("HumanoidRootPart") then
+						char.HumanoidRootPart.Velocity = Vector3.new(0,0,0)
+					end
+					wait(gbh/2)
+					if dropDownDisabler[2][5].Text == "false" then
+						cb = clone.PrimaryPart.Position
+					end
+					local cf = clone.PrimaryPart.CFrame
+					if can then
+						if cb == 0 then
+							cb = clone.PrimaryPart.Position
+						end
+						local raycastParams = RaycastParams.new()
+						raycastParams.FilterType = Enum.RaycastFilterType.Blacklist
+						raycastParams.FilterDescendantsInstances = {char:GetChildren(),clone:GetChildren()}
+						raycastParams.IgnoreWater = true
+
+						local raycastResult = workspace:Raycast(cb, cb - Vector3.new(0,23,0), raycastParams)
+
+						if raycastResult then
+							if raycastResult.Position.Y < cb.Y then
+								cb = Vector3.new(cb.X,raycastResult.Position.Y + 3.5, cb.Z)
+							end
+
+						end
+						cr = true
+
+						local cf = clone.PrimaryPart.CFrame
+						clone.PrimaryPart.CFrame = CFrame.new(Vector3.new(0,0,0))
+						char:MoveTo(cb)
+						clone.PrimaryPart.CFrame = cf
+					end
+				end
+				hb = {}
+				for _, kl in pairs(game.Players.LocalPlayer.PlayerGui:GetChildren()) do
+					table.insert(hb,#hb+1,kl)
+					kl.Parent = workspace
+				end
+				can = false
+				pcall(function()
+					clone:Destroy()
+					game.Players.LocalPlayer.Character = char
+					game.Workspace.CurrentCamera.CameraSubject = char.Humanoid
+					rn:Disconnect()
+				end)
+				for _, kl in pairs(hb) do
+					hb.Parent = game.Players.LocalPlayer.PlayerGui
+				end
+
 			end
 		end)
+		if not ebor then
+			warn(msh)
+		end
 		if charClone then
 			warn("Error")
 			charClone:Destroy()
@@ -1473,6 +1747,7 @@ coroutine.resume(coroutine.create(function()
 		end
 	end
 end))
+
 
 
 
@@ -1548,14 +1823,14 @@ end))
 magt.Image = nulmage
 aimUI.Position = UDim2.new(0.583, 0,0.431, 0)
 aimUI.Size = UDim2.new(0.2, 0,0.1, 0)
-aimUI.BorderColor3 = Color3.fromRGB(53, 53, 53)
-aimUI.BackgroundTransparency = .75
+aimUI.BorderColor3 = Color3.fromRGB(31,31,31)
+aimUI.BackgroundTransparency = .3
 aimUI.BackgroundColor3 = Color3.fromRGB(10,10,10)
 cornerGui(aimUI,8)
-uIs.Color = Color3.fromRGB(39, 39, 39)
-uIs.Thickness = 3
-uIs.Transparency = .5
-cornerGui(magt,1000000)
+uIs.Color = Color3.fromRGB(27,27,27)
+uIs.Thickness = 1
+uIs.Transparency = .9
+cornerGui(magt,14)
 magt.Size = UDim2.new(0.27, 0,1, 0)
 txtAim[1] = Instance.new("TextLabel",aimUI)
 txtAim[1].BackgroundTransparency = 1
@@ -1587,11 +1862,11 @@ colorUI.Parent = txtAim[3]
 coroutine.resume(coroutine.create(function()
 	while wait() do
 		for drt = 0, 49 do
-			colorUI.Color = ColorSequence.new({ColorSequenceKeypoint.new(0,Color3.fromRGB(85, 0, 255)),ColorSequenceKeypoint.new(.99 - (drt*.02),Color3.fromRGB(105, 140, 255)),ColorSequenceKeypoint.new(1,Color3.fromRGB(85, 0, 255))})
+			colorUI.Color = ColorSequence.new({ColorSequenceKeypoint.new(0,GitSets.Colors[1]),ColorSequenceKeypoint.new(.99 - (drt*.02),GitSets.Colors[2]),ColorSequenceKeypoint.new(1,GitSets.Colors[1])})
 			wait(.1)
 		end
 		for drt = 0, 49 do
-			colorUI.Color = ColorSequence.new({ColorSequenceKeypoint.new(0,Color3.fromRGB(85, 0, 255)),ColorSequenceKeypoint.new(0.02 + (drt*.02),Color3.fromRGB(105, 140, 255)),ColorSequenceKeypoint.new(1,Color3.fromRGB(85, 0, 255))})
+			colorUI.Color = ColorSequence.new({ColorSequenceKeypoint.new(0,GitSets.Colors[1]),ColorSequenceKeypoint.new(0.02 + (drt*.02),GitSets.Colors[2]),ColorSequenceKeypoint.new(1,GitSets.Colors[1])})
 			wait(.1)
 		end
 	end
@@ -1679,7 +1954,7 @@ game:GetService("RunService").RenderStepped:Connect(function()
 						}
 					}
 					if sword and (glos[2].Character.HumanoidRootPart.Position - game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.Position).Magnitude <= 16 then
-						game:GetService("ReplicatedStorage").rbxts_include.node_modules.net.out._NetManaged.snfbNjllXh:InvokeServer(unpack(args))
+						game:GetService("ReplicatedStorage").rbxts_include.node_modules.net.out._NetManaged.hLdDqlzqodZjifnvjmnjpbgdN:InvokeServer(unpack(args))
 					end
 
 				else
@@ -1747,6 +2022,11 @@ game:GetService("RunService").RenderStepped:Connect(function()
 						local gb = math.floor(hum.Parent.Humanoid.Health+.5)
 						if not gb then
 							gb = 1
+						end
+						if txtAim[3].BackgroundColor3 == GitSets.Colors[1] then
+							TweenCreate(txtAim[3],1,{BackgroundColor3 = GitSets.Colors[2]})
+						else
+							TweenCreate(txtAim[3],1,{BackgroundColor3 = GitSets.Colors[1]})
 						end
 						TweenCreate(txtAim[3],.2,{Size = UDim2.new((527*(hum.Parent.Humanoid.Health/hum.Parent.Humanoid.MaxHealth)/1000), 0,.259, 0)})
 						txtAim[2].Text = gb
@@ -1959,7 +2239,10 @@ if true then
 	end))
 
 	game.Players.PlayerAdded:Connect(function(v)
-		esp(v)
+		
+		v.CharacterAdded:Connect(function()
+			esp(v)
+		end)
 	end)
 end
 
@@ -2114,6 +2397,7 @@ end))
 
 coroutine.resume(coroutine.create(function()
 	local last = false
+	local jp = 0
 	while wait() do
 		pcall(function()
 			local speed = dropDownlong[2][1].Text
@@ -2121,17 +2405,74 @@ coroutine.resume(coroutine.create(function()
 				speed = 50
 			end
 			if dropDownlong[2][2].Text == "true" then
-				last = true
-				game.Players.LocalPlayer.Character.Humanoid.Jump = true
-				if game.Players.LocalPlayer.Character.HumanoidRootPart.Velocity.Y < 0 then
-					game.Players.LocalPlayer.Character.HumanoidRootPart.Velocity = Vector3.new(0,2,0)
-				end
-				local dbsp = tonumber(dropDownlong[2][1].Text)
-				if not dbsp then
-					dbsp = 25
-				end
+				if dropDownlong[2][4].Text == "Normal" then
+					last = true
+					game.Players.LocalPlayer.Character.Humanoid.Jump = true
+					if game.Players.LocalPlayer.Character.HumanoidRootPart.Velocity.Y < 0 then
+						game.Players.LocalPlayer.Character.HumanoidRootPart.Velocity = Vector3.new(0,2,0)
+					end
+					local dbsp = tonumber(dropDownlong[2][1].Text)
+					if not dbsp then
+						dbsp = 25
+					end
 
-				game.Players.LocalPlayer.Character.HumanoidRootPart.Velocity = Vector3.new((game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame.LookVector * dbsp).X,game.Players.LocalPlayer.Character.HumanoidRootPart.Velocity.Y,(game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame.LookVector * dbsp).Z)
+					game.Players.LocalPlayer.Character.HumanoidRootPart.Velocity = Vector3.new((game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame.LookVector * dbsp).X,game.Players.LocalPlayer.Character.HumanoidRootPart.Velocity.Y,(game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame.LookVector * dbsp).Z)
+				elseif dropDownlong[2][4].Text == "Normal2" then
+					local dbsp = tonumber(dropDownlong[2][1].Text)
+					if not dbsp then
+						dbsp = 250
+					else
+						dbsp *= 5
+					end
+					game.Players.LocalPlayer.Character.HumanoidRootPart.Anchored = true
+					game.Players.LocalPlayer.Character.HumanoidRootPart.Velocity = game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame.LookVector * 3
+					wait(.25)
+					game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame += game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame.LookVector * 3
+					game.Players.LocalPlayer.Character.HumanoidRootPart.Velocity = game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame.LookVector * -6
+					wait(.5)
+					game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame += game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame.LookVector * -6
+					wait(.5)
+					game.Players.LocalPlayer.Character.HumanoidRootPart.Anchored = false
+
+
+					for _ = 0, 7 do
+						wait(.1)
+						game.Players.LocalPlayer.Character.HumanoidRootPart.Velocity = Vector3.new((game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame.LookVector * dbsp).X,26,(game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame.LookVector * dbsp).Z)
+						if dropDownlong[2][2].Text == "false" then
+							break
+						end
+					end
+					for _ = 0, 3 do
+						wait(.1)
+						game.Players.LocalPlayer.Character.HumanoidRootPart.Velocity = Vector3.new((game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame.LookVector * dbsp).X,5,(game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame.LookVector * dbsp).Z)
+						if dropDownlong[2][2].Text == "false" then
+							break
+						end
+					end
+					if dropDownlong[2][2].Text == "true" then
+						netdexc("LongJump")
+					end
+					dropDownlong[2][2].Text = "false"
+
+				elseif dropDownlong[2][4].Text == "Bedwars Fast" then
+					last = true
+					game.Players.LocalPlayer.Character.Humanoid.Jump = true
+					if game.Players.LocalPlayer.Character.HumanoidRootPart.Velocity.Y < 0 then
+						game.Players.LocalPlayer.Character.HumanoidRootPart.Velocity = Vector3.new(0,2,0)
+					end
+					local dbsp = tonumber(dropDownlong[2][1].Text)
+					if not dbsp then
+						dbsp = 25
+					end
+
+					game.Players.LocalPlayer.Character.HumanoidRootPart.Velocity = Vector3.new((game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame.LookVector * dbsp).X,5,(game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame.LookVector * dbsp).Z)	
+					if jp >= 3 then
+						jp = 0
+						game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame += game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame.LookVector * 4
+					else
+						jp += 1
+					end
+				end
 			else
 				if last then
 					game.Players.LocalPlayer.Character.HumanoidRootPart.Velocity = Vector3.new(0,0,0)
