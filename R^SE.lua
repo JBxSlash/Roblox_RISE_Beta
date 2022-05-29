@@ -40,9 +40,9 @@ RBX: JxSlash; Site;
 
 local GitSets = {
 	["GPE_Disabler_Bypass"] = false;
-	["Version"] = 15;
+	["Version"] = 16;
 	["Blur_Settings"] = {Instance.new("BlurEffect"),15};
-	["Parent"] = game.CoreGui;
+	["Parent"] = game.Players.LocalPlayer.PlayerGui;
 
 
 
@@ -60,7 +60,8 @@ local GitSets = {
 	["Fly_Up"] = Enum.KeyCode.E;
 	["Fly_Down"] = Enum.KeyCode.Q;
 	["GitOwnerConfig"] = { --GitOwnerConfigFromID
-		["Bedwars"] = {5774246}
+		["Bedwars"] = {5774246};
+		["Big Paintball"] = {2703304}
 	};
 	["Colors"] = {Color3.fromRGB(85, 255, 127),Color3.fromRGB(85, 255, 255)},
 	--//Extra
@@ -225,7 +226,7 @@ opBar.BackgroundColor3 = Color3.fromRGB(25, 25, 25)
 opBar.BorderSizePixel = 0
 opBar.Draggable = true
 opBar.Position = UDim2.new(0.05, 229, -0.184946239, 132)
-opBar.Size = UDim2.new(0.713667154, 0, 0.0709677413, 0)
+opBar.Size = UDim2.new(0.605, 0, 0.0709677413, 0)
 opBar.Visible = false
 opBar.ZIndex = 0
 opBar.Active = true
@@ -573,7 +574,7 @@ function newDropDown(par,pos,text,desc)
 			end
 			if desco[2] == "D" then
 				local db = Instance.new("TextBox",button.Frame)
-				db.BackgroundTransparency = .2
+				
 				db.Name = "key"
 				db.Size = UDim2.new(.1,0,1,0)
 				db.Text = desco[1]
@@ -599,11 +600,11 @@ function newDropDown(par,pos,text,desc)
 			end
 			if desco[2] == "E" then
 				local db = Instance.new("TextButton",button.Frame)
-				db.BackgroundTransparency = .2
+				
 				local jk = 1
 				db.Size = UDim2.new(.1,0,1,0)
 				db.Text = desco[1][1]
-
+				
 				db.BorderSizePixel = 0
 				db.BackgroundColor3 = Color3.fromRGB(30,30,30)
 				db.TextColor3 = Color3.fromRGB(255,255,255)
@@ -666,7 +667,7 @@ _gui_notif.Position = UDim2.new(0.7, 0,0, 0)
 local _gui_exec = Instance.new("Frame",ScreenGui)
 _gui_exec.Size = UDim2.new(0.3, 0,.9, 0)
 _gui_exec.BackgroundTransparency = 1
-_gui_exec.Position = UDim2.new(0.7, 0,0, 0)
+_gui_exec.Position = UDim2.new(0.69, 0,0.02, 0)
 local u1 = Instance.new("UIListLayout",_gui_exec)
 u1.FillDirection = Enum.FillDirection.Vertical
 u1.HorizontalAlignment = Enum.HorizontalAlignment.Right
@@ -717,9 +718,10 @@ end
 function netexec(_TXT_DATA_TEXTSET_VERBOSE_RANDOMLEX_NETVERBOSESET1_)
 	local nst = Instance.new("TextLabel")
 
-	nst.Text = _TXT_DATA_TEXTSET_VERBOSE_RANDOMLEX_NETVERBOSESET1_
+	nst.Text = " ".. _TXT_DATA_TEXTSET_VERBOSE_RANDOMLEX_NETVERBOSESET1_.. " "
 	nst.Size = UDim2.new(0,0,.05,0)
-	nst.BackgroundTransparency = 1
+	nst.BackgroundTransparency = .3
+	nst.BackgroundColor3 = Color3.fromRGB(31,31,31)
 
 	cornerGui(nst,3)
 	nst.AutomaticSize = Enum.AutomaticSize.X
@@ -727,14 +729,11 @@ function netexec(_TXT_DATA_TEXTSET_VERBOSE_RANDOMLEX_NETVERBOSESET1_)
 	nst.TextTransparency = 0
 	nst.TextXAlignment = Enum.TextXAlignment.Right
 	nst.Font = Enum.Font.Nunito
-	nst.TextColor3 = Color3.fromRGB(85, 0, 255)
+	nst.TextColor3 = GitSets.Colors[1]
 	nst.TextScaled = true
 	nst.Name = string.len(_TXT_DATA_TEXTSET_VERBOSE_RANDOMLEX_NETVERBOSESET1_)
 	nst.Parent = _gui_exec
-	local stroke = Instance.new("UIStroke",nst)
-	stroke.Transparency = .7
-	stroke.Color = Color3.new(0,0,0)
-	stroke.Thickness = 3
+
 	coroutine.resume(coroutine.create(function()
 		while nst do
 			pcall(function()
@@ -753,7 +752,7 @@ end
 function netdexc(_TXT_DATA_TEXTSET_VERBOSE_RANDOMLEX_)
 	for _, dp in pairs(_gui_exec:GetChildren()) do
 		if dp:IsA("TextLabel") then
-			if dp.Text == _TXT_DATA_TEXTSET_VERBOSE_RANDOMLEX_ then
+			if dp.Text == " ".. _TXT_DATA_TEXTSET_VERBOSE_RANDOMLEX_.. " " then
 				dp:Destroy()
 				return true
 			end
@@ -807,7 +806,10 @@ local dropDownNameTag = newDropDown(render_main,UDim2.new(0.022, 0,0.104, 0),"Na
 local dropDownFPSBoost = newDropDown(render_main,UDim2.new(0.022, 0,0.104, 0),"FPSBooster",{{"false","B","Active"}})
 local dropDownSPSCounter = newDropDown(render_main,UDim2.new(0.022, 0,0.104, 0),"SPSCounter",{{"false","B","Active"}})
 local dropDownKeystrokes = newDropDown(render_main,UDim2.new(0.022, 0,0.104, 0),"Keystrokes",{{"false","B","Active"}})
-local dropDownCustomize = newDropDown(render_main,UDim2.new(0.022, 0,0.104, 0),"Theme",{{{"Normal","Cotton"},"E","Mode"},{"false","B","Transparent"}})
+local dropDownCustomize = newDropDown(render_main,UDim2.new(0.022, 0,0.104, 0),"Theme",{{{"Normal","Cotton","BG","Sunset"},"E","Mode"},{"false","B","Transparent"}})
+local dropDownCape = newDropDown(render_main,UDim2.new(0.022, 0,0.104, 0),"Cape",{{"false","B","Active"}})
+local dropDownBreadcrumbs = newDropDown(render_main,UDim2.new(0.022, 0,0.104, 0),"Breadcrumbs",{{"false","B","Active"}})
+local dropDownCTA = newDropDown(render_main,UDim2.new(0.022, 0,0.104, 0),"ClickTPAura",{{"false","B","Active"},{"","C","Key"},{100,"A","MaxDistance"}})
 
 
 local dropDownReach = newDropDown(combat_main,UDim2.new(0.022, 0,0.270, 0),"Reach",{{"false","B","Active"},{"","C","Key"},{8,"A","Size"}})
@@ -819,10 +821,10 @@ local dropDownts = newDropDown(combat_main,UDim2.new(0, 0,0.106, 0),"TargetStraf
 
 blatant_main.Visible = true
 if table.find(GitSets.GitOwnerConfig.Bedwars,game.CreatorId) then
-	dropDownAim = newDropDown(combat_main,UDim2.new(0.022, 0,0.270, 0),"Aimbot",{{"false","B","Active"},{"false","B","HeadLock"},{"","C","Key"},{16,"A","Distance"},{"false","B","Aura"},{{"None","BlockHit","Rotate"},"E","Animation"}})
+	dropDownAim = newDropDown(combat_main,UDim2.new(0.022, 0,0.270, 0),"Aimbot",{{"false","B","Active"},{"false","B","HeadLock"},{"","C","Key"},{16,"A","Distance"},{"false","B","Aura"},{"false","B","TeamCheck"}})
 	dropDownScaffold = newDropDown(blatant_main,UDim2.new(0, 0,0.106, 0),"Scaffold",{{"false","B","Active"},{"","C","Key"}})
 else
-	dropDownAim =newDropDown(combat_main,UDim2.new(0.022, 0,0.270, 0),"Aimbot",{{"false","B","Active"},{"false","B","HeadLock"},{"","C","Key"},{16,"A","Distance"},{"false","B","FMS Aura"},{{"None","BlockHit","Rotate"},"E","Animation"}})
+	dropDownAim =newDropDown(combat_main,UDim2.new(0.022, 0,0.270, 0),"Aimbot",{{"false","B","Active"},{"false","B","HeadLock"},{"","C","Key"},{16,"A","Distance"},{"false","B","FMS Aura"},{"false","B","TeamCheck"}})
 end 
 
 --RISE://OPEN_MENU
@@ -835,21 +837,21 @@ Blatant.MouseButton1Down:Connect(function()
 	render_main.Visible = false
 	combat_main.Visible = false
 	config_main.Visible = false
-	
+
 	Blatant.BackgroundTransparency = 0
 	Render.BackgroundTransparency = 1
 	Combat.BackgroundTransparency = 1
 	Config.BackgroundTransparency = 1
-	
+
 	Selected.Text = "Blatant"
-	
+
 end)
 Render.MouseButton1Down:Connect(function()
 	blatant_main.Visible = false
 	render_main.Visible = true
 	combat_main.Visible = false
 	config_main.Visible = false
-	
+
 	Blatant.BackgroundTransparency = 1
 	Render.BackgroundTransparency = 0
 	Combat.BackgroundTransparency = 1
@@ -861,7 +863,7 @@ Combat.MouseButton1Down:Connect(function()
 	render_main.Visible = false
 	combat_main.Visible = true
 	config_main.Visible = false
-	
+
 	Blatant.BackgroundTransparency = 1
 	Render.BackgroundTransparency = 1
 	Combat.BackgroundTransparency = 0
@@ -873,7 +875,7 @@ Config.MouseButton1Down:Connect(function()
 	render_main.Visible = false
 	combat_main.Visible = false
 	config_main.Visible = true
-	
+
 	Blatant.BackgroundTransparency = 1
 	Render.BackgroundTransparency = 1
 	Combat.BackgroundTransparency = 1
@@ -906,7 +908,7 @@ game:GetService("UserInputService").InputBegan:Connect(function(key,gpe)
 				opBar.Size = UDim2.new(0.6, 0, 0.06, 0)
 				opBar.AnchorPoint = Vector2.new(.5,.5)
 				TweenCreate(opBar,.1,{Size = UDim2.new(0.713667154, 0, 0.0709677413, 0)})
-				
+
 			else
 				GitSets.Blur_Settings[1].Enabled = false
 				opBar.Visible = false
@@ -934,14 +936,295 @@ coroutine.resume(coroutine.create(function()
 		end
 	end
 end))
+local debris = Instance.new("Folder", workspace)
+debris.Name = "DEBRIS/R^SE/TPAURA"
+local canaura = true
+game.Players.LocalPlayer:GetMouse().Button1Down:Connect(function()
+	if dropDownCTA[2][1].Text == "true" and canaura then
+		canaura = false
+		local function getall()
+			local cpr = {{}}
+			for _, jko in pairs(game.Players:GetChildren()) do
+				table.insert(cpr[1],#cpr[1],jko.Character)
 
+			end
+			return cpr
+		end
+		for _, dgh in pairs(debris:GetChildren()) do
+			dgh:Destroy()
+		end
+		for _, popr in pairs(getall()[1]) do
+			pcall(function()
+				if popr then
+					local start = game.Players.LocalPlayer.Character.HumanoidRootPart
+					if popr:FindFirstChild("HumanoidRootPart") then
+						local cfg = tonumber(dropDownCTA[2][1].Text)
+						if not cfg then
+							cfg = 100
+						end
+						if (start.Position - popr:FindFirstChild("HumanoidRootPart").Position).Magnitude <= cfg then
+							local path = game:GetService("PathfindingService"):CreatePath()
+							path:ComputeAsync(start.Position,popr:FindFirstChild("HumanoidRootPart").Position)
+							local waypoints = path:GetWaypoints()
+							if path.Status == Enum.PathStatus.Success  then
+								for numbs, way in pairs(waypoints) do
+									local currentray = Instance.new("Part",debris)
+									if numbs > 1 then
+										for _, kl in pairs(script.Parent.Obj.ESP:GetChildren()) do
+											kl:Clone().Parent = currentray
+										end
+										currentray.Anchored = true
+										currentray.CanCollide = false
+										currentray.Size = Vector3.new(0.1,0.1,(way.Position - waypoints[numbs-1].Position).Magnitude)
+										currentray.CFrame = CFrame.new(waypoints[numbs-1].Position)
+										currentray.CFrame = CFrame.new(currentray.CFrame.Position,way.Position)
+										currentray.CFrame = CFrame.new(currentray.CFrame.Position + currentray.CFrame.LookVector * ((way.Position - waypoints[numbs-1].Position).Magnitude)/2,way.Position)
+										currentray.Material = Enum.Material.Neon
+										currentray.Color = GitSets.Colors[1]
+									else
+										currentray:Destroy()
+									end
+								end
+								local startCF = start.CFrame
+								for _, way in pairs(waypoints) do 
+									start.CFrame = CFrame.new(way.Position,popr:FindFirstChild("HumanoidRootPart").Position + popr:FindFirstChild("HumanoidRootPart").CFrame.LookVector*1)
+								end
+								wait()
+								start.CFrame = CFrame.new(startCF.Position,Vector3.new((startCF.Position + startCF.LookVector*1).X,startCF.Position.Y,(startCF.Position + startCF.LookVector*1).Z))
+								start.Velocity =Vector3.new(0,0,0)
+								start.RotVelocity =Vector3.new(0,0,0)
+								game.Players.LocalPlayer.Character.Humanoid:ChangeState(Enum.HumanoidStateType.Running)
+							end
+						end
+						
+					end
+				end
+			end)
+		end
+		canaura = true
+	end
+
+end)
+coroutine.resume(coroutine.create(function()
+	local lastBC = nil
+	--dropDownBreadcrumbs
+	while wait(1) do
+		if lastBC then
+			lastBC:Destroy()
+			lastBC = nil
+		end
+		lastBC = Instance.new("Trail",game.Players.LocalPlayer.Character)
+		local ac1 = Instance.new("Attachment",game.Players.LocalPlayer.Character.LeftFoot)
+		local ac2 = Instance.new("Attachment",game.Players.LocalPlayer.Character.RightFoot)
+		lastBC.Attachment0 = ac1
+		lastBC.Attachment1 = ac2
+		lastBC.Lifetime = 1
+		lastBC.WidthScale = NumberSequence.new(.1)
+		lastBC.Transparency = NumberSequence.new(0)
+		lastBC.FaceCamera = true
+		
+		pcall(function()
+			while lastBC do
+				wait()
+				lastBC.Color = ColorSequence.new(GitSets.Colors[1])
+				if dropDownBreadcrumbs[2][1].Text == "true" then
+					lastBC.Enabled = true
+				else
+					lastBC.Enabled = false
+				end
+			end
+		end)
+	end
+end))
+coroutine.resume(coroutine.create(function()
+	local plr = game.Players.LocalPlayer
+	local cape = nil
+	plr.CharacterAdded:connect(function(chr)
+		repeat wait() until plr and plr.Character and plr.Character:FindFirstChild("Humanoid")
+		if plr.Character:FindFirstChild("Torso") then
+			torso = plr.Character.Torso
+		else
+			torso = plr.Character.UpperTorso
+		end
+		local p = Instance.new("Part", torso.Parent)
+		p.Name = "Cape"
+		p.Anchored = false
+		p.CanCollide = false
+		p.TopSurface = 0
+		p.BottomSurface = 0
+		p.BrickColor = BrickColor.new("Black")
+		p.Material = Enum.Material.SmoothPlastic
+		p.FormFactor = "Custom"
+		p.Size = Vector3.new(0.2,0.2,0.2)
+		local SurfaceGui9 = Instance.new("SurfaceGui")
+		local TextLabel9 = Instance.new("TextLabel")
+		local ImageLabel9 = Instance.new("ImageLabel")
+
+		SurfaceGui9.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
+		SurfaceGui9.Face = Enum.NormalId.Back
+		SurfaceGui9.LightInfluence = 1.000
+
+		TextLabel9.Parent = SurfaceGui9
+		TextLabel9.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+		TextLabel9.BackgroundTransparency = 1.000
+		TextLabel9.Position = UDim2.new(-2.25, 0, -2.25, 0)
+		TextLabel9.Size = UDim2.new(5, 0, 5, 0)
+		TextLabel9.ZIndex = 6
+		TextLabel9.Font = Enum.Font.SourceSansBold
+		TextLabel9.Text = "RISE"
+		TextLabel9.TextColor3 = Color3.fromRGB(255, 255, 255)
+		TextLabel9.TextScaled = true
+		TextLabel9.TextSize = 100.000
+		TextLabel9.TextWrapped = true
+
+		ImageLabel9.Parent = SurfaceGui9
+		ImageLabel9.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+		ImageLabel9.BackgroundTransparency = 1.000
+		ImageLabel9.Position = UDim2.new(-4, 0, -8.5, 0)
+		ImageLabel9.Size = UDim2.new(9, 0, 18, 0)
+		ImageLabel9.Image = "http://www.roblox.com/asset/?id=9700707645"
+
+		SurfaceGui9.Parent = p
+		local msh = Instance.new("BlockMesh", p)
+		msh.Scale = Vector3.new(9,17.5,0.5)
+		local motor = Instance.new("Motor", p)
+		motor.Part0 = p
+		motor.Part1 = torso
+		motor.MaxVelocity = 0.01
+		motor.C0 = CFrame.new(0,1.75,0) * CFrame.Angles(0,math.rad(90),0)
+		motor.C1 = CFrame.new(0,1,0.45) * CFrame.Angles(0,math.rad(90),0)
+		local wave = false
+		repeat wait(1/44)
+			local ang = 0.1
+			local oldmag = torso.Velocity.magnitude
+			local mv = 0.002
+			if wave then
+				ang = ang + ((torso.Velocity.magnitude/10) * 0.05) + 0.05
+				wave = false
+			else
+				wave = true
+			end
+			ang = ang + math.min(torso.Velocity.magnitude/11, 0.5)
+			motor.MaxVelocity = math.min((torso.Velocity.magnitude/111), 0.04) + mv
+			motor.DesiredAngle = -ang
+			if motor.CurrentAngle < -0.2 and motor.DesiredAngle > -0.2 then
+				motor.MaxVelocity = 0.04
+			end
+			repeat wait() until motor.CurrentAngle == motor.DesiredAngle or math.abs(torso.Velocity.magnitude - oldmag) >= (torso.Velocity.magnitude/10) + 1
+			if torso.Velocity.magnitude < 0.1 then
+				wait(0.1)
+			end
+		until not p or p.Parent ~= torso.Parent
+	end)
+	repeat wait() until plr and plr.Character and plr.Character:FindFirstChild("Humanoid")
+	if plr.Character:FindFirstChild("Torso") then
+		torso = plr.Character.Torso
+	else
+		torso = plr.Character.UpperTorso
+	end
+	local p = Instance.new("Part", torso.Parent)
+	p.Name = "Cape"
+	p.Anchored = false
+	p.CanCollide = false
+	p.TopSurface = 0
+	p.BottomSurface = 0
+	p.BrickColor = BrickColor.new("Black")
+	p.Material = Enum.Material.SmoothPlastic
+	p.FormFactor = "Custom"
+	p.Size = Vector3.new(0.2,0.2,0.2)
+
+	local SurfaceGui9 = Instance.new("SurfaceGui")
+	local TextLabel9 = Instance.new("TextLabel")
+	local ImageLabel9 = Instance.new("ImageLabel")
+
+	SurfaceGui9.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
+	SurfaceGui9.Face = Enum.NormalId.Back
+	SurfaceGui9.LightInfluence = 1.000
+	SurfaceGui9.SizingMode = Enum.SurfaceGuiSizingMode.PixelsPerStud
+
+	TextLabel9.Parent = SurfaceGui9
+	TextLabel9.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+	TextLabel9.BackgroundTransparency = 1.000
+	TextLabel9.Position = UDim2.new(-2.25, 0, -2.25, 0)
+	TextLabel9.Size = UDim2.new(5, 0, 5, 0)
+	TextLabel9.ZIndex = 6
+	TextLabel9.Font = Enum.Font.SourceSansBold
+	TextLabel9.Text = "RISE"
+	TextLabel9.TextColor3 = Color3.fromRGB(255, 255, 255)
+	TextLabel9.TextScaled = true
+	TextLabel9.TextSize = 100.000
+	TextLabel9.TextWrapped = true
+
+	ImageLabel9.Parent = SurfaceGui9
+	ImageLabel9.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+	ImageLabel9.BackgroundTransparency = 1.000
+	ImageLabel9.Position = UDim2.new(-4, 0, -8.5, 0)
+	ImageLabel9.Size = UDim2.new(9, 0, 18, 0)
+	ImageLabel9.Image = "http://www.roblox.com/asset/?id=9700707645"
+
+	SurfaceGui9.Parent = p
+	local msh = Instance.new("BlockMesh", p)
+	msh.Scale = Vector3.new(9,17.5,0.5)
+	local motor = Instance.new("Motor", p)
+	motor.Part0 = p
+	motor.Part1 = torso
+	motor.MaxVelocity = 0.01
+	motor.C0 = CFrame.new(0,1.75,0) * CFrame.Angles(0,math.rad(90),0)
+	motor.C1 = CFrame.new(0,1,0.45) * CFrame.Angles(0,math.rad(90),0)
+	local wave = false
+	coroutine.resume(coroutine.create(function()
+		repeat wait(1/44)
+			local ang = 0.1
+			local oldmag = torso.Velocity.magnitude
+			local mv = 0.002
+			if wave then
+				ang = ang + ((torso.Velocity.magnitude/10) * 0.05) + 0.05
+				wave = false
+			else
+				wave = true
+			end
+			ang = ang + math.min(torso.Velocity.magnitude/11, 0.5)
+			motor.MaxVelocity = math.min((torso.Velocity.magnitude/111), 0.04) + mv
+			motor.DesiredAngle = -ang
+			if motor.CurrentAngle < -0.2 and motor.DesiredAngle > -0.2 then
+				motor.MaxVelocity = 0.04
+			end
+			repeat wait() until motor.CurrentAngle == motor.DesiredAngle or math.abs(torso.Velocity.magnitude - oldmag) >= (torso.Velocity.magnitude/10) + 1
+			if torso.Velocity.magnitude < 0.1 then
+				wait(0.1)
+			end
+		until not p or p.Parent ~= torso.Parent
+	end))
+	cape = p
+	while wait(1) do
+		pcall(function()
+			while wait() do
+				if cape then
+					if dropDownCape[2][1].Text == "false" then
+						cape.Transparency = 1
+						if cape:FindFirstChild("SurfaceGui") then
+							cape:FindFirstChild("SurfaceGui").Enabled = false
+						end
+					else
+						cape.Transparency = 0
+						cape:FindFirstChild("SurfaceGui").Enabled = true
+					end
+				end
+			end
+		end)
+	end
+end))
 coroutine.resume(coroutine.create(function()
 	while wait(1) do
 		if dropDownCustomize[2][1].Text == "Normal" then
 			GitSets.Colors = {Color3.fromRGB(85, 255, 127),Color3.fromRGB(85, 255, 255)}
-			
+
 		elseif dropDownCustomize[2][1].Text == "Cotton" then
 			GitSets.Colors = {Color3.fromRGB(255, 85, 255),Color3.fromRGB(85, 170, 255)}
+		elseif dropDownCustomize[2][1].Text == "BG" then
+			GitSets.Colors = {Color3.fromRGB(255, 255, 255),Color3.fromRGB(172, 172, 172)}
+		elseif dropDownCustomize[2][1].Text == "Sunset" then
+			GitSets.Colors = {Color3.fromRGB(255, 255, 127),Color3.fromRGB(255, 170, 127)}
 		end
 		if dropDownCustomize[2][2].Text == "true" then
 			opBar.BackgroundTransparency = .2
@@ -988,37 +1271,37 @@ coroutine.resume(coroutine.create(function()
 		while wait(1) do
 			pcall(function()
 				while wait() do
-		if dropDownScaffold[2][1].Text == "true" then
-		local raycastParams = RaycastParams.new()
-		raycastParams.FilterType = Enum.RaycastFilterType.Blacklist
-		raycastParams.FilterDescendantsInstances = {game.Players.LocalPlayer.Character:GetDescendants()}
-		raycastParams.IgnoreWater = true
+					if dropDownScaffold[2][1].Text == "true" then
+						local raycastParams = RaycastParams.new()
+						raycastParams.FilterType = Enum.RaycastFilterType.Blacklist
+						raycastParams.FilterDescendantsInstances = {game.Players.LocalPlayer.Character:GetDescendants()}
+						raycastParams.IgnoreWater = true
 
-		local raycastResult5 = workspace:Raycast(game.Players.LocalPlayer.Character.HumanoidRootPart.Position - Vector3.new(0,(game.Players.LocalPlayer.Character.Humanoid.HipHeight/2),0), game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame.UpVector * -3/2, raycastParams)
-		local cd = game.Players.LocalPlayer.Character.HumanoidRootPart.Position - Vector3.new(0,game.Players.LocalPlayer.Character.Humanoid.HipHeight+(game.Players.LocalPlayer.Character.Humanoid.HipHeight/2),0) + Vector3.new(game.Players.LocalPlayer.Character.HumanoidRootPart.Velocity.X/5,game.Players.LocalPlayer.Character.HumanoidRootPart.Velocity.Y/45,game.Players.LocalPlayer.Character.HumanoidRootPart.Velocity.Z/5)
-		local args = {
-			[1] = {
-				["position"] = roundPos(cd,3);
-				["blockType"] = "wool_".. string.lower(game.Players.LocalPlayer.Team.Name)
-			}
-		}
-	
-		if not raycastResult5 then
-			game:GetService("ReplicatedStorage").rbxts_include.node_modules.net.out._NetManaged.PlaceBlock:InvokeServer(unpack(args))
-			raycastResult5 = workspace:Raycast(game.Players.LocalPlayer.Character.HumanoidRootPart.Position - Vector3.new(0,(game.Players.LocalPlayer.Character.Humanoid.HipHeight/2),0), game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame.UpVector * -3/2, raycastParams)
-			if raycastResult5 then
-				cd = game.Players.LocalPlayer.Character.HumanoidRootPart.Position - Vector3.new(0,game.Players.LocalPlayer.Character.Humanoid.HipHeight+(game.Players.LocalPlayer.Character.Humanoid.HipHeight/2),0) 
-				local args = {
-				[1] = {
-					["position"] = roundPos(cd,3);
-					["blockType"] = "wool_".. string.lower(game.Players.LocalPlayer.Team.Name)
-					}
-				}
-				game:GetService("ReplicatedStorage").rbxts_include.node_modules.net.out._NetManaged.PlaceBlock:InvokeServer(unpack(args))
-			end
-		end
-			end
-		end
+						local raycastResult5 = workspace:Raycast(game.Players.LocalPlayer.Character.HumanoidRootPart.Position - Vector3.new(0,(game.Players.LocalPlayer.Character.Humanoid.HipHeight/2),0), game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame.UpVector * -3/2, raycastParams)
+						local cd = game.Players.LocalPlayer.Character.HumanoidRootPart.Position - Vector3.new(0,game.Players.LocalPlayer.Character.Humanoid.HipHeight+(game.Players.LocalPlayer.Character.Humanoid.HipHeight/2),0) + Vector3.new(game.Players.LocalPlayer.Character.HumanoidRootPart.Velocity.X/5,game.Players.LocalPlayer.Character.HumanoidRootPart.Velocity.Y/45,game.Players.LocalPlayer.Character.HumanoidRootPart.Velocity.Z/5)
+						local args = {
+							[1] = {
+								["position"] = roundPos(cd,3);
+								["blockType"] = "wool_".. string.lower(game.Players.LocalPlayer.Team.Name)
+							}
+						}
+
+						if not raycastResult5 then
+							game:GetService("ReplicatedStorage").rbxts_include.node_modules.net.out._NetManaged.PlaceBlock:InvokeServer(unpack(args))
+							raycastResult5 = workspace:Raycast(game.Players.LocalPlayer.Character.HumanoidRootPart.Position - Vector3.new(0,(game.Players.LocalPlayer.Character.Humanoid.HipHeight/2),0), game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame.UpVector * -3/2, raycastParams)
+							if raycastResult5 then
+								cd = game.Players.LocalPlayer.Character.HumanoidRootPart.Position - Vector3.new(0,game.Players.LocalPlayer.Character.Humanoid.HipHeight+(game.Players.LocalPlayer.Character.Humanoid.HipHeight/2),0) 
+								local args = {
+									[1] = {
+										["position"] = roundPos(cd,3);
+										["blockType"] = "wool_".. string.lower(game.Players.LocalPlayer.Team.Name)
+									}
+								}
+								game:GetService("ReplicatedStorage").rbxts_include.node_modules.net.out._NetManaged.PlaceBlock:InvokeServer(unpack(args))
+							end
+						end
+					end
+				end
 			end)
 		end
 	end
@@ -1432,7 +1715,7 @@ coroutine.resume(coroutine.create(function()
 				if dropDownSpeed[2][6].Text == "true" and (GitSets.Move_W or GitSets.Move_A or GitSets.Move_S or GitSets.Move_D) then
 					game.Players.LocalPlayer.Character.Humanoid.Jump = true
 				end
-				
+
 				if dropDownSpeed[2][4].Text == "true" then
 					waitime = 0
 					game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = 16
@@ -1832,6 +2115,7 @@ uIs.Thickness = 1
 uIs.Transparency = .9
 cornerGui(magt,14)
 magt.Size = UDim2.new(0.27, 0,1, 0)
+
 txtAim[1] = Instance.new("TextLabel",aimUI)
 txtAim[1].BackgroundTransparency = 1
 txtAim[1].Text = "Nil"
@@ -1881,26 +2165,30 @@ Sword_Fake.Position = UDim2.new(0.56232506, 0, 0.536062419, 0)
 Sword_Fake.Rotation = 260.000
 Sword_Fake.Size = UDim2.new(0.471734911, 0, 0.582845986, 0)
 Sword_Fake.Image = "http://www.roblox.com/asset/?id=3610692290"
+Sword_Fake.Visible = false
 
 local onAnimation = false
 local canAm = true
 
 game:GetService("RunService").RenderStepped:Connect(function()
-	if dropDownAim[2][6].Text ~= "None" then
-		Sword_Fake.Visible = true
-	else
-		Sword_Fake.Visible = false
-	end
+
 	if dropDownAim[2][1].Text == "true" then
 		local function closestPlayer()
 			local cpr = {tonumber(dropDownAim[2][4].Text),nil}
 			for _, jko in pairs(game.Players:GetChildren()) do
 				if jko then
 					if jko.Character then
-						if jko.Character:FindFirstChild("HumanoidRootPart") then
-							if (jko.Character.HumanoidRootPart.Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude <= cpr[1] and jko.Character.Humanoid.Health > 0 and jko.Character ~= game.Players.LocalPlayer.Character then
+						if jko.Character:FindFirstChild("HumanoidRootPart") and dropDownAim[2][1].Text == "true" then
+							if jko.Team ~= game.Players.LocalPlayer.Team and (jko.Character.HumanoidRootPart.Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude <= cpr[1] and jko.Character.Humanoid.Health > 0 and jko.Character ~= game.Players.LocalPlayer.Character then
 								cpr[1] = (jko.Character.HumanoidRootPart.Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude
 								cpr[2] = jko
+							end
+						else
+							if jko.Character:FindFirstChild("HumanoidRootPart") and dropDownAim[2][1].Text == "false" then
+								if (jko.Character.HumanoidRootPart.Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude <= cpr[1] and jko.Character.Humanoid.Health > 0 and jko.Character ~= game.Players.LocalPlayer.Character then
+									cpr[1] = (jko.Character.HumanoidRootPart.Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude
+									cpr[2] = jko
+								end
 							end
 						end
 					end
@@ -1976,29 +2264,7 @@ game:GetService("RunService").RenderStepped:Connect(function()
 				lastAimed = true
 				local hum = glos[2].Character.HumanoidRootPart
 				if hum then
-					if dropDownAim[2][6].Text ~= "None" and not onAnimation and canAm then
-						if dropDownAim[2][6].Text == "BlockHit" then
-							local startRot = 260
-							local startPos = UDim2.new(0.5, 0,0.554, 0)
-							local startSize = UDim2.new(0.472, 0,0.538, 0)
-							coroutine.resume(coroutine.create(function()
-								onAnimation = true
-								if dropDownAim[2][6].Text == "BlockHit" and canAm then
-									TweenCreate(Sword_Fake,.1,{Position = UDim2.new(0.5, 0,0.9, 0),Rotation = 300,Size = UDim2.new((startSize.X.Scale)/.75,0,(startSize.Y.Scale)/.75,0)})
-									wait(.1)
-									if dropDownAim[2][6].Text == "BlockHit" and canAm then
-										TweenCreate(Sword_Fake,.5,{Position = UDim2.new(0.5, 0,-0.3, 0),Rotation = 100,Size = startSize})
-										wait(.5)
-										if dropDownAim[2][6].Text == "BlockHit" and canAm then
-											TweenCreate(Sword_Fake,.05,{Rotation = 600})
-										end
 
-									end
-								end
-								onAnimation = false
-							end))
-						end
-					end
 					game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(game.Players.LocalPlayer.Character.HumanoidRootPart.Position,Vector3.new(hum.Position.X,game.Players.LocalPlayer.Character.HumanoidRootPart.Position.Y,hum.Position.Z))
 					local dur = (hum.Position - game.Players.LocalPlayer.Character.Head.Position).Unit 
 					if neckStart then
@@ -2049,29 +2315,7 @@ game:GetService("RunService").RenderStepped:Connect(function()
 			else
 				local hum = glos[2].Character.HumanoidRootPart
 				if hum then
-					if dropDownAim[2][6].Text ~= "None" and not onAnimation and canAm then
-						if dropDownAim[2][6].Text == "BlockHit" then
-							local startRot = 260
-							local startPos = UDim2.new(0.5, 0,0.554, 0)
-							local startSize = UDim2.new(0.472, 0,0.538, 0)
-							coroutine.resume(coroutine.create(function()
-								onAnimation = true
-								if dropDownAim[2][6].Text == "BlockHit" and canAm then
-									TweenCreate(Sword_Fake,.1,{Position = UDim2.new(0.5, 0,0.9, 0),Rotation = 180,Size = UDim2.new((startSize.X.Scale)/.75,0,(startSize.Y.Scale)/.75,0)})
-									wait(.1)
-									if dropDownAim[2][6].Text == "BlockHit" and canAm then
-										TweenCreate(Sword_Fake,.3,{Position = startPos,Rotation = 290,Size = startSize})
-										wait(.3)
-										if dropDownAim[2][6].Text == "BlockHit" and canAm then
-											TweenCreate(Sword_Fake,.05,{Rotation = 200})
-										end
 
-									end
-								end
-								onAnimation = false
-							end))
-						end
-					end
 					game.Workspace.CurrentCamera.CFrame = CFrame.new(game.Workspace.CurrentCamera.CFrame.Position,glos[2].Character.PrimaryPart.Position)
 					local dur = (hum.Position - game.Players.LocalPlayer.Character.Head.Position).Unit 
 					if neckStart then
@@ -2239,7 +2483,7 @@ if true then
 	end))
 
 	game.Players.PlayerAdded:Connect(function(v)
-		
+
 		v.CharacterAdded:Connect(function()
 			esp(v)
 		end)
@@ -2260,9 +2504,11 @@ coroutine.resume(coroutine.create(function()
 			while wait(1) do
 				if dropDownspin[2][2].Text == "true" and game.Players.LocalPlayer.Character.Humanoid.Health > 0 and game.Players.LocalPlayer.Character:FindFirstChild("HumanoidRootPart") then
 					local db = tonumber(dropDownspin[2][1].Text)
-					stable.Parent = game.Players.LocalPlayer.Character.HumanoidRootPart
+					
 					spinner.Parent = game.Players.LocalPlayer.Character.HumanoidRootPart
 					spinner.AngularVelocity = Vector3.new(0,db,0)
+					wait(.5)
+					stable.Parent = game.Players.LocalPlayer.Character.HumanoidRootPart
 				else
 					spinner.Parent = GitSets.Parent
 					stable.Parent = GitSets.Parent
