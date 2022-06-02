@@ -1266,46 +1266,58 @@ end))
 function roundPos(vec,pd)
 	return Vector3.new(math.floor((vec.X)/pd + .5),math.floor((vec.Y)/pd + .5),math.floor((vec.Z)/pd + .5))
 end
-coroutine.resume(coroutine.create(function()
-	if dropDownScaffold then
-		while wait(1) do
-			pcall(function()
-				while wait() do
-					if dropDownScaffold[2][1].Text == "true" then
-						local raycastParams = RaycastParams.new()
-						raycastParams.FilterType = Enum.RaycastFilterType.Blacklist
-						raycastParams.FilterDescendantsInstances = {game.Players.LocalPlayer.Character:GetDescendants()}
-						raycastParams.IgnoreWater = true
-
-						local raycastResult5 = workspace:Raycast(game.Players.LocalPlayer.Character.HumanoidRootPart.Position - Vector3.new(0,(game.Players.LocalPlayer.Character.Humanoid.HipHeight/2),0), game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame.UpVector * -3/2, raycastParams)
-						local cd = game.Players.LocalPlayer.Character.HumanoidRootPart.Position - Vector3.new(0,game.Players.LocalPlayer.Character.Humanoid.HipHeight+(game.Players.LocalPlayer.Character.Humanoid.HipHeight/2),0) + Vector3.new(game.Players.LocalPlayer.Character.HumanoidRootPart.Velocity.X/5,game.Players.LocalPlayer.Character.HumanoidRootPart.Velocity.Y/45,game.Players.LocalPlayer.Character.HumanoidRootPart.Velocity.Z/5)
-						local args = {
-							[1] = {
-								["position"] = roundPos(cd,3);
-								["blockType"] = "wool_".. string.lower(game.Players.LocalPlayer.Team.Name)
-							}
-						}
-
-						if not raycastResult5 then
-							game:GetService("ReplicatedStorage").rbxts_include.node_modules.net.out._NetManaged.PlaceBlock:InvokeServer(unpack(args))
-							raycastResult5 = workspace:Raycast(game.Players.LocalPlayer.Character.HumanoidRootPart.Position - Vector3.new(0,(game.Players.LocalPlayer.Character.Humanoid.HipHeight/2),0), game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame.UpVector * -3/2, raycastParams)
-							if raycastResult5 then
-								cd = game.Players.LocalPlayer.Character.HumanoidRootPart.Position - Vector3.new(0,game.Players.LocalPlayer.Character.Humanoid.HipHeight+(game.Players.LocalPlayer.Character.Humanoid.HipHeight/2),0) 
-								local args = {
-									[1] = {
-										["position"] = roundPos(cd,3);
-										["blockType"] = "wool_".. string.lower(game.Players.LocalPlayer.Team.Name)
-									}
-								}
-								game:GetService("ReplicatedStorage").rbxts_include.node_modules.net.out._NetManaged.PlaceBlock:InvokeServer(unpack(args))
-							end
-						end
-					end
-				end
-			end)
-		end
+function roundPosr(vec,pd)
+	return Vector3.new(math.floor((vec.X)/pd + .5)*pd,math.floor((vec.Y)/pd + .5)*pd,math.floor((vec.Z)/pd + .5)*pd)
+end
+function ro()
+	local rp =Instance.new("Part")
+	rp.Size = Vector3.new(3,3,3)
+	rp.Anchored = true
+	rp.CanCollide = false
+	rp.Parent = workspace
+	rp.Color = Color3.fromRGB(50,50,255)
+	return rp
+end
+local b1 = ro()
+local b2 = ro()
+game:GetService("RunService").Stepped:Connect(function()
+b1.Color = GitSets.Colors[1]
+b2.Color = GitSets.Colors[2]
+if dropDownScaffold[2][1].Text == "true" then
+	local raycastParams = RaycastParams.new()
+	raycastParams.FilterType = Enum.RaycastFilterType.Blacklist
+	raycastParams.FilterDescendantsInstances = {game.Players.LocalPlayer.Character:GetDescendants()}
+	raycastParams.IgnoreWater = true
+	local cd = game.Players.LocalPlayer.Character.HumanoidRootPart.Position - Vector3.new(0,game.Players.LocalPlayer.Character.Humanoid.HipHeight+3.5,0) + Vector3.new(game.Players.LocalPlayer.Character.HumanoidRootPart.Velocity.X/4,game.Players.LocalPlayer.Character.HumanoidRootPart.Velocity.Y/50,game.Players.LocalPlayer.Character.HumanoidRootPart.Velocity.Z/4)
+	local raycastResult5 = workspace:Raycast(roundPos(cd,3), game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame.UpVector * -3/2, raycastParams)
+	local args = {
+		[1] = {
+			["position"] = roundPos(cd,3);
+			["blockType"] = "wool_".. string.lower(game.Players.LocalPlayer.Team.Name)
+		}
+	}
+	b1.Position = roundPosr(cd,3)
+	if not raycastResult5 then
+		game:GetService("ReplicatedStorage").rbxts_include.node_modules.net.out._NetManaged.PlaceBlock:InvokeServer(unpack(args))
+		raycastResult5 = workspace:Raycast(game.Players.LocalPlayer.Character.HumanoidRootPart.Position - Vector3.new(0,(game.Players.LocalPlayer.Character.Humanoid.HipHeight/2),0), game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame.UpVector * -3/2, raycastParams)
 	end
-end))
+	cd = game.Players.LocalPlayer.Character.HumanoidRootPart.Position - Vector3.new(0,game.Players.LocalPlayer.Character.Humanoid.HipHeight+3.5,0) + Vector3.new(game.Players.LocalPlayer.Character.HumanoidRootPart.Velocity.X/9,game.Players.LocalPlayer.Character.HumanoidRootPart.Velocity.Y/50,game.Players.LocalPlayer.Character.HumanoidRootPart.Velocity.Z/4)
+	raycastResult5 = workspace:Raycast(roundPos(cd,3), game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame.UpVector * -3/2, raycastParams)
+	b2.Position = roundPosr(cd,3)
+	args = {
+		[1] = {
+			["position"] = roundPos(cd,3);
+			["blockType"] = "wool_".. string.lower(game.Players.LocalPlayer.Team.Name)
+		}
+	}
+	
+	if not raycastResult5 then
+		game:GetService("ReplicatedStorage").rbxts_include.node_modules.net.out._NetManaged.PlaceBlock:InvokeServer(unpack(args))
+		raycastResult5 = workspace:Raycast(game.Players.LocalPlayer.Character.HumanoidRootPart.Position - Vector3.new(0,(game.Players.LocalPlayer.Character.Humanoid.HipHeight/2),0), game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame.UpVector * -3/2, raycastParams)
+	end
+end
+end)
+
 coroutine.resume(coroutine.create(function()
 	while wait() do
 		if dropDownSPSCounter[2][1].Text == "true" then
@@ -1544,7 +1556,7 @@ coroutine.resume(coroutine.create(function()
 						local cn = true
 
 						if dropDownts[2][3].Text == "true" then
-							if not raycastResult1 and not raycastResult2 and not raycastResult3 and not raycastResult4 then
+							if raycastResult1 or raycastResult2 or raycastResult3 or raycastResult4 then
 								cn = false
 							end
 						end
@@ -2242,7 +2254,7 @@ game:GetService("RunService").RenderStepped:Connect(function()
 						}
 					}
 					if sword and (glos[2].Character.HumanoidRootPart.Position - game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.Position).Magnitude <= 16 then
-						game:GetService("ReplicatedStorage").rbxts_include.node_modules.net.out._NetManaged.hLdDqlzqodZjifnvjmnjpbgdN:InvokeServer(unpack(args))
+						game:GetService("ReplicatedStorage").rbxts_include.node_modules.net.out._NetManaged.SwordHit:InvokeServer(unpack(args))
 					end
 
 				else
