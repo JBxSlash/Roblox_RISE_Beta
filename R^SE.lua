@@ -42,7 +42,7 @@ local GitSets = {
 	["GPE_Disabler_Bypass"] = false;
 	["Version"] = 16;
 	["Blur_Settings"] = {Instance.new("BlurEffect"),15};
-	["Parent"] = game.Players.LocalPlayer.PlayerGui;
+	["Parent"] = game.CoreGui;
 
 
 
