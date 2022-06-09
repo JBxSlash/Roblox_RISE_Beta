@@ -1930,7 +1930,12 @@ coroutine.resume(coroutine.create(function()
 
 				clone.Parent = workspace
 				game.Players.LocalPlayer.Character = clone
-
+				local stable = Instance.new("BodyGyro")
+				stable.Name = "AutoRotate"
+				stable.P = 9e9
+				stable.MaxTorque = Vector3.new(9e9,0,9e9)
+				game.Players.LocalPlayer.Character.Archivable = true
+				stable.Parent = char.PrimaryPart
 
 				local rn = game:GetService("RunService").Stepped:Connect(function()
 					if char:FindFirstChild("HumanoidRootPart") then
@@ -2007,7 +2012,10 @@ coroutine.resume(coroutine.create(function()
 						local cf = clone.PrimaryPart.CFrame
 						clone.PrimaryPart.CFrame = CFrame.new(Vector3.new(0,0,0))
 						char:MoveTo(cb)
+						char.PrimaryPart.CFrame = cf
 						clone.PrimaryPart.CFrame = cf
+						stable.CFrame = cf + cf.LookVector * 5
+						
 					end
 				end
 				hb = {}
@@ -2018,6 +2026,9 @@ coroutine.resume(coroutine.create(function()
 				can = false
 				pcall(function()
 					clone:Destroy()
+				end)
+				pcall(function()
+					
 					game.Players.LocalPlayer.Character = char
 					game.Workspace.CurrentCamera.CameraSubject = char.Humanoid
 					rn:Disconnect()
