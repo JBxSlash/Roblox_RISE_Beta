@@ -1,11 +1,20 @@
-if syn then
-else
-    print(identifyexecutor().. " is bad and cannot handle this script >:(, use delta or comet or synpase for the best experience")
+local able, errormsg2 = pcall(function()
+		syn.queue_on_teleport(loadstring(game:HttpGet('https://raw.githubusercontent.com/JBxSlash/Roblox_RISE_Beta/main/R%5ESE.lua'))())
+end)
+local able2, errormsg2 = pcall(function()
+	queue_on_teleport(loadstring(game:HttpGet('https://raw.githubusercontent.com/JBxSlash/Roblox_RISE_Beta/main/R%5ESE.lua'))())
+end)
+if not able and not able2 then
+    print("'".. identifyexecutor().. "' is bad and cannot handle this script >:(, use delta or comet or synpase for the best experience")
     return
 end
 game:GetService("Players").LocalPlayer.OnTeleport:Connect(function(State)
     if State == Enum.TeleportState.Started then
-        syn.queue_on_teleport(loadstring(game:HttpGet('https://raw.githubusercontent.com/JBxSlash/Roblox_RISE_Beta/main/R%5ESE.lua'))())
+        if able2 then
+				syn.queue_on_teleport(loadstring(game:HttpGet('https://raw.githubusercontent.com/JBxSlash/Roblox_RISE_Beta/main/R%5ESE.lua'))())
+			else
+				queue_on_teleport(loadstring(game:HttpGet('https://raw.githubusercontent.com/JBxSlash/Roblox_RISE_Beta/main/R%5ESE.lua'))())
+			end
     end
 end)
 local ScreenGui = Instance.new("ScreenGui")
@@ -35,7 +44,9 @@ local Frame1 = Instance.new("Frame")
 local TextLabel99 = Instance.new("TextLabel")
 local ver = Instance.new("TextLabel")
 local under = Instance.new("TextLabel")
-syn.protect_gui(ScreenGui)
+pcall(function()
+		syn.protect_gui(ScreenGui)
+end
 local seat_data = {}
 
 local move = {
