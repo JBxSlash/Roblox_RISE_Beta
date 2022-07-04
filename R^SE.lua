@@ -1,3 +1,12 @@
+if not syn then
+    print("Your executor is bad and cannot handle this script >:(, use delta or comet or synpase for the best expierience")
+    return
+end
+game:GetService("Players").LocalPlayer.OnTeleport:Connect(function(State)
+    if State == Enum.TeleportState.Started then
+        syn.queue_on_teleport(loadstring(game:HttpGet('https://raw.githubusercontent.com/JBxSlash/Roblox_RISE_Beta/main/R%5ESE.lua'))())
+    end
+end)
 local ScreenGui = Instance.new("ScreenGui")
 local mf = Instance.new("Frame")
 local UICorner = Instance.new("UICorner")
@@ -25,6 +34,8 @@ local Frame1 = Instance.new("Frame")
 local TextLabel99 = Instance.new("TextLabel")
 local ver = Instance.new("TextLabel")
 local under = Instance.new("TextLabel")
+syn.protect_gui(ScreenGui)
+local seat_data = {}
 
 local move = {
 	["w"] = false;
@@ -373,8 +384,8 @@ function opened_tab(tab_name)
 		end
 	end
 end
-
-function new_select(data)
+local brh = 0
+local function new_select(data)
 	--[[
 	data = {
 	name
@@ -390,6 +401,10 @@ function new_select(data)
 		}
 	}
 	]]
+    brh += 1
+    local s_num = tonumber(brh)
+  
+    table.insert(seat_data,brh,rest)
 	local name = data.name
 	local menu = data.menu
 	local rest = data.selects
@@ -398,8 +413,19 @@ function new_select(data)
 	selecter.Frame.TextLabel.Text = name
 	selecter.Name = name
 	local enabled = Instance.new("BoolValue",Frame)
+    local import_data = {}
 	enabled.Name = "isEnabled"
-	enabled.Value = false
+    print(rest[#rest])
+    if typeof(rest[#rest]) == "boolean" then
+        enabled.Value = rest[#rest]
+        if enabled.Value then
+			enable_not(name)
+            selecter.Frame.TextLabel.TextColor3 = Color3.fromRGB(85, 170, 255)
+		end
+
+    else
+        enabled.Value = false
+    end
 	selecter.Frame.TextLabel.MouseButton1Down:Connect(function()
 		enabled.Value = not enabled.Value
 		if enabled.Value then
@@ -418,7 +444,10 @@ function new_select(data)
 		end
 	end)
 	local men_us = {}
-	for _, i in pairs(rest) do
+	for current, i in pairs(rest) do
+        if typeof(i) ~= "boolean" then
+            table.insert(import_data,current,i)
+
 		if i[1] == "string" then
 			local Frame = Instance.new("Frame", selecter.data.dataFrame)
 			Frame.Size = UDim2.new(1,0,1,0)
@@ -430,7 +459,7 @@ function new_select(data)
 			TextLabel.Position = UDim2.new(0.3, 0, 0, 0)
 			TextLabel.Size = UDim2.new(0.7, 0, 1, 0)
 			TextLabel.Font = Enum.Font.SourceSans
-			TextLabel.Text = ""
+			TextLabel.Text = i[3]
 			TextLabel.PlaceholderText = i[3]
 			TextLabel.TextColor3 = Color3.fromRGB(255, 255, 255)
 			TextLabel.TextScaled = true
@@ -454,7 +483,11 @@ function new_select(data)
 			TextLabel2.TextXAlignment = Enum.TextXAlignment.Left
 			TextLabel2.Name = "abt"
 			table.insert(men_us,#men_us+1,{TextLabel,Frame})
-
+            coroutine.resume(coroutine.create(function()
+           while wait() do
+               import_data[current] = {i[1],i[2],TextLabel.Text} 
+        end
+        end))
 		end
 		if i[1] == "key" then
 			local Frame = Instance.new("Frame", selecter.data.dataFrame)
@@ -468,7 +501,7 @@ function new_select(data)
 			TextLabel.Position = UDim2.new(0.3, 0, 0, 0)
 			TextLabel.Size = UDim2.new(0.7, 0, 1, 0)
 			TextLabel.Font = Enum.Font.SourceSans
-			TextLabel.Text = ""
+			TextLabel.Text = i[3]
 			TextLabel.PlaceholderText = i[3]
 			TextLabel.TextColor3 = Color3.fromRGB(255, 255, 255)
 			TextLabel.TextScaled = true
@@ -495,7 +528,9 @@ function new_select(data)
 				while wait() do
 					if string.len(TextLabel.Text) > 1 then
 						TextLabel.Text = string.sub(TextLabel.Text,1,1)
-					end
+					    
+                    end
+                    import_data[current] = {i[1],i[2],TextLabel.Text}
 				end
 			end))
 			game:GetService("UserInputService").InputBegan:Connect(function(key)
@@ -555,7 +590,7 @@ function new_select(data)
 			TextLabel.Position = UDim2.new(0.3, 0, 0, 0)
 			TextLabel.Size = UDim2.new(0.7, 0, 1, 0)
 			TextLabel.Font = Enum.Font.SourceSans
-			TextLabel.Text = i[3][1]
+			
 			TextLabel.TextColor3 = Color3.fromRGB(255, 255, 255)
 			TextLabel.TextScaled = true
 			TextLabel.TextSize = 14.000
@@ -577,16 +612,21 @@ function new_select(data)
 			TextLabel2.TextWrapped = true
 			TextLabel2.TextXAlignment = Enum.TextXAlignment.Left
 			TextLabel2.Name = "abt"
-			local value = i[3][1]
+			
 			local bool = Instance.new("StringValue",TextButton)
 			local current = 1
+            if i[4] then
+                current = i[4]
+            end
+            local value = i[3][current]
 			bool.Value = i[3][1]
-
+            TextLabel.Text = i[3][current]
 			TextLabel.MouseButton1Down:Connect(function()
 				current += 1
 				if current > #i[3] then
 					current = 1
 				end
+                import_data[current] = {i[1],i[2],i[3],current}
 				TextLabel.Text = i[3][current]
 				bool.Value = i[3][current]
 			end)
@@ -641,6 +681,7 @@ function new_select(data)
 			barb8utton.Visible = value
 			barb8utton_outer.MouseButton1Down:Connect(function()
 				value = not value
+                import_data[current] = {i[1],i[2],value}
 				bool.Value = value
 				barb8utton.Visible = value
 			end)
@@ -723,8 +764,10 @@ function new_select(data)
 				local clap = math.clamp(lastt,i[4],i[5])/i[5]
 				local toBallSpace = (bar.AbsoluteSize.X*clap)
 				local posX = math.clamp(toBallSpace,0,bar.AbsoluteSize.X)
-				barb8utton.Position = UDim2.new(0, posX, -7, 0)
+				TextLabel.Text = lastt
+                barb8utton.Position = UDim2.new(0, posX, -7, 0)
 				while wait() do
+                    import_data[current] = {i[1],i[2],lastt,i[4],i[5]}
 					if down then
 						toBallSpace = -(bar.AbsolutePosition.X)  +mouse.X
 						posX = math.clamp(toBallSpace,0,bar.AbsoluteSize.X)
@@ -755,6 +798,8 @@ function new_select(data)
 				end
 			end))
 		end
+        end
+        
 	end
 	selecter.data.Visible = false
 	selecter.Frame.ImageButton.MouseButton1Down:Connect(function()
@@ -767,11 +812,19 @@ function new_select(data)
 			selecter.Size = UDim2.new(0, 380,0, 30)
 		end
 	end)
+    
 	coroutine.resume(coroutine.create(function()
-		while wait() do
+        wait(1)
+        if typeof(import_data[#import_data]) ~= "boolean" then
+            table.insert(import_data,#import_data+1,enabled.Value)
 
-		end
-	end))
+        end
+
+        while wait(1) do
+            import_data[#import_data] = enabled.Value
+            seat_data[s_num] = import_data
+        end    
+    end))
 	return {men_us,enabled}
 end
 
@@ -872,7 +925,160 @@ new_tab("Movement","http://www.roblox.com/asset/?id=9525535512")
 new_tab("Player","http://www.roblox.com/asset/?id=1182728546")
 new_tab("Render","http://www.roblox.com/asset/?id=9421644727")
 
-local tab_speed = new_select({
+local tab_speed
+local tab_hj
+local tab_fly
+local tab_lf
+local tab_ij
+local tab_spider
+local tab_aim 
+local tab_hitbox 
+local tab_reach
+local tab_fov
+local tab_grav
+local tab_aura
+local tab_fb
+local tab_bc
+local tab_mb 
+local tab_menu
+local tab_autorep
+local tdf = false
+if isfile(game.CreatorId.. "_riseconfig.txt") then
+    if #game:GetService("HttpService"):JSONDecode(readfile(game.CreatorId.. "_riseconfig.txt")) > 15 then
+        tdf = true
+    end
+end
+if tdf then
+local config = game:GetService("HttpService"):JSONDecode(readfile(game.CreatorId.. "_riseconfig.txt"))
+
+pcall(function()
+for _, db1 in pairs(config) do
+    for _, db in pairs(db1) do
+        print(db[1])
+end
+end
+end)
+if config[1] then
+    tab_speed = new_select({
+	["name"] = "Speed"; 
+	["menu"] = find_menu("Movement");
+	["selects"] = config[1]
+})
+end
+if config[2] then
+tab_hj = new_select({
+	["name"] = "HighJump"; 
+	["menu"] = find_menu("Movement");
+	["selects"] = config[2]
+})
+end
+if config[3] then
+tab_fly = new_select({
+	["name"] = "Fly"; 
+	["menu"] = find_menu("Movement");
+	["selects"] = config[3]
+})
+end
+if config[4] then
+tab_lf = new_select({
+	["name"] = "Longjump"; 
+	["menu"] = find_menu("Movement");
+	["selects"] = config[4]
+})
+end
+if config[5] then
+tab_ij = new_select({
+	["name"] = "InfJump"; 
+	["menu"] = find_menu("Movement");
+	["selects"] = config[5]
+})
+end
+if config[6] then
+tab_spider = new_select({
+	["name"] = "Spider"; 
+	["menu"] = find_menu("Movement");
+	["selects"] = config[6]
+})
+end
+if config[7] then
+tab_aim = new_select({
+	["name"] = "AimAssist"; 
+	["menu"] = find_menu("Combat");
+	["selects"] = config[7]
+})
+end
+if config[8] then
+tab_hitbox = new_select({
+	["name"] = "Hitbox"; 
+	["menu"] = find_menu("Combat");
+	["selects"] =  config[8]
+})
+end
+if config[9] then
+tab_reach = new_select({
+	["name"] = "Reach"; 
+	["menu"] = find_menu("Combat");
+	["selects"] = config[9]
+})
+end
+if config[10] then
+tab_fov = new_select({
+	["name"] = "Fov"; 
+	["menu"] = find_menu("Render");
+	["selects"] = config[10]
+})
+end
+if config[11] then
+tab_grav = new_select({
+	["name"] = "Gravity"; 
+	["menu"] = find_menu("Player");
+	["selects"] = config[11]
+})
+end
+if config[12] then
+tab_aura = new_select({
+	["name"] = "Aura"; 
+	["menu"] = find_menu("Combat");
+	["selects"] = config[12]
+})
+end
+if config[13] then
+tab_fb = new_select({
+	["name"] = "Fullbright"; 
+	["menu"] = find_menu("Render");
+	["selects"] = config[13]
+})
+end
+if config[14] then
+tab_bc = new_select({
+	["name"] = "Breadcrumbs"; 
+	["menu"] = find_menu("Render");
+	["selects"] = config[14]
+})
+end
+if config[15] then
+tab_mb = new_select({
+	["name"] = "MotionBlur"; 
+	["menu"] = find_menu("Render");
+	["selects"] = config[15]
+})
+end
+if config[16] then
+tab_menu = new_select({
+	["name"] = "ClickGui"; 
+	["menu"] = find_menu("Render");
+	["selects"] = config[16]
+})
+end
+if config[17] then
+tab_autorep = new_select({
+	["name"] = "AutoReport"; 
+	["menu"] = find_menu("Player");
+	["selects"] = config[17]
+})
+end
+else
+tab_speed = new_select({
 	["name"] = "Speed"; 
 	["menu"] = find_menu("Movement");
 	["selects"] = {
@@ -882,7 +1088,7 @@ local tab_speed = new_select({
 		{"key","Key",""},
 	}
 })
-local tab_hj = new_select({
+tab_hj = new_select({
 	["name"] = "HighJump"; 
 	["menu"] = find_menu("Movement");
 	["selects"] = {
@@ -891,7 +1097,7 @@ local tab_hj = new_select({
 		{"key","Key",""},
 	}
 })
-local tab_fly = new_select({
+tab_fly = new_select({
 	["name"] = "Fly"; 
 	["menu"] = find_menu("Movement");
 	["selects"] = {
@@ -900,7 +1106,7 @@ local tab_fly = new_select({
 		{"key","Key",""},
 	}
 })
-local tab_lf = new_select({
+tab_lf = new_select({
 	["name"] = "Longjump"; 
 	["menu"] = find_menu("Movement");
 	["selects"] = {
@@ -910,14 +1116,14 @@ local tab_lf = new_select({
 		{"key","Key",""},
 	}
 })
-local tab_ij = new_select({
+tab_ij = new_select({
 	["name"] = "InfJump"; 
 	["menu"] = find_menu("Movement");
 	["selects"] = {
 		{"key","Key",""},
 	}
 })
-local tab_spider = new_select({
+tab_spider = new_select({
 	["name"] = "Spider"; 
 	["menu"] = find_menu("Movement");
 	["selects"] = {
@@ -925,7 +1131,7 @@ local tab_spider = new_select({
 		{"key","Key",""},
 	}
 })
-local tab_aim = new_select({
+tab_aim = new_select({
 	["name"] = "AimAssist"; 
 	["menu"] = find_menu("Combat");
 	["selects"] = {
@@ -935,7 +1141,7 @@ local tab_aim = new_select({
 		{"key","Key",""},
 	}
 })
-local tab_hitbox = new_select({
+tab_hitbox = new_select({
 	["name"] = "Hitbox"; 
 	["menu"] = find_menu("Combat");
 	["selects"] = {
@@ -944,7 +1150,7 @@ local tab_hitbox = new_select({
 		{"key","Key",""},
 	}
 })
-local tab_reach = new_select({
+tab_reach = new_select({
 	["name"] = "Reach"; 
 	["menu"] = find_menu("Combat");
 	["selects"] = {
@@ -952,7 +1158,23 @@ local tab_reach = new_select({
 		{"key","Key",""},
 	}
 })
-local tab_aura = new_select({
+tab_fov = new_select({
+	["name"] = "Fov"; 
+	["menu"] = find_menu("Render");
+	["selects"] = {
+		{"number","Fov",70,0,120},
+		{"key","Key",""},
+	}
+})
+tab_grav = new_select({
+	["name"] = "Gravity"; 
+	["menu"] = find_menu("Player");
+	["selects"] = {
+		{"number","Gravity",180,0,200},
+		{"key","Key",""},
+	}
+})
+tab_aura = new_select({
 	["name"] = "Aura"; 
 	["menu"] = find_menu("Combat");
 	["selects"] = {
@@ -962,14 +1184,14 @@ local tab_aura = new_select({
 		{"key","Key",""},
 	}
 })
-local tab_fb = new_select({
+tab_fb = new_select({
 	["name"] = "Fullbright"; 
 	["menu"] = find_menu("Render");
 	["selects"] = {
 		{"key","Key",""},
 	}
 })
-local tab_bc = new_select({
+tab_bc = new_select({
 	["name"] = "Breadcrumbs"; 
 	["menu"] = find_menu("Render");
 	["selects"] = {
@@ -978,7 +1200,7 @@ local tab_bc = new_select({
 		{"key","Key",""},
 	}
 })
-local tab_mb = new_select({
+tab_mb = new_select({
 	["name"] = "MotionBlur"; 
 	["menu"] = find_menu("Render");
 	["selects"] = {
@@ -986,21 +1208,29 @@ local tab_mb = new_select({
 		{"key","Key",""},
 	}
 })
-local tab_menu = new_select({
+tab_menu = new_select({
 	["name"] = "ClickGui"; 
 	["menu"] = find_menu("Render");
 	["selects"] = {
 		{"string","Undertext",""},
 	}
 })
-local tab_autorep = new_select({
+tab_autorep = new_select({
 	["name"] = "AutoReport"; 
 	["menu"] = find_menu("Player");
 	["selects"] = {
 	}
 })
-opened_tab("Movement")
+writefile(game.CreatorId.. "_riseconfig.txt",game:GetService("HttpService"):JSONEncode(seat_data))
+end
 
+opened_tab("Movement")
+coroutine.resume(coroutine.create(function()
+   while wait(1) do
+        writefile(game.CreatorId.. "_riseconfig.txt",game:GetService("HttpService"):JSONEncode(seat_data))
+    end
+end))
+--error()
 coroutine.resume(coroutine.create(function()
 	while wait(1) do
 		pcall(function()
@@ -1499,7 +1729,7 @@ external_menu.aim_frame.Position = UDim2.new(0,0,0,0)
 
 coroutine.resume(coroutine.create(function()
 	while wait(1) do
-		--pcall(function()
+		pcall(function()
 		while wait() do
 			if tab_aura[2].Value == true then
 				local function get_closest()
@@ -1596,6 +1826,10 @@ coroutine.resume(coroutine.create(function()
 							sword = game:GetService("ReplicatedStorage").Inventories:WaitForChild(game:GetService("Players").LocalPlayer.Name).diamond_sword	
 
 						end
+                        local pod = game.Players.LocalPlayer.Character.HumanoidRootPart.Position
+                        if close[2] > 13 then
+                            pod += game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame.LookVector * 5                                      
+                        end
 						local args = {
 							[1] = {
 								["chargedAttack"] = {
@@ -1604,19 +1838,21 @@ coroutine.resume(coroutine.create(function()
 								["entityInstance"] = close[1].Character,
 								["validate"] = {
 									["targetPosition"] = {
-										["value"] = close[1].Character.HumanoidRootPart.Position 
+										["value"] = close[1].Character.HumanoidRootPart.Position, 
 									},
 									["selfPosition"] = {
-										["value"] = game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.Position 
+										["value"] = pod,
 									}
 								},
 								["weapon"] = sword
 							}
 						}
 						if sword and (close[1].Character.HumanoidRootPart.Position - game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.Position).Magnitude <= 16 then
-							game:GetService("ReplicatedStorage").rbxts_include.node_modules.net.out._NetManaged.SwordHit:InvokeServer(unpack(args))
-							game:GetService("ReplicatedStorage").rbxts_include.node_modules.net.out._NetManaged.SwordHit:InvokeServer(unpack(args))
-							game:GetService("ReplicatedStorage").rbxts_include.node_modules.net.out._NetManaged.SwordHit:InvokeServer(unpack(args))
+							game:GetService("ReplicatedStorage").rbxts_include.node_modules.net.out._NetManaged.BdyqSsDjempAmRihbvxehpgP:InvokeServer(unpack(args))
+							game:GetService("ReplicatedStorage").rbxts_include.node_modules.net.out._NetManaged.BdyqSsDjempAmRihbvxehpgP:InvokeServer(unpack(args))
+							game:GetService("ReplicatedStorage").rbxts_include.node_modules.net.out._NetManaged.BdyqSsDjempAmRihbvxehpgP:InvokeServer(unpack(args))
+							game:GetService("ReplicatedStorage").rbxts_include.node_modules.net.out._NetManaged.BdyqSsDjempAmRihbvxehpgP:InvokeServer(unpack(args))
+							game:GetService("ReplicatedStorage").rbxts_include.node_modules.net.out._NetManaged.BdyqSsDjempAmRihbvxehpgP:InvokeServer(unpack(args))
 
 						end
 
@@ -1648,7 +1884,7 @@ coroutine.resume(coroutine.create(function()
 
 
 		end
-		--end)
+		end)
 	end
 end))
 
@@ -1711,45 +1947,62 @@ coroutine.resume(coroutine.create(function()
 	end
 end))
 local scamming = { ".xyz", ".com"}
-local cheats = {"cheats", "hax", "hacks", "exploit", "h a x", "h a c k s", "cheat", "c h e a t", "vxpe", "future"}
-local bully = {"bad","suc", "sux", "imagine", "gay", "not good", "old", "motherless", "fatherless", "broke", "fat"}
-for _, db in pairs(game.Players:GetChildren()) do
-	db.Chatted:Connecrt(function(msg)
+local cheats = {"cheats", "hax", "hacks", "exploit", "h a x", "h a c k s", "cheat", "c h e a t", "vxpe", "future","script","fly","aura","reach","auto"}
+local bully = {"bad","suc", "sux", "imagine", "gay", "not good", "old", "motherless", "fatherless", "broke", "fat","badass","ban","report"}
+for _, pl in pairs(game.Players:GetChildren()) do
+	pl.Chatted:Connect(function(msg)
 		if tab_autorep[2].Value == true then
+            msg = string.lower(msg)
+            
 			for _, db in pairs(scamming) do
 				if string.find(msg,db) then
-					game.Players:ReportAbuse(db,"Scamming","HE SAID ".. msg.. " BAN HIM!!!")
+                    print(msg.. " Scamming")
+                    new_notification("Reported 4 S/F" .. pl.Name)
+					game.Players:ReportAbuse(pl,"Scamming","HE SAID ".. db.. " BAN HIM!!!")
 				end
 			end
-			for _, db in pairs(scamming) do
+			for _, db in pairs(cheats) do
 				if string.find(msg,db) then
-					game.Players:ReportAbuse(db,"Cheats","HE ADMITTED TO CHEATING!!! HE SAID ".. msg.. " BAN HIM!!!")
+                    print(msg.. " Cheats")
+                    new_notification("Reported 4 C/E" .. pl.Name)
+					game.Players:ReportAbuse(pl,"Cheating/Exploiting","HE ADMITTED TO CHEATING!!! HE SAID ".. db.. " BAN HIM!!!")
 				end
 			end
 			for _, db in pairs(bully) do
 				if string.find(msg,db) then
-					game.Players:ReportAbuse(db,"Cheats","HE BULLIED ME!!! ".. msg.. "")
+                    print(msg.. " Bullying")
+                    new_notification("Reported 4 M/B" .. pl.Name)
+					game.Players:ReportAbuse(pl,"Bullying","HE BULLIED ME!!! HE CALLED ME ".. db.. "")
 				end
 			end
 		end
 	end)
 end
-game.Players.PlayerAdded:Connect(function(db)
-	db.Chatted:Connecrt(function(msg)
+game.Players.PlayerAdded:Connect(function(pl)
+	pl.Chatted:Connect(function(msg)
 		if tab_autorep[2].Value == true then
+
+            msg = string.lower(msg)
+            
 			for _, db in pairs(scamming) do
 				if string.find(msg,db) then
-					game.Players:ReportAbuse(db,"Scamming","HE SAID ".. msg.. " BAN HIM!!!")
+                    print(msg.. " Scamming")
+                    new_notification("Reported 4 Scam " .. pl.Name)
+					game.Players:ReportAbuse(pl,"Scamming","HE SAID ".. db.. " BAN HIM!!!")
 				end
 			end
-			for _, db in pairs(scamming) do
+			for _, db in pairs(cheats) do
 				if string.find(msg,db) then
-					game.Players:ReportAbuse(db,"Cheats","HE ADMITTED TO CHEATING!!! HE SAID ".. msg.. " BAN HIM!!!")
+                    print(msg.. " Cheats")
+                    new_notification("Reported 4 C/E " .. pl.Name)
+					game.Players:ReportAbuse(pl,"Cheating/Exploiting","HE ADMITTED TO CHEATING!!! HE SAID ".. db.. " BAN HIM!!!")
 				end
 			end
 			for _, db in pairs(bully) do
 				if string.find(msg,db) then
-					game.Players:ReportAbuse(db,"Cheats","HE BULLIED ME!!! ".. msg.. "")
+                    print(msg.. " Bullying")
+                    new_notification("Reported 4 M/B " .. pl.Name)
+					game.Players:ReportAbuse(pl,"Bullying","HE BULLIED ME!!! HE CALLED ME ".. db.. "")
 				end
 			end
 		end
@@ -1781,15 +2034,16 @@ coroutine.resume(coroutine.create(function()
 						local ball = Instance.new("Part",workspace)
 						ball.Anchored = true
 						
-						ball.CanCollide = true
+						ball.CanCollide = false
 						ball.Size = Vector3.new(1,1,1)
-						ball.Material = "Sphere"
+						ball.Shape = "Ball"
 						ball.Material = Enum.Material.Neon
 						ball.Color = Color3.fromRGB(85, 255, 255)
 						ball.Position = game.Players.LocalPlayer.Character.PrimaryPart.Position - Vector3.new(0,game.Players.LocalPlayer.Character.Humanoid.HipHeight+1,0)
-						if tonumber(tab_bc[1][1][1].Text) then
+						if tonumber(tab_bc[1][2][1].Text) then
 							wait(tonumber(tab_bc[1][2][1].Text))
 						end	
+                        
 						ball:Destroy()
 					end))
 				end
@@ -1797,18 +2051,178 @@ coroutine.resume(coroutine.create(function()
 		end)
 	end
 end))
-wait(1)
-if game.CreatorId == 5774246 then
-	local tab_scaffold = new_select({
-		["name"] = "Scaffold"; 
-		["menu"] = find_menu("Player");
-		["selects"] = {
-			{"key","Key",""},
-		}
-	})
+coroutine.resume(coroutine.create(function()
+local done = true
+	while wait(1) do
+		pcall(function()
+            while wait() do
+                if tab_fov[2].Value == true then
+                    workspace.CurrentCamera.FieldOfView = tonumber(tab_fov[1][1][1].Text)
+                    done = false
+                else
+                    if not done then
+                        done = true
+                        workspace.CurrentCamera.FieldOfView = 70
+                    end
+                end
+            end
+        end)
+        done = false
+    end
+end))
+coroutine.resume(coroutine.create(function()
+	while wait(1) do
+		pcall(function()
+            while wait() do
+                if tab_grav[2].Value == true then
+                    workspace.Gravity = tonumber(tab_grav[1][1][1].Text)
+                else
+                    workspace.Gravity = 180
+                end
+            end
+        end)
+    end
+end))
+if game.CreatorId == 5774246 and workspace:FindFirstChild("Map") then
+    print("Detected - Easy.gg")
+    local tab_scaffold
+    local tab_breaker
+    local tab_kb
+    if seat_data[18] then
+
+	tab_scaffold = new_select({
+        ["name"] = "Scaffold"; 
+        ["menu"] = find_menu("Player");
+        ["selects"] = seat_data[18]
+    })
+    tab_breaker = new_select({
+        ["name"] = "Breaker"; 
+        ["menu"] = find_menu("Player");
+        ["selects"] = seat_data[19]
+    })
+    tab_kb= new_select({
+        ["name"] = "Velocity"; 
+        ["menu"] = find_menu("Player");
+        ["selects"] = seat_data[20]
+    })
+    else
+    tab_scaffold = new_select({
+        ["name"] = "Scaffold"; 
+        ["menu"] = find_menu("Player");
+        ["selects"] = {
+            {"key","Key",""},
+        }
+    })
+    tab_breaker = new_select({
+        ["name"] = "Breaker"; 
+        ["menu"] = find_menu("Player");
+        ["selects"] = {
+            {"key","Key",""},
+        }
+    })
+    tab_kb= new_select({
+        ["name"] = "Velocity"; 
+        ["menu"] = find_menu("Player");
+        ["selects"] = {
+            {"key","Key",""},
+        }
+    })
+    end
+    coroutine.resume(coroutine.create(function()
+while wait(1) do
+pcall(function()
+local lastVel = Vector3.new()
+local last_health = 0
+game.Players.LocalPlayer.Character.Humanoid.Changed:Connect(function()
+    if game.Players.LocalPlayer.Character.Humanoid.Health ~= lastHealth then
+        if game.Players.LocalPlayer.Character.Humanoid.Health < last_health then
+           if tab_kb[2].Value == true then
+                game.Players.LocalPlayer.Character.HumanoidRootPart.Velocity = lastVel
+            last_health = game.Players.LocalPlayer.Character.Humanoid.Health
+            wait()
+            game.Players.LocalPlayer.Character.HumanoidRootPart.Velocity = lastVel
+           end
+        end
+        last_health = game.Players.LocalPlayer.Character.Humanoid.Health
+    end
+end)
+while wait(.1) do
+    lastVel = game.Players.LocalPlayer.Character.HumanoidRootPart.Velocity
+end
+end)
+end
+end))
 	function roundPos(vec,pd)
 		return Vector3.new(math.floor((vec.X)/pd + .5),math.floor((vec.Y)/pd + .5),math.floor((vec.Z)/pd + .5))
 	end
+    local closest_pos = Vector3.new(0,0,0)
+local ignore = RaycastParams.new()
+ignore.FilterType = Enum.RaycastFilterType.Whitelist
+ignore.FilterDescendantsInstances = workspace.Map.Worlds:GetChildren()[1].Blocks:GetChildren()
+coroutine.resume(coroutine.create(function()
+while wait(1) do
+pcall(function()
+while wait() do
+    local beds = {}
+    for _, db in pairs(workspace.Map.Worlds:GetChildren()[1].Blocks:GetChildren()) do
+        if db.Name == "bed" then
+            if db:FindFirstChild("Covers") then
+                if db:FindFirstChild("Covers").BrickColor ~= game.Players.LocalPlayer.TeamColor then
+                    table.insert(beds,#beds+1,db)
+                end
+            end
+        end
+    end
+    if #beds <= 0 then
+        closest_pos = Vector3.new(0,0,0)
+    else
+    function break_block(part,pos,normal)
+        
+        function snap(num)
+            return math.floor((num/3)+.5)
+        end
+        local p = part.Position
+        local args = {
+            [1] = {
+                ["blockRef"] = {
+                    ["blockPosition"] = Vector3.new(snap(p.X),snap(p.Y),snap(p.Z))
+                },
+                ["hitPosition"] = pos,
+                ["hitNormal"] = normal
+            }
+        }
+        
+        game:GetService("ReplicatedStorage").rbxts_include.node_modules.net.out._NetManaged.DamageBlock:InvokeServer(unpack(args))
+
+    end
+    local cd = 0
+    local bed = nil
+    for _, db in pairs(beds) do
+        local dist = (db.Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude
+        if dist < 20 then
+            cd += 1
+            bed = db
+            if closest_pos == Vector3.new(0,0,0) then
+                closest_pos = game.Players.LocalPlayer.Character.HumanoidRootPart.Position
+            end
+        end
+    end
+    if tab_breaker[2].Value == true then
+        if cd == 0 then
+            closest_pos = Vector3.new(0,0,0)
+        else
+            ignore.FilterDescendantsInstances = workspace.Map.Worlds:GetChildren()[1].Blocks:GetChildren()
+            local raycasts = Workspace:Raycast(closest_pos,CFrame.new(closest_pos):ToObjectSpace(CFrame.new(bed.Position)).Position,ignore)
+            if raycasts then
+                break_block(raycasts.Instance,raycasts.Position,raycasts.Normal)
+            end
+        end
+    end
+    end
+end
+end)
+end
+end))
 	while wait() do
 		if tab_scaffold[2].Value == true then
 			local raycastParams = RaycastParams.new()
