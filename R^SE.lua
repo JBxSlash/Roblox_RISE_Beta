@@ -1,4 +1,5 @@
-if not syn then
+if syn then
+else
     print("Your executor is bad and cannot handle this script >:(, use delta or comet or synpase for the best expierience")
     return
 end
