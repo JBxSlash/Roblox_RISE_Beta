@@ -1,6 +1,6 @@
 if syn then
 else
-    print("Your executor is bad and cannot handle this script >:(, use delta or comet or synpase for the best expierience")
+    print(identifyexecutor().. " is bad and cannot handle this script >:(, use delta or comet or synpase for the best experience")
     return
 end
 game:GetService("Players").LocalPlayer.OnTeleport:Connect(function(State)
