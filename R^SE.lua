@@ -46,7 +46,7 @@ local ver = Instance.new("TextLabel")
 local under = Instance.new("TextLabel")
 pcall(function()
 		syn.protect_gui(ScreenGui)
-end
+end)
 local seat_data = {}
 
 local move = {
