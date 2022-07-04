@@ -1,16 +1,10 @@
-local able, errormsg2 = pcall(function()
-		syn.queue_on_teleport(loadstring(game:HttpGet('https://raw.githubusercontent.com/JBxSlash/Roblox_RISE_Beta/main/R%5ESE.lua'))())
-end)
-local able2, errormsg2 = pcall(function()
-	queue_on_teleport(loadstring(game:HttpGet('https://raw.githubusercontent.com/JBxSlash/Roblox_RISE_Beta/main/R%5ESE.lua'))())
-end)
-if not able and not able2 then
+if not syn and not queue_on_teleport then
     print("'".. identifyexecutor().. "' is bad and cannot handle this script >:(, use delta or comet or synpase for the best experience")
     return
 end
 game:GetService("Players").LocalPlayer.OnTeleport:Connect(function(State)
     if State == Enum.TeleportState.Started then
-        if able2 then
+        if syn then
 				syn.queue_on_teleport(loadstring(game:HttpGet('https://raw.githubusercontent.com/JBxSlash/Roblox_RISE_Beta/main/R%5ESE.lua'))())
 			else
 				queue_on_teleport(loadstring(game:HttpGet('https://raw.githubusercontent.com/JBxSlash/Roblox_RISE_Beta/main/R%5ESE.lua'))())
