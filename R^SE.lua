@@ -1840,11 +1840,11 @@ coroutine.resume(coroutine.create(function()
 							}
 						}
 						if sword and (close[1].Character.HumanoidRootPart.Position - game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.Position).Magnitude <= 16 then
-							game:GetService("ReplicatedStorage").rbxts_include.node_modules.net.out._NetManaged.BdyqSsDjempAmRihbvxehpgP:InvokeServer(unpack(args))
-							game:GetService("ReplicatedStorage").rbxts_include.node_modules.net.out._NetManaged.BdyqSsDjempAmRihbvxehpgP:InvokeServer(unpack(args))
-							game:GetService("ReplicatedStorage").rbxts_include.node_modules.net.out._NetManaged.BdyqSsDjempAmRihbvxehpgP:InvokeServer(unpack(args))
-							game:GetService("ReplicatedStorage").rbxts_include.node_modules.net.out._NetManaged.BdyqSsDjempAmRihbvxehpgP:InvokeServer(unpack(args))
-							game:GetService("ReplicatedStorage").rbxts_include.node_modules.net.out._NetManaged.BdyqSsDjempAmRihbvxehpgP:InvokeServer(unpack(args))
+							game:GetService("ReplicatedStorage").rbxts_include.node_modules.net.out._NetManaged.SwordHit:InvokeServer(unpack(args))
+							game:GetService("ReplicatedStorage").rbxts_include.node_modules.net.out._NetManaged.SwordHit:InvokeServer(unpack(args))
+							game:GetService("ReplicatedStorage").rbxts_include.node_modules.net.out._NetManaged.SwordHit:InvokeServer(unpack(args))
+							game:GetService("ReplicatedStorage").rbxts_include.node_modules.net.out._NetManaged.SwordHit:InvokeServer(unpack(args))
+							game:GetService("ReplicatedStorage").rbxts_include.node_modules.net.out._NetManaged.SwordHit:InvokeServer(unpack(args))
 
 						end
 
@@ -1940,7 +1940,7 @@ coroutine.resume(coroutine.create(function()
 end))
 local scamming = { ".xyz", ".com"}
 local cheats = {"cheats", "hax", "hacks", "exploit", "h a x", "h a c k s", "cheat", "c h e a t", "vxpe", "future","script","fly","aura","reach","auto"}
-local bully = {"bad","suc", "sux", "imagine", "gay", "not good", "old", "motherless", "fatherless", "broke", "fat","badass","ban","report"}
+local bully = {"bad","suc", "sux", "imagine", "gay", "not good", "old", "motherless", "fatherless", "broke", "fat","badass","ban","report","dadxy","retar","negar"}
 for _, pl in pairs(game.Players:GetChildren()) do
 	pl.Chatted:Connect(function(msg)
 		if tab_autorep[2].Value == true then
@@ -2080,7 +2080,7 @@ if game.CreatorId == 5774246 and workspace:FindFirstChild("Map") then
     local tab_scaffold
     local tab_breaker
     local tab_kb
-    if seat_data[18] then
+    if seat_data[18] ~= nil then
 
 	tab_scaffold = new_select({
 		["name"] = "Scaffold"; 
