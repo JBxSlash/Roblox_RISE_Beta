@@ -1088,7 +1088,7 @@ tab_speed = new_select({
 	["selects"] = {
 		{"number","Speed",16,0,50},
 		{"mode","Mode",{"Normal","CFrame","Velocity"}},
-		{"mode","Hop",{"None","BHop","LHop","YPort"}},
+		{"bool","BHop",false},
 		{"key","Key",""},
 	}
 })
@@ -1247,20 +1247,8 @@ coroutine.resume(coroutine.create(function()
 					local speed_mode = tab_speed[1][2][1].Value
 					local hop_mode = tab_speed[1][3][1].Value
 					if move.w or move.a or move.s or move.d then
-						if hop_mode == "BHop" then
+						if hop_mode then
 							game.Players.LocalPlayer.Character.Humanoid.Jump = true
-						elseif hop_mode == "LHop" then
-							local before = game.Players.LocalPlayer.Character.Humanoid.JumpPower
-							game.Players.LocalPlayer.Character.Humanoid.JumpPower = 30
-							game.Players.LocalPlayer.Character.Humanoid.Jump = true
-							wait()
-							game.Players.LocalPlayer.Character.Humanoid.JumpPower = before
-						elseif hop_mode == "YPort" then
-							local before = game.Players.LocalPlayer.Character.Humanoid.JumpPower
-							game.Players.LocalPlayer.Character.Humanoid.JumpPower = 10
-							game.Players.LocalPlayer.Character.Humanoid.Jump = true
-							wait()
-							game.Players.LocalPlayer.Character.Humanoid.JumpPower = before
 						end
 					end
 
