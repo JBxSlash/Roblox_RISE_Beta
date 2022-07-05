@@ -2083,20 +2083,20 @@ if game.CreatorId == 5774246 and workspace:FindFirstChild("Map") then
     if seat_data[18] then
 
 	tab_scaffold = new_select({
-        ["name"] = "Scaffold"; 
-        ["menu"] = find_menu("Player");
-        ["selects"] = seat_data[18]
-    })
-    tab_breaker = new_select({
-        ["name"] = "Breaker"; 
-        ["menu"] = find_menu("Player");
-        ["selects"] = seat_data[19]
-    })
-    tab_kb= new_select({
-        ["name"] = "Velocity"; 
-        ["menu"] = find_menu("Player");
-        ["selects"] = seat_data[20]
-    })
+		["name"] = "Scaffold"; 
+		["menu"] = find_menu("Player");
+		["selects"] = seat_data[18]
+	    })
+	    tab_breaker = new_select({
+		["name"] = "Breaker"; 
+		["menu"] = find_menu("Player");
+		["selects"] = seat_data[19]
+	    })
+	    tab_kb= new_select({
+		["name"] = "Velocity"; 
+		["menu"] = find_menu("Player");
+		["selects"] = seat_data[20]
+	    })
     else
     tab_scaffold = new_select({
         ["name"] = "Scaffold"; 
