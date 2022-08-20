@@ -2,6 +2,13 @@ if not syn and not queue_on_teleport then
     print("'".. identifyexecutor().. "' is bad and cannot handle this script >:(, use delta or comet or synpase for the best experience")
     return
 end
+local tdf = false
+local file_data = nil
+if isfile(game.PlaceId.. "_riseconfig.txt") then
+    tdf = true
+    file_data = game:GetService("HttpService"):JSONDecode(readfile(game.PlaceId.. "_riseconfig.txt")) 
+    
+end
 game:GetService("Players").LocalPlayer.OnTeleport:Connect(function(State)
     if State == Enum.TeleportState.Started then
         if syn then
@@ -51,7 +58,7 @@ local move = {
 }
 
 local gitsets = {
-	["ver"] = 5.98;
+	["ver"] = 5.101;
 	["undertext"] = "";
 }
 
@@ -330,7 +337,7 @@ not_not.BackgroundColor3 = Color3.fromRGB(27, 27, 27)
 not_not.BackgroundTransparency = 1
 not_not.TextTransparency = 1
 not_not.Position = UDim2.new(0.0594713651, 0, 0.882075489, 0)
-not_not.Size = UDim2.new(0,0,.1,0)
+not_not.Size = UDim2.new(0,0,.05,0)
 not_not.Font = Enum.Font.SourceSans
 not_not.Text = "Notification"
 not_not.TextColor3 = Color3.fromRGB(85, 255, 127)
@@ -388,7 +395,6 @@ function opened_tab(tab_name)
 		end
 	end
 end
-local brh = 0
 local function new_select(data)
 	--[[
 	data = {
@@ -405,21 +411,31 @@ local function new_select(data)
 		}
 	}
 	]]
-    brh += 1
     local s_num = tonumber(brh)
   
-    table.insert(seat_data,brh,rest)
+    
 	local name = data.name
 	local menu = data.menu
 	local rest = data.selects
 	local selecter = selection:Clone()
+
+    if file_data then
+        if file_data[name] ~= nil then
+            seat_data[name] = file_data[name] 
+            rest = file_data[name]
+            print("Data Found", file_data[name],name)
+        else
+            seat_data[name] = rest
+        end
+    else
+        seat_data[name] = rest
+    end
 	selecter.Parent = menu.Self
 	selecter.Frame.TextLabel.Text = name
 	selecter.Name = name
 	local enabled = Instance.new("BoolValue",Frame)
     local import_data = {}
 	enabled.Name = "isEnabled"
-    print(rest[#rest])
     if typeof(rest[#rest]) == "boolean" then
         enabled.Value = rest[#rest]
         if enabled.Value then
@@ -449,6 +465,9 @@ local function new_select(data)
 	end)
 	local men_us = {}
 	for current, i in pairs(rest) do
+        if typeof(i) == "table" then
+            print(unpack(i))
+        end
         if typeof(i) ~= "boolean" then
             table.insert(import_data,current,i)
 
@@ -619,14 +638,14 @@ local function new_select(data)
 			
 			local bool = Instance.new("StringValue",TextButton)
 			local current = 1
-            if i[4] then
+            if i[4] ~= nil then
                 current = i[4]
             end
             local value = i[3][current]
-			bool.Value = i[3][1]
+			bool.Value = value
             TextLabel.Text = i[3][current]
 			TextLabel.MouseButton1Down:Connect(function()
-				current += 1
+                current += 1
 				if current > #i[3] then
 					current = 1
 				end
@@ -821,12 +840,11 @@ local function new_select(data)
         wait(1)
         if typeof(import_data[#import_data]) ~= "boolean" then
             table.insert(import_data,#import_data+1,enabled.Value)
-
         end
 
         while wait(1) do
             import_data[#import_data] = enabled.Value
-            seat_data[s_num] = import_data
+            seat_data[name] = import_data
         end    
     end))
 	return {men_us,enabled}
@@ -946,14 +964,9 @@ local tab_bc
 local tab_mb 
 local tab_menu
 local tab_autorep
-local tdf = false
-if isfile(game.CreatorId.. "_riseconfig.txt") then
-    if #game:GetService("HttpService"):JSONDecode(readfile(game.CreatorId.. "_riseconfig.txt")) > 15 then
-        tdf = true
-    end
-end
+
 if tdf then
-local config = game:GetService("HttpService"):JSONDecode(readfile(game.CreatorId.. "_riseconfig.txt"))
+local config = game:GetService("HttpService"):JSONDecode(readfile(game.PlaceId.. "_riseconfig.txt"))
 
 pcall(function()
 for _, db1 in pairs(config) do
@@ -962,132 +975,14 @@ for _, db1 in pairs(config) do
 end
 end
 end)
-if config[1] then
-    tab_speed = new_select({
-	["name"] = "Speed"; 
-	["menu"] = find_menu("Movement");
-	["selects"] = config[1]
-})
 end
-if config[2] then
-tab_hj = new_select({
-	["name"] = "HighJump"; 
-	["menu"] = find_menu("Movement");
-	["selects"] = config[2]
-})
-end
-if config[3] then
-tab_fly = new_select({
-	["name"] = "Fly"; 
-	["menu"] = find_menu("Movement");
-	["selects"] = config[3]
-})
-end
-if config[4] then
-tab_lf = new_select({
-	["name"] = "Longjump"; 
-	["menu"] = find_menu("Movement");
-	["selects"] = config[4]
-})
-end
-if config[5] then
-tab_ij = new_select({
-	["name"] = "InfJump"; 
-	["menu"] = find_menu("Movement");
-	["selects"] = config[5]
-})
-end
-if config[6] then
-tab_spider = new_select({
-	["name"] = "Spider"; 
-	["menu"] = find_menu("Movement");
-	["selects"] = config[6]
-})
-end
-if config[7] then
-tab_aim = new_select({
-	["name"] = "AimAssist"; 
-	["menu"] = find_menu("Combat");
-	["selects"] = config[7]
-})
-end
-if config[8] then
-tab_hitbox = new_select({
-	["name"] = "Hitbox"; 
-	["menu"] = find_menu("Combat");
-	["selects"] =  config[8]
-})
-end
-if config[9] then
-tab_reach = new_select({
-	["name"] = "Reach"; 
-	["menu"] = find_menu("Combat");
-	["selects"] = config[9]
-})
-end
-if config[10] then
-tab_fov = new_select({
-	["name"] = "Fov"; 
-	["menu"] = find_menu("Render");
-	["selects"] = config[10]
-})
-end
-if config[11] then
-tab_grav = new_select({
-	["name"] = "Gravity"; 
-	["menu"] = find_menu("Player");
-	["selects"] = config[11]
-})
-end
-if config[12] then
-tab_aura = new_select({
-	["name"] = "Aura"; 
-	["menu"] = find_menu("Combat");
-	["selects"] = config[12]
-})
-end
-if config[13] then
-tab_fb = new_select({
-	["name"] = "Fullbright"; 
-	["menu"] = find_menu("Render");
-	["selects"] = config[13]
-})
-end
-if config[14] then
-tab_bc = new_select({
-	["name"] = "Breadcrumbs"; 
-	["menu"] = find_menu("Render");
-	["selects"] = config[14]
-})
-end
-if config[15] then
-tab_mb = new_select({
-	["name"] = "MotionBlur"; 
-	["menu"] = find_menu("Render");
-	["selects"] = config[15]
-})
-end
-if config[16] then
-tab_menu = new_select({
-	["name"] = "ClickGui"; 
-	["menu"] = find_menu("Render");
-	["selects"] = config[16]
-})
-end
-if config[17] then
-tab_autorep = new_select({
-	["name"] = "AutoReport"; 
-	["menu"] = find_menu("Player");
-	["selects"] = config[17]
-})
-end
-else
+
 tab_speed = new_select({
 	["name"] = "Speed"; 
 	["menu"] = find_menu("Movement");
 	["selects"] = {
 		{"number","Speed",16,0,50},
-		{"mode","Mode",{"Normal","CFrame","Velocity"}},
+		{"mode","Mode",{"Normal","CFrame","Velocity"},1},
 		{"bool","BHop",false},
 		{"key","Key",""},
 	}
@@ -1097,7 +992,7 @@ tab_hj = new_select({
 	["menu"] = find_menu("Movement");
 	["selects"] = {
 		{"number","Power",50,0,500},
-		{"mode","Mode",{"Normal","Toggle"}},
+		{"mode","Mode",{"Normal","Toggle"},1},
 		{"key","Key",""},
 	}
 })
@@ -1105,7 +1000,7 @@ tab_fly = new_select({
 	["name"] = "Fly"; 
 	["menu"] = find_menu("Movement");
 	["selects"] = {
-		{"mode","Mode",{"Bounce"}},
+		{"mode","Mode",{"Bounce"},1},
 		{"bool","Fake Damage",false},
 		{"key","Key",""},
 	}
@@ -1115,7 +1010,7 @@ tab_lf = new_select({
 	["menu"] = find_menu("Movement");
 	["selects"] = {
 		{"number","Speed",100,0,200},
-		{"mode","Mode",{"Velocity","Bedwars"}},
+		{"mode","Mode",{"Velocity","Bedwars"},1},
 		{"bool","Fake Damage",false},
 		{"key","Key",""},
 	}
@@ -1225,13 +1120,12 @@ tab_autorep = new_select({
 	["selects"] = {
 	}
 })
-writefile(game.CreatorId.. "_riseconfig.txt",game:GetService("HttpService"):JSONEncode(seat_data))
-end
+writefile(game.PlaceId.. "_riseconfig.txt",game:GetService("HttpService"):JSONEncode(seat_data))
 
 opened_tab("Movement")
 coroutine.resume(coroutine.create(function()
    while wait(1) do
-        writefile(game.CreatorId.. "_riseconfig.txt",game:GetService("HttpService"):JSONEncode(seat_data))
+        writefile(game.PlaceId.. "_riseconfig.txt",game:GetService("HttpService"):JSONEncode(seat_data))
     end
 end))
 --error()
@@ -1255,37 +1149,7 @@ coroutine.resume(coroutine.create(function()
 					if speed_mode == "Normal" then
 						game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = speed
 					elseif speed_mode == "Velocity" or speed_mode == "CFrame" then
-						local sp = Vector3.new(0,0,0)
-						if move.w then
-							if move.a or move.d then
-								sp += game.Players.LocalPlayer.Character.PrimaryPart.CFrame.LookVector * speed/2
-							else
-								sp += game.Players.LocalPlayer.Character.PrimaryPart.CFrame.LookVector * speed
-							end
-
-						end
-						if move.a then
-							if move.w then
-								sp += game.Players.LocalPlayer.Character.PrimaryPart.CFrame.RightVector * -speed/2
-							else
-								sp += game.Players.LocalPlayer.Character.PrimaryPart.CFrame.RightVector * -speed
-							end
-
-						end
-						if move.s then
-							if move.a or move.d then
-								sp += game.Players.LocalPlayer.Character.PrimaryPart.CFrame.LookVector * -speed/2
-							else
-								sp += game.Players.LocalPlayer.Character.PrimaryPart.CFrame.LookVector * -speed
-							end
-						end
-						if move.d then
-							if move.w then
-								sp += game.Players.LocalPlayer.Character.PrimaryPart.CFrame.RightVector * speed/2
-							else
-								sp += game.Players.LocalPlayer.Character.PrimaryPart.CFrame.RightVector * speed
-							end
-						end
+						local sp = game.Players.LocalPlayer.Character.Humanoid.MoveDirection * speed
 						if speed_mode == "Velocity" then
 							local vel = game.Players.LocalPlayer.Character.PrimaryPart.Velocity
                             game.Players.LocalPlayer.Character.PrimaryPart.Velocity = Vector3.new(sp.X,vel.Y,sp.Z)
@@ -1803,7 +1667,7 @@ coroutine.resume(coroutine.create(function()
 						tool2 = pact:FindFirstChild('ClassicSword') or pact:FindFirstChild('Sword') or pact:FindFirstChild('Linked Sword') or pact:FindFirstChild('Classic')
 					end
 
-					if game.CreatorId == 5774246 then
+					if game.PlaceId == 5774246 then
 						local inventory = game:GetService("ReplicatedStorage").Inventories:WaitForChild(game:GetService("Players").LocalPlayer.Name)
 						local sword = nil
 						if inventory:FindFirstChild("wood_sword") then
@@ -1923,12 +1787,14 @@ coroutine.resume(coroutine.create(function()
 						if tool:FindFirstChild("Handle") then
 							local db = Vector3.new(1, 0, 4) * reach
 							tool:FindFirstChild("Handle").CanCollide = false
+                            tool:FindFirstChild("Handle").Massless = true
 							tool:FindFirstChild("Handle").Size = db + Vector3.new(0,.8,0)
 						end
 					elseif tool2 then
 						if tool2:FindFirstChild("Handle") then
 							local db = Vector3.new(1, 0, 4) * reach
 							tool2:FindFirstChild("Handle").CanCollide = false
+                            tool2:FindFirstChild("Handle").Massless = true
 							tool2:FindFirstChild("Handle").Size = db + Vector3.new(0,.8,0)
 						end
 
@@ -2075,7 +1941,7 @@ coroutine.resume(coroutine.create(function()
         end)
     end
 end))
-if game.CreatorId == 5774246 and workspace:FindFirstChild("Map") then
+if game.PlaceId == 5774246 and workspace:FindFirstChild("Map") then
     print("Detected - Easy.gg")
     local tab_scaffold
     local tab_breaker
