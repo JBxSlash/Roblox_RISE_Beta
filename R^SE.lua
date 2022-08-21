@@ -1075,7 +1075,7 @@ tab_grav = new_select({
 	["name"] = "Gravity"; 
 	["menu"] = find_menu("Player");
 	["selects"] = {
-		{"number","Gravity",180,0,200},
+		{"number","Gravity",196.2,0,200},
 		{"key","Key",""},
 	}
 })
@@ -2005,7 +2005,7 @@ coroutine.resume(coroutine.create(function()
                 if tab_grav[2].Value == true then
                     workspace.Gravity = tonumber(tab_grav[1][1][1].Text)
                 else
-                    workspace.Gravity = 180
+                    workspace.Gravity = 196.2
                 end
             end
         end)
