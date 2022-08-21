@@ -4,20 +4,25 @@ if not syn and not queue_on_teleport then
 end
 local tdf = false
 local file_data = nil
-if isfile(game.PlaceId.. "_riseconfig.txt") then
+if not isfolder("rise") then
+makefolder("rise")
+end
+if not isfolder("rise/configs") then
+makefolder("rise/configs")
+end
+if isfile("rise/configs/".. game.PlaceId.. "_riseconfig.txt") then
     tdf = true
-    file_data = game:GetService("HttpService"):JSONDecode(readfile(game.PlaceId.. "_riseconfig.txt")) 
+    file_data = game:GetService("HttpService"):JSONDecode(readfile("rise/configs/".. game.PlaceId.. "_riseconfig.txt")) 
     
 end
-game:GetService("Players").LocalPlayer.OnTeleport:Connect(function(State)
-    if State == Enum.TeleportState.Started then
-        if syn then
-				syn.queue_on_teleport(loadstring(game:HttpGet('https://raw.githubusercontent.com/JBxSlash/Roblox_RISE_Beta/main/R%5ESE.lua'))())
-			else
-				queue_on_teleport(loadstring(game:HttpGet('https://raw.githubusercontent.com/JBxSlash/Roblox_RISE_Beta/main/R%5ESE.lua'))())
-			end
-    end
-end)
+
+
+if syn then
+    syn.queue_on_teleport("loadstring(game:HttpGet('https://raw.githubusercontent.com/JBxSlash/Roblox_RISE_Beta/main/R%5ESE.lua'))()")
+else
+    queue_on_teleport("loadstring(game:HttpGet('https://raw.githubusercontent.com/JBxSlash/Roblox_RISE_Beta/main/R%5ESE.lua'))()")
+end
+
 local ScreenGui = Instance.new("ScreenGui")
 local mf = Instance.new("Frame")
 local UICorner = Instance.new("UICorner")
@@ -874,6 +879,7 @@ function new_tab(name,image)
 	table.insert(menus,#menus+1,data_inject)
 	menu_inject.Parent = holder
 	menu_inject.Name = name
+    tab_select.TextButton.Modal = true
 	tab_select.TextButton.MouseButton1Down:Connect(function() opened_tab(name) end)
 end
 
@@ -966,7 +972,7 @@ local tab_menu
 local tab_autorep
 
 if tdf then
-local config = game:GetService("HttpService"):JSONDecode(readfile(game.PlaceId.. "_riseconfig.txt"))
+local config = game:GetService("HttpService"):JSONDecode(readfile("rise/configs/".. game.PlaceId.. "_riseconfig.txt"))
 
 pcall(function()
 for _, db1 in pairs(config) do
@@ -983,7 +989,6 @@ tab_speed = new_select({
 	["selects"] = {
 		{"number","Speed",16,0,50},
 		{"mode","Mode",{"Normal","CFrame","Velocity"},1},
-		{"bool","BHop",false},
 		{"key","Key",""},
 	}
 })
@@ -1002,6 +1007,7 @@ tab_fly = new_select({
 	["selects"] = {
 		{"mode","Mode",{"Bounce"},1},
 		{"bool","Fake Damage",false},
+        {"number","YSpeed",1,0,10},
 		{"key","Key",""},
 	}
 })
@@ -1120,13 +1126,80 @@ tab_autorep = new_select({
 	["selects"] = {
 	}
 })
-writefile(game.PlaceId.. "_riseconfig.txt",game:GetService("HttpService"):JSONEncode(seat_data))
+tab_nc = new_select({
+	["name"] = "Noclip"; 
+	["menu"] = find_menu("Movement");
+	["selects"] = {
+		{"key","Key",""},
+	}
+})
+tab_wh = new_select({
+	["name"] = "Xray"; 
+	["menu"] = find_menu("Render");
+	["selects"] = {
+        {"number","Transparency",5,0,10},
+		{"key","Key",""},
+	}
+})
+tab_rj = new_select({
+	["name"] = "Rejoin"; 
+	["menu"] = find_menu("Render");
+	["selects"] = {
+        {"number","Transparency",5,0,10},
+		{"key","Key",""},
+	}
+})
+writefile("rise/configs/".. game.PlaceId.. "_riseconfig.txt",game:GetService("HttpService"):JSONEncode(seat_data))
 
 opened_tab("Movement")
 coroutine.resume(coroutine.create(function()
    while wait(1) do
-        writefile(game.PlaceId.. "_riseconfig.txt",game:GetService("HttpService"):JSONEncode(seat_data))
+        writefile("rise/configs/".. game.PlaceId.. "_riseconfig.txt",game:GetService("HttpService"):JSONEncode(seat_data))
     end
+end))
+game:GetService("RunService").Stepped:Connect(function()
+    if tab_nc[2].Value == true then
+        for _, bp in pairs(game.Players.LocalPlayer.Character:GetChildren()) do
+            if bp:IsA("BasePart") then
+                bp.CanCollide = false
+            end
+        end
+    end
+end)
+coroutine.resume(coroutine.create(function()
+while wait(1) do
+    pcall(function()
+while wait(1) do
+    if tab_rj[2].Value == true then
+        tab_rj[2].Value = false
+        writefile("rise/configs/".. game.PlaceId.. "_riseconfig.txt",game:GetService("HttpService"):JSONEncode(seat_data))
+        game:GetService("TeleportService"):Teleport(game.PlaceId,game.Players.LocalPlayer)
+        game.Players.LocalPlayer:Kick("Rise // Rejoining...")
+    end
+end
+end)
+end
+end))
+coroutine.resume(coroutine.create(function()
+	while wait(1) do
+		pcall(function()
+			while wait(1) do
+                if tab_wh[2].Value == true then
+                    for _, db in pairs(workspace:GetDescendants()) do
+                        if db:IsA("BasePart") then
+                            db.LocalTransparencyModifier = (tonumber(tab_wh[1][1][1].Text) or 5)/10
+                        end 
+                    end 
+                else
+                    for _, db in pairs(workspace:GetDescendants()) do
+                        if db:IsA("BasePart") then
+                            db.LocalTransparencyModifier = 0
+                        end 
+                    end 
+                end
+            end 
+        end) 
+    end 
 end))
 --error()
 coroutine.resume(coroutine.create(function()
@@ -1139,12 +1212,7 @@ coroutine.resume(coroutine.create(function()
 						speed = 16
 					end
 					local speed_mode = tab_speed[1][2][1].Value
-					local hop_mode = tab_speed[1][3][1].Value
-					if move.w or move.a or move.s or move.d then
-						if hop_mode then
-							game.Players.LocalPlayer.Character.Humanoid.Jump = true
-						end
-					end
+
 
 					if speed_mode == "Normal" then
 						game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = speed
@@ -1245,10 +1313,10 @@ coroutine.resume(coroutine.create(function()
 						bounce1.Position = Vector3.new(pos.X,start_Bounce+6,pos.Z)
 						bounce2.Position = Vector3.new(pos.X,start_Bounce,pos.Z)
 						if move.e then
-							start_Bounce += 1
+							start_Bounce += (tonumber(tab_fly[1][3][1].Text) or 5)/2
 						end
 						if move.q then
-							start_Bounce -= 1
+							start_Bounce -= (tonumber(tab_fly[1][3][1].Text) or 5)/2
 						end
 					else
 						start_Bounce = -9e9
@@ -1291,7 +1359,6 @@ coroutine.resume(coroutine.create(function()
 						game.Players.LocalPlayer.Character.Humanoid.Jump = true
 						local vel = game.Players.LocalPlayer.Character.PrimaryPart.CFrame.LookVector * (speed*1.5)
 						game.Players.LocalPlayer.Character.PrimaryPart.Velocity = Vector3.new(vel.X,5,vel.Z)
-
 					end
 				else
 					fk_alr = false
@@ -1444,38 +1511,40 @@ game:GetService("RunService").Stepped:Connect(function()
 			end
 			local team = tab_aura[1][2][1].Value 
 			local selected = nil
+            local function _metadata_closest(db)
+                if db ~= game.Players.LocalPlayer then
+
+                    if team then
+
+                        if db.Team == game.Players.LocalPlayer.Team then
+                            return
+                        end
+                    end
+
+                    if not db.Character:FindFirstChild("HumanoidRootPart") or not db.Character:FindFirstChild("Humanoid") then
+                        return
+                    end
+
+                    if db.Character:FindFirstChild("Humanoid").health <= 0 then
+                        return
+                    end
+
+                    local root = db.Character:FindFirstChild("HumanoidRootPart")
+                    local oroot = game.Players.LocalPlayer.Character:FindFirstChild("HumanoidRootPart")
+                    if not oroot or game.Players.LocalPlayer.Character.Humanoid.Health <= 0 then
+                        return
+                    end
+
+                    local dist = (root.Position - oroot.Position).Magnitude
+                    if dist <= max then
+
+                        max = dist
+                        selected = db
+                    end
+                end
+            end
 			for _, db in pairs(game.Players:GetPlayers()) do
-
-				if db ~= game.Players.LocalPlayer then
-
-					if team then
-
-						if db.Team == game.Players.LocalPlayer.Team then
-							return
-						end
-					end
-
-					if not db.Character:FindFirstChild("HumanoidRootPart") or not db.Character:FindFirstChild("Humanoid") then
-						return
-					end
-
-					if db.Character:FindFirstChild("Humanoid").health <= 0 then
-						return
-					end
-
-					local root = db.Character:FindFirstChild("HumanoidRootPart")
-					local oroot = game.Players.LocalPlayer.Character:FindFirstChild("HumanoidRootPart")
-					if not oroot or game.Players.LocalPlayer.Character.Humanoid.Health <= 0 then
-						return
-					end
-
-					local dist = (root.Position - oroot.Position).Magnitude
-					if dist <= max then
-
-						max = dist
-						selected = db
-					end
-				end
+                _metadata_closest(db)
 			end
 			if selected then
 				return {selected,max}
@@ -1596,9 +1665,8 @@ coroutine.resume(coroutine.create(function()
 					end
 					local team = tab_aura[1][2][1].Value 
 					local selected = nil
-					for _, db in pairs(game.Players:GetPlayers()) do
-
-						if db ~= game.Players.LocalPlayer then
+                    local function _metadata_closest(db)
+                        if db ~= game.Players.LocalPlayer then
 
 							if team then
 
@@ -1628,6 +1696,9 @@ coroutine.resume(coroutine.create(function()
 								selected = db
 							end
 						end
+                    end
+					for _, db in pairs(game.Players:GetPlayers()) do
+                        _metadata_closest(db)
 					end
 					if selected then
 						return {selected,max}
@@ -1652,7 +1723,6 @@ coroutine.resume(coroutine.create(function()
 					TextLabel7.Text = math.floor(close[1].Character.Humanoid.Health+.5)
 					if isOnScreen then
 						aim_frame.Position = UDim2.new(0,vector.X,0,vector.Y)
-						print("x: ".. vector.X.. " :y: ".. vector.Y)
 					else
 						aim_frame.Position = UDim2.new(0.566037774 + (0.566037774/2), 0, 0.415417612 + (0.415417612/2), 0)
 					end
@@ -1752,7 +1822,7 @@ coroutine.resume(coroutine.create(function()
 				if tab_hitbox[2].Value == true then
 					for _, db in pairs(game.Players:GetPlayers()) do
 						if db.Character:FindFirstChild("HumanoidRootPart") and db ~= game.Players.LocalPlayer then
-							if not tab_hitbox[1][2][1] then
+							if not tab_hitbox[1][2][1].Value then
 								db.Character:FindFirstChild("HumanoidRootPart").Size = Vector3.new(2,2,1) * tonumber(tab_hitbox[1][1][1].Text)
 							elseif db.Team ~= game.Players.LocalPlayer.Team then
 								db.Character:FindFirstChild("HumanoidRootPart").Size = Vector3.new(2,2,1) * tonumber(tab_hitbox[1][1][1].Text)
