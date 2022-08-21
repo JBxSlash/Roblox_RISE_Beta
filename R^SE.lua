@@ -1726,7 +1726,7 @@ external_menu.aim_frame.Position = UDim2.new(0,0,0,0)
 coroutine.resume(coroutine.create(function()
 	while wait(1) do
 		pcall(function()
-		while wait() do
+		while game:GetService("RunService").Stepped:Wait() do
 			if tab_aura[2].Value == true then
 				local function get_closest()
 					local max = tonumber(tab_aura[1][1][1].Text)
@@ -1894,8 +1894,12 @@ coroutine.resume(coroutine.create(function()
 					for _, db in pairs(game.Players:GetPlayers()) do
 						if db.Character:FindFirstChild("HumanoidRootPart") and db ~= game.Players.LocalPlayer then
 							if not tab_hitbox[1][2][1].Value then
+                                db.Character:FindFirstChild("HumanoidRootPart").CanCollide = false
+                                db.Character:FindFirstChild("HumanoidRootPart").Massless = true
 								db.Character:FindFirstChild("HumanoidRootPart").Size = Vector3.new(2,2,1) * tonumber(tab_hitbox[1][1][1].Text)
 							elseif db.Team ~= game.Players.LocalPlayer.Team then
+                                db.Character:FindFirstChild("HumanoidRootPart").CanCollide = false
+                                db.Character:FindFirstChild("HumanoidRootPart").Massless = true
 								db.Character:FindFirstChild("HumanoidRootPart").Size = Vector3.new(2,2,1) * tonumber(tab_hitbox[1][1][1].Text)
 							end
 						end
