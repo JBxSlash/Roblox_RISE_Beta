@@ -1227,8 +1227,8 @@ coroutine.resume(coroutine.create(function()
 					elseif speed_mode == "Velocity" or speed_mode == "CFrame" then
 						local sp = game.Players.LocalPlayer.Character.Humanoid.MoveDirection * speed
 						if speed_mode == "Velocity" then
-							local vel = game.Players.LocalPlayer.Character.PrimaryPart.Velocity
-                            game.Players.LocalPlayer.Character.PrimaryPart.Velocity = Vector3.new(sp.X,vel.Y,sp.Z)
+							local vel = game.Players.LocalPlayer.Character.PrimaryPart.AssemblyLinearVelocity
+                            game.Players.LocalPlayer.Character.PrimaryPart.AssemblyLinearVelocity = Vector3.new(sp.X,vel.Y,sp.Z)
 						elseif speed_mode == "CFrame" then
 							local cf1 = game.Players.LocalPlayer.Character.PrimaryPart.CFrame
 							local cf2 = game.Players.LocalPlayer.Character.PrimaryPart.CFrame + sp/100
@@ -1375,8 +1375,8 @@ coroutine.resume(coroutine.create(function()
 							end
 						end
 						if game.Players.LocalPlayer.Character.PrimaryPart.Position.Y <= start_Bounce then
-							local vel = game.Players.LocalPlayer.Character.PrimaryPart.Velocity 
-							game.Players.LocalPlayer.Character.PrimaryPart.Velocity = Vector3.new(vel.X,60,vel.Z)
+							local vel = game.Players.LocalPlayer.Character.PrimaryPart.AssemblyLinearVelocity 
+							game.Players.LocalPlayer.Character.PrimaryPart.AssemblyLinearVelocity = Vector3.new(vel.X,60,vel.Z)
 						end
 						local pos = game.Players.LocalPlayer.Character.PrimaryPart.Position
 						bounce1.Parent = workspace
@@ -1425,11 +1425,11 @@ coroutine.resume(coroutine.create(function()
 						game.Players.LocalPlayer.Character.Humanoid.Jump = true
 						game.Players.LocalPlayer.Character.PrimaryPart.CFrame += game.Players.LocalPlayer.Character.PrimaryPart.CFrame.LookVector * 2
 						local vel = game.Players.LocalPlayer.Character.PrimaryPart.CFrame.LookVector * speed
-						game.Players.LocalPlayer.Character.PrimaryPart.Velocity = Vector3.new(vel.X,5,vel.Z)
+						game.Players.LocalPlayer.Character.PrimaryPart.AssemblyLinearVelocity = Vector3.new(vel.X,5,vel.Z)
 					elseif mode == "Velocity" then
 						game.Players.LocalPlayer.Character.Humanoid.Jump = true
 						local vel = game.Players.LocalPlayer.Character.PrimaryPart.CFrame.LookVector * (speed*1.5)
-						game.Players.LocalPlayer.Character.PrimaryPart.Velocity = Vector3.new(vel.X,5,vel.Z)
+						game.Players.LocalPlayer.Character.PrimaryPart.AssemblyLinearVelocity = Vector3.new(vel.X,5,vel.Z)
 					end
 				else
 					fk_alr = false
@@ -1466,28 +1466,28 @@ coroutine.resume(coroutine.create(function()
 						local rc2 = rc.Position + (rc.Size)/2
 
 						local chr = game.Players.LocalPlayer.Character.HumanoidRootPart
-						chr.Velocity = Vector3.new(chr.Velocity.X,amt,chr.Velocity.Z)
+						chr.AssemblyLinearVelocity = Vector3.new(chr.AssemblyLinearVelocity.X,amt,chr.AssemblyLinearVelocity.Z)
 						game.Players.LocalPlayer.Character.Humanoid.Jump = true
 					elseif raycastResult2 and move.s then
 						local rc = raycastResult2.Instance
 						local rc2 = rc.Position + (rc.Size)/2
 
 						local chr = game.Players.LocalPlayer.Character.HumanoidRootPart
-						chr.Velocity = Vector3.new(chr.Velocity.X,amt,chr.Velocity.Z)
+						chr.AssemblyLinearVelocity = Vector3.new(chr.AssemblyLinearVelocity.X,amt,chr.AssemblyLinearVelocity.Z)
 						game.Players.LocalPlayer.Character.Humanoid.Jump = true
 					elseif raycastResult3 and move.d then
 						local rc = raycastResult3.Instance
 						local rc2 = rc.Position + (rc.Size)/2
 
 						local chr = game.Players.LocalPlayer.Character.HumanoidRootPart
-						chr.Velocity = Vector3.new(chr.Velocity.X,amt,chr.Velocity.Z)
+						chr.AssemblyLinearVelocity = Vector3.new(chr.AssemblyLinearVelocity.X,amt,chr.AssemblyLinearVelocity.Z)
 						game.Players.LocalPlayer.Character.Humanoid.Jump = true
 					elseif raycastResult4 and move.a then
 						local rc = raycastResult4.Instance
 						local rc2 = rc.Position + (rc.Size)/2
 
 						local chr = game.Players.LocalPlayer.Character.HumanoidRootPart
-						chr.Velocity = Vector3.new(chr.Velocity.X,amt,chr.Velocity.Z)
+						chr.AssemblyLinearVelocity = Vector3.new(chr.AssemblyLinearVelocity.X,amt,chr.AssemblyLinearVelocity.Z)
 						game.Players.LocalPlayer.Character.Humanoid.Jump = true
 					end
 				end
@@ -1524,8 +1524,8 @@ coroutine.resume(coroutine.create(function()
 			while wait() do
 				if tab_ij[2].Value == true then
 					if jump then
-						local vel = game.Players.LocalPlayer.Character.PrimaryPart.Velocity 
-						game.Players.LocalPlayer.Character.PrimaryPart.Velocity = Vector3.new(vel.X, game.Players.LocalPlayer.Character.Humanoid.JumpPower,vel.Z)
+						local vel = game.Players.LocalPlayer.Character.PrimaryPart.AssemblyLinearVelocity 
+						game.Players.LocalPlayer.Character.PrimaryPart.AssemblyLinearVelocity = Vector3.new(vel.X, game.Players.LocalPlayer.Character.Humanoid.JumpPower,vel.Z)
 					end
 				end
 			end
@@ -1556,7 +1556,7 @@ coroutine.resume(coroutine.create(function()
 					if mode == "Normal" then
 						game.Players.LocalPlayer.Character.Humanoid.JumpPower = amount
 					elseif mode == "Toggle" then
-						game.Players.LocalPlayer.Character.PrimaryPart.Velocity += Vector3.new(0,amount,0)
+						game.Players.LocalPlayer.Character.PrimaryPart.AssemblyLinearVelocity += Vector3.new(0,amount,0)
 						tab_hj[2].Value = false
 						disable_not("HighJump")
 					end
@@ -1574,6 +1574,7 @@ game:GetService("RunService").Stepped:Connect(function()
 		if not smooth then
 			smooth = 1
 		end
+        smooth /= 50
 		local function get_closest()
 			local max = tonumber(tab_aura[1][1][1].Text)
 			if not max then
@@ -1612,6 +1613,8 @@ game:GetService("RunService").Stepped:Connect(function()
                         max = dist
                         selected = db
                     end
+				else
+					return false
                 end
             end
 			for _, db in pairs(game.Players:GetPlayers()) do
@@ -1625,11 +1628,13 @@ game:GetService("RunService").Stepped:Connect(function()
 		end
 		local close = get_closest()
 		if close then
-            if smoot == 0 then
+            if smooth == 0 then
                	game.Workspace.CurrentCamera.CFrame = CFrame.new(workspace.CurrentCamera.CFrame.Position,close[1].Character.Head.Position)
             else
 			    game:GetService("TweenService"):Create(game.Workspace.CurrentCamera,TweenInfo.new(smooth,Enum.EasingStyle.Linear,Enum.EasingDirection.Out),{CFrame = CFrame.new(workspace.CurrentCamera.CFrame.Position,close[1].Character.Head.Position)}):Play(0)
             end
+        else
+            game.Workspace.CurrentCamera.CFrame = game.Workspace.CurrentCamera.CFrame
 		end
 	end
 end)
@@ -2140,17 +2145,17 @@ game.Players.LocalPlayer.Character.Humanoid.Changed:Connect(function()
     if game.Players.LocalPlayer.Character.Humanoid.Health ~= lastHealth then
         if game.Players.LocalPlayer.Character.Humanoid.Health < last_health then
            if tab_kb[2].Value == true then
-                game.Players.LocalPlayer.Character.HumanoidRootPart.Velocity = lastVel
+                game.Players.LocalPlayer.Character.HumanoidRootPart.AssemblyLinearVelocity = lastVel
             last_health = game.Players.LocalPlayer.Character.Humanoid.Health
             wait()
-            game.Players.LocalPlayer.Character.HumanoidRootPart.Velocity = lastVel
+            game.Players.LocalPlayer.Character.HumanoidRootPart.AssemblyLinearVelocity = lastVel
            end
         end
         last_health = game.Players.LocalPlayer.Character.Humanoid.Health
     end
 end)
 while wait(.1) do
-    lastVel = game.Players.LocalPlayer.Character.HumanoidRootPart.Velocity
+    lastVel = game.Players.LocalPlayer.Character.HumanoidRootPart.AssemblyLinearVelocity
 end
 end)
 end
@@ -2234,7 +2239,7 @@ end))
 			raycastParams.IgnoreWater = true
 
 			local raycastResult5 = workspace:Raycast(game.Players.LocalPlayer.Character.HumanoidRootPart.Position - Vector3.new(0,(game.Players.LocalPlayer.Character.Humanoid.HipHeight/2),0), game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame.UpVector * -3/2, raycastParams)
-			local cd = game.Players.LocalPlayer.Character.HumanoidRootPart.Position - Vector3.new(0,game.Players.LocalPlayer.Character.Humanoid.HipHeight+(game.Players.LocalPlayer.Character.Humanoid.HipHeight/2),0) + Vector3.new(game.Players.LocalPlayer.Character.HumanoidRootPart.Velocity.X/5,game.Players.LocalPlayer.Character.HumanoidRootPart.Velocity.Y/45,game.Players.LocalPlayer.Character.HumanoidRootPart.Velocity.Z/5)
+			local cd = game.Players.LocalPlayer.Character.HumanoidRootPart.Position - Vector3.new(0,game.Players.LocalPlayer.Character.Humanoid.HipHeight+(game.Players.LocalPlayer.Character.Humanoid.HipHeight/2),0) + Vector3.new(game.Players.LocalPlayer.Character.HumanoidRootPart.AssemblyLinearVelocity.X/5,game.Players.LocalPlayer.Character.HumanoidRootPart.AssemblyLinearVelocity.Y/45,game.Players.LocalPlayer.Character.HumanoidRootPart.AssemblyLinearVelocity.Z/5)
 			local args = {
 				[1] = {
 					["position"] = roundPos(cd,3);
