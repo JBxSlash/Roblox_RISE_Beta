@@ -112,10 +112,13 @@ under.Size = UDim2.new(0.692307711, 0, 0.579999983, 0)
 under.Font = Enum.Font.SourceSans
 coroutine.resume(coroutine.create(function()
 	while wait(1) do
+        game:GetService("TweenService"):Create(ver,TweenInfo.new(1,Enum.EasingStyle.Linear,Enum.EasingDirection.Out),{TextColor3 = Color3.fromRGB(85, 255, 127)}):Play(0)
+        game:GetService("TweenService"):Create(under,TweenInfo.new(1,Enum.EasingStyle.Linear,Enum.EasingDirection.Out),{TextColor3 = Color3.fromRGB(85, 255, 127)}):Play(0)
 		game:GetService("TweenService"):Create(TextLabel99,TweenInfo.new(1,Enum.EasingStyle.Linear,Enum.EasingDirection.Out),{TextColor3 = Color3.fromRGB(85, 255, 127)}):Play(0)
 		wait(1)
 		game:GetService("TweenService"):Create(TextLabel99,TweenInfo.new(1,Enum.EasingStyle.Linear,Enum.EasingDirection.Out),{TextColor3 = Color3.fromRGB(85, 170, 255)}):Play(0)
-
+        game:GetService("TweenService"):Create(ver,TweenInfo.new(1,Enum.EasingStyle.Linear,Enum.EasingDirection.Out),{TextColor3 = Color3.fromRGB(85, 170, 255)}):Play(0)
+        game:GetService("TweenService"):Create(under,TweenInfo.new(1,Enum.EasingStyle.Linear,Enum.EasingDirection.Out),{TextColor3 = Color3.fromRGB(85, 170, 255)}):Play(0)
 	end
 end))
 coroutine.resume(coroutine.create(function()
@@ -131,35 +134,37 @@ under.TextXAlignment = Enum.TextXAlignment.Left
 
 mf.Name = "mf"
 mf.Parent = ScreenGui
-mf.BackgroundColor3 = Color3.fromRGB(27, 27, 27)
+mf.BackgroundColor3 = Color3.fromRGB(16,16,16)
 mf.BorderSizePixel = 0
-mf.Position = UDim2.new(0.0094339624, 0, 0.0192719493, 0)
-mf.Size = UDim2.new(0, 561, 0, 415)
+mf.Position = UDim2.new(.5, 0, .5, 0)
+mf.Size = UDim2.new(0, 650, 0, 415)
 mf.ClipsDescendants = true
 mf.Draggable = true
 mf.Active = true
 mf.Visible = false
+mf.AnchorPoint = Vector2.new(.5,.5)
+mf.BackgroundTransparency = 0
 
 UICorner.Parent = mf
 
 TextLabel.Parent = mf
 TextLabel.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
 TextLabel.BackgroundTransparency = 1.000
-TextLabel.Size = UDim2.new(0.279857397, 0, 0.132530123, 0)
+TextLabel.Size = UDim2.new(0.2, 0, 0.132530123, 0)
 TextLabel.Font = Enum.Font.SourceSans
 TextLabel.Text = "Rise"
 TextLabel.TextColor3 = Color3.fromRGB(255, 255, 255)
 TextLabel.TextScaled = true
 TextLabel.TextSize = 14.000
 TextLabel.TextWrapped = true
-mf.Transparency = .1
+
 
 holder.Name = "holder"
 holder.Parent = mf
 holder.BackgroundColor3 = Color3.fromRGB(16, 16, 16)
 holder.BorderSizePixel = 0
-holder.Position = UDim2.new(0.275, 0, 0, 0)
-holder.Size = UDim2.new(0.725, 0, 1, 0)
+holder.Position = UDim2.new(0.2, 0, 0, 0)
+holder.Size = UDim2.new(0.8, 0, 1, 0)
 
 UICorner_2.Parent = holder
 
@@ -167,17 +172,18 @@ tab_holder.Name = "tab_holder"
 tab_holder.Parent = mf
 tab_holder.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
 tab_holder.BackgroundTransparency = 1.000
-tab_holder.Position = UDim2.new(0.013, 0, 0.132530123, 0)
-tab_holder.Size = UDim2.new(0.235815391, 0, 0.834934592, 0)
+tab_holder.Position = UDim2.new(0, 0, 0.132530123, 0)
+tab_holder.Size = UDim2.new(0.215, 0, 0.834934592, 0)
 
 UIListLayout.Parent = tab_holder
 UIListLayout.SortOrder = Enum.SortOrder.LayoutOrder
+UIListLayout.Padding = UDim.new(0,5)
 
 menu.Name = "menu"
 menu.Parent = mf
 menu.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
 menu.BackgroundTransparency = 1.000
-menu.Position = UDim2.new(0.28, 0, 0, 0)
+menu.Position = UDim2.new(0.44, 0, 0, 0)
 menu.Size = UDim2.new(0.279857397, 0, 0.0650550947, 0)
 menu.Font = Enum.Font.SourceSans
 menu.Text = "Blatant"
@@ -185,7 +191,7 @@ menu.TextColor3 = Color3.fromRGB(255, 255, 255)
 menu.TextScaled = true
 menu.TextSize = 14.000
 menu.TextWrapped = true
-menu.TextXAlignment = Enum.TextXAlignment.Left
+menu.TextXAlignment = Enum.TextXAlignment.Center
 
 storage.Name = "storage"
 storage.Parent = ScreenGui
@@ -210,7 +216,7 @@ selection.Name = "selection"
 selection.Parent = storage
 selection.BackgroundColor3 = Color3.fromRGB(27, 27, 27)
 selection.Position = UDim2.new(0.0728275776, 0, 0.0293024965, 0)
-selection.Size = UDim2.new(0, 380, 0, 30)
+selection.Size = UDim2.new(0, 490, 0, 30)
 
 UICorner_3.Parent = selection
 
@@ -236,7 +242,7 @@ TextLabel_2.Name = "TextLabel"
 ImageButton.Parent = Frame
 ImageButton.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
 ImageButton.BackgroundTransparency = 1.000
-ImageButton.Position = UDim2.new(0.9, 0, 0.0571428575, 0)
+ImageButton.Position = UDim2.new(1.2, 0, 0.0571428575, 0)
 ImageButton.Size = UDim2.new(0.0899570063, 0, 1, 0)
 ImageButton.Image = "rbxasset://textures/collapsibleArrowDown.png"
 
@@ -284,6 +290,7 @@ TextButton.TextScaled = true
 TextButton.TextSize = 14.000
 TextButton.TextWrapped = true
 TextButton.TextXAlignment = Enum.TextXAlignment.Left
+TextButton.BorderSizePixel = 0
 
 
 local notifi = Instance.new("Frame")
@@ -834,10 +841,10 @@ local function new_select(data)
 		selecter.data.Visible = not selecter.data.Visible
 		if selecter.data.Visible then
 			selecter.Frame.ImageButton.Rotation = 180
-			selecter.Size = UDim2.new(0, 380,0, 30*(#selecter.data.dataFrame:GetChildren()))
+			selecter.Size = UDim2.new(0, 490,0, 30*(#selecter.data.dataFrame:GetChildren()))
 		else
 			selecter.Frame.ImageButton.Rotation = 0
-			selecter.Size = UDim2.new(0, 380,0, 30)
+			selecter.Size = UDim2.new(0, 490,0, 30)
 		end
 	end)
     
@@ -886,13 +893,13 @@ end
 game:GetService("UserInputService").InputBegan:Connect(function(key)
 	if key.KeyCode == Enum.KeyCode.RightControl then
 		if mf.Visible then
-
-			game:GetService("TweenService"):Create(mf,TweenInfo.new(.1,Enum.EasingStyle.Linear,Enum.EasingDirection.Out),{Size = UDim2.new(0, 551, 0, 405)}):Play(0)
-			wait(.1)
+			game:GetService("TweenService"):Create(mf,TweenInfo.new(.5,Enum.EasingStyle.Quad,Enum.EasingDirection.Out),{Size = UDim2.new(0, 640, 0, 405)}):Play(0)
+			wait(.5)
 			mf.Visible = false
 		else
+            mf.BackgroundTransparency = 0
 			mf.Visible = true
-			game:GetService("TweenService"):Create(mf,TweenInfo.new(.1,Enum.EasingStyle.Linear,Enum.EasingDirection.Out),{Size = UDim2.new(0, 561, 0, 415)}):Play(0)
+			game:GetService("TweenService"):Create(mf,TweenInfo.new(.5,Enum.EasingStyle.Quad,Enum.EasingDirection.Out),{Size = UDim2.new(0, 650, 0, 415)}):Play(0)
 		end
 
 	end
@@ -1011,6 +1018,14 @@ tab_fly = new_select({
 		{"key","Key",""},
 	}
 })
+tab_fakel = new_select({
+	["name"] = "PacketLag"; 
+	["menu"] = find_menu("Movement");
+	["selects"] = {
+		{"number","Amount",100,1,1000},
+		{"key","Key",""},
+	}
+})
 tab_lf = new_select({
 	["name"] = "Longjump"; 
 	["menu"] = find_menu("Movement");
@@ -1040,7 +1055,7 @@ tab_aim = new_select({
 	["name"] = "AimAssist"; 
 	["menu"] = find_menu("Combat");
 	["selects"] = {
-		{"number","Smoothness",1,0,10},
+		{"number","Smoothness",1,0,100},
 		{"number","Range",16,0,100},
 		{"bool","Ignore Team",false},
 		{"key","Key",""},
@@ -1238,9 +1253,9 @@ coroutine.resume(coroutine.create(function()
 							ignore.FilterDescendantsInstances = game.Players.LocalPlayer.Character:GetChildren()
 							local raycast = workspace:Raycast(cf1.Position,cf1:ToObjectSpace(cf2).Position,ignore)
 							if not raycast then
-								game.Players.LocalPlayer.Character.PrimaryPart.CFrame += sp/100
+                                game.Players.LocalPlayer.Character.PrimaryPart.CFrame += sp/10
 							else
-								game.Players.LocalPlayer.Character.PrimaryPart.CFrame = CFrame.new(raycast.Position,game.Players.LocalPlayer.Character.PrimaryPart.CFrame.LookVector)
+                                game.Players.LocalPlayer.Character.PrimaryPart.CFrame =  CFrame.new(raycast.Position,game.Players.LocalPlayer.Character.PrimaryPart.CFrame.LookVector)
 							end
 						end
 					end
@@ -1547,6 +1562,20 @@ coroutine.resume(coroutine.create(function()
 	while wait(1) do
 		pcall(function()
 			while wait() do
+				if tab_fakel[2].Value == true then
+                    settings().Network.IncomingReplicationLag = tonumber(tab_fakel[1][1][1].Text)/1000 or 0
+                else
+                    settings().Network.IncomingReplicationLag = 0
+                end
+			end
+		end)
+	end		
+
+end))
+coroutine.resume(coroutine.create(function()
+	while wait(1) do
+		pcall(function()
+			while wait() do
 				if tab_hj[2].Value == true then
 					local amount = tonumber(tab_hj[1][1][1].Text)
 					if not amount then
@@ -1568,13 +1597,14 @@ coroutine.resume(coroutine.create(function()
 	end		
 
 end))
+local freset = false
 game:GetService("RunService").Stepped:Connect(function()
 	if tab_aim[2].Value == true then
 		local smooth = tonumber(tab_aim[1][1][1].Text )
 		if not smooth then
 			smooth = 1
 		end
-        smooth /= 50
+        smooth /= 100
 		local function get_closest()
 			local max = tonumber(tab_aura[1][1][1].Text)
 			if not max then
@@ -1628,14 +1658,21 @@ game:GetService("RunService").Stepped:Connect(function()
 		end
 		local close = get_closest()
 		if close then
-            if smooth == 0 then
+            if smooth <= .1 then
                	game.Workspace.CurrentCamera.CFrame = CFrame.new(workspace.CurrentCamera.CFrame.Position,close[1].Character.Head.Position)
             else
+                freset = true
 			    game:GetService("TweenService"):Create(game.Workspace.CurrentCamera,TweenInfo.new(smooth,Enum.EasingStyle.Linear,Enum.EasingDirection.Out),{CFrame = CFrame.new(workspace.CurrentCamera.CFrame.Position,close[1].Character.Head.Position)}):Play(0)
             end
         else
-            game.Workspace.CurrentCamera.CFrame = game.Workspace.CurrentCamera.CFrame
-		end
+            if freset then
+                freset = false
+                game:GetService("TweenService"):Create(game.Workspace.CurrentCamera,TweenInfo.new(0,Enum.EasingStyle.Linear,Enum.EasingDirection.Out),{CFrame = workspace.CurrentCamera.CFrame}):Play(0)
+            end
+        end
+    elseif freset then
+        freset = false
+        game:GetService("TweenService"):Create(game.Workspace.CurrentCamera,TweenInfo.new(0,Enum.EasingStyle.Linear,Enum.EasingDirection.Out),{CFrame = workspace.CurrentCamera.CFrame}):Play(0)
 	end
 end)
 local aim_frame = Instance.new("Frame")
@@ -1652,8 +1689,8 @@ aim_frame.AnchorPoint = Vector2.new(.5,.5)
 aim_frame.Parent = ScreenGui
 aim_frame.BackgroundColor3 = Color3.fromRGB(12, 12, 12)
 aim_frame.BackgroundTransparency = 0.200
-aim_frame.Position = UDim2.new(0.566037774, 0, 0.415417612, 0)
-aim_frame.Size = UDim2.new(0.2, 0, 0.169164851, 0)
+aim_frame.Position = UDim2.new(0.7, 0, 0.415417612 + (0.415417612/2), 0)
+aim_frame.Size = UDim2.new(0, 250, 0, 120)
 aim_frame.Visible = false
 
 wqr.Name = "wqr"
@@ -1664,7 +1701,7 @@ icon.Parent = aim_frame
 icon.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
 icon.BackgroundTransparency = 1.000
 icon.Position = UDim2.new(0.0300000012, 0, 0.0759493783, 0)
-icon.Size = UDim2.new(0.269999981, 0, 0.683544219, 0)
+icon.Size = UDim2.new(0.29, 0, 0.683544219, 0)
 icon.Image = "http://www.roblox.com/asset/?id=1188759634"
 
 user.Name = "user"
@@ -1672,8 +1709,8 @@ user.Parent = aim_frame
 user.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
 user.BackgroundTransparency = 1.000
 user.Position = UDim2.new(0.344999999, 0, 0.0759493783, 0)
-user.Size = UDim2.new(0.654999971, 0, 0.354430437, 0)
-user.Font = Enum.Font.SourceSans
+user.Size = UDim2.new(0.654999971, 0, 0.35, 0)
+user.Font = Enum.Font.Nunito
 user.Text = "User"
 user.TextColor3 = Color3.fromRGB(255, 255, 255)
 user.TextScaled = true
@@ -1685,21 +1722,21 @@ bar.Name = "bar"
 bar.Parent = aim_frame
 bar.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
 bar.BackgroundTransparency = 1.000
-bar.Position = UDim2.new(0.0199999996, 0, 0.799999952, 0)
-bar.Size = UDim2.new(0.769999981, 0, 0.151898414, 0)
+bar.Position = UDim2.new(0.03, 0, 0.78, 0)
+bar.Size = UDim2.new(0.79, 0, 0.13, 0)
 
 barframe.Name = "barframe"
 barframe.Parent = bar
 barframe.BackgroundColor3 = Color3.fromRGB(85, 255, 255)
 barframe.BorderSizePixel = 0
 barframe.Position = UDim2.new(0, 0, 0.25, 0)
-barframe.Size = UDim2.new(1, 0, 0.666665792, 0)
+barframe.Size = UDim2.new(1, 0, 0.4, 0)
 
 TextLabel7.Parent = barframe
 TextLabel7.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
 TextLabel7.BackgroundTransparency = 1.000
-TextLabel7.Position = UDim2.new(1, 0, -1, 0)
-TextLabel7.Size = UDim2.new(0.19480522, 0, 2.75000739, 0)
+TextLabel7.Position = UDim2.new(1.01, 0, -.6, 0)
+TextLabel7.Size = UDim2.new(0,50,0,30)
 TextLabel7.Font = Enum.Font.SourceSans
 TextLabel7.Text = "100"
 TextLabel7.TextColor3 = Color3.fromRGB(255, 255, 255)
@@ -1712,9 +1749,9 @@ distance.Name = "distance"
 distance.Parent = aim_frame
 distance.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
 distance.BackgroundTransparency = 1.000
-distance.Position = UDim2.new(0.344999999, 0, 0.392405123, 0)
-distance.Size = UDim2.new(0.654999971, 0, 0.354430437, 0)
-distance.Font = Enum.Font.SourceSans
+distance.Position = UDim2.new(0.344999999, 0, 0.41, 0)
+distance.Size = UDim2.new(0.654999971, 0, 0.3, 0)
+distance.Font = Enum.Font.SourceSansLight                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          
 distance.Text = "Distance: 12"
 distance.TextColor3 = Color3.fromRGB(255, 255, 255)
 distance.TextScaled = true
@@ -1792,7 +1829,7 @@ coroutine.resume(coroutine.create(function()
 					end
 					local vector, isOnScreen = workspace.CurrentCamera:WorldToScreenPoint(close[1].Character.PrimaryPart.Position)
 					aim_frame.Visible = true
-					user.Text = close[1].Name
+					user.Text = "Name: ".. close[1].Name
 					distance.Text = "Distance: ".. math.floor(close[2] + .5)
 					icon.Image = game.Players:GetUserThumbnailAsync(close[1].UserId,Enum.ThumbnailType.HeadShot,Enum.ThumbnailSize.Size420x420)
 					barframe.Size = UDim2.new(close[1].Character.Humanoid.Health/close[1].Character.Humanoid.MaxHealth,0,1,0)
@@ -1800,7 +1837,7 @@ coroutine.resume(coroutine.create(function()
 					if isOnScreen then
 						aim_frame.Position = UDim2.new(0,vector.X,0,vector.Y)
 					else
-						aim_frame.Position = UDim2.new(0.566037774 + (0.566037774/2), 0, 0.415417612 + (0.415417612/2), 0)
+						aim_frame.Position = UDim2.new(0.7, 0, 0.415417612 + (0.415417612/2), 0)
 					end
 
 					local pact = game.Players.LocalPlayer.Backpack 
