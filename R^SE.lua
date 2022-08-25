@@ -1,5 +1,10 @@
+local mgrav = workspace.Gravity
+rconsoletitle("Rise External Console")
+rconsoleprint("Booting Console...".. "\n")
+rconsoleprint("Booting Up Rise...".. "\n")
+
 if not syn and not queue_on_teleport then
-    print("'".. identifyexecutor().. "' is bad and cannot handle this script >:(, use delta or comet or synpase for the best experience")
+    rconsoleprint("'".. identifyexecutor().. "' is bad and cannot handle this script >:(, use delta or comet or synpase for the best experience".. "\n")
     return
 end
 local tdf = false
@@ -435,7 +440,6 @@ local function new_select(data)
         if file_data[name] ~= nil then
             seat_data[name] = file_data[name] 
             rest = file_data[name]
-            print("Data Found", file_data[name],name)
         else
             seat_data[name] = rest
         end
@@ -477,9 +481,7 @@ local function new_select(data)
 	end)
 	local men_us = {}
 	for current, i in pairs(rest) do
-        if typeof(i) == "table" then
-            print(unpack(i))
-        end
+
         if typeof(i) ~= "boolean" then
             table.insert(import_data,current,i)
 
@@ -568,7 +570,8 @@ local function new_select(data)
                     import_data[current] = {i[1],i[2],TextLabel.Text}
 				end
 			end))
-			game:GetService("UserInputService").InputBegan:Connect(function(key)
+			game:GetService("UserInputService").InputBegan:Connect(function(key,g)
+            if g then return end
 				if string.len(TextLabel.Text) > 1 then
 					TextLabel.Text = string.sub(TextLabel.Text,1,1)
 				end
@@ -890,7 +893,7 @@ function new_tab(name,image)
 	tab_select.TextButton.MouseButton1Down:Connect(function() opened_tab(name) end)
 end
 
-game:GetService("UserInputService").InputBegan:Connect(function(key)
+game:GetService("UserInputService").InputBegan:Connect(function(key,g)
 	if key.KeyCode == Enum.KeyCode.RightControl then
 		if mf.Visible then
 			game:GetService("TweenService"):Create(mf,TweenInfo.new(.5,Enum.EasingStyle.Quad,Enum.EasingDirection.Out),{Size = UDim2.new(0, 640, 0, 405)}):Play(0)
@@ -903,6 +906,7 @@ game:GetService("UserInputService").InputBegan:Connect(function(key)
 		end
 
 	end
+    if g then return end
 	if key.KeyCode == Enum.KeyCode.W then
 		move.w = true
 	end
@@ -980,15 +984,8 @@ local tab_autorep
 
 if tdf then
 local config = game:GetService("HttpService"):JSONDecode(readfile("rise/configs/".. game.PlaceId.. "_riseconfig.txt"))
+end
 
-pcall(function()
-for _, db1 in pairs(config) do
-    for _, db in pairs(db1) do
-        print(db[1])
-end
-end
-end)
-end
 
 tab_speed = new_select({
 	["name"] = "Speed"; 
@@ -1091,6 +1088,14 @@ tab_grav = new_select({
 	["menu"] = find_menu("Player");
 	["selects"] = {
 		{"number","Gravity",196.2,0,200},
+		{"key","Key",""},
+	}
+})
+tab_disabler = new_select({
+	["name"] = "Disabler"; 
+	["menu"] = find_menu("Player");
+	["selects"] = {
+		{"mode","Mode",{"LocalDisabler"},1},
 		{"key","Key",""},
 	}
 })
@@ -1203,6 +1208,73 @@ end
 end)
 end
 end))
+local mt = getrawmetatable(game)
+local oldInx = mt.__index
+setreadonly(mt,false)
+local ocm = false
+mt.__index = newcclosure(function(Self,key)
+    if ocm then
+
+        if string.lower(tostring(getnamecallmethod())) == "kick" then
+            rconsoleprint("Kick blocked".. "\n")
+            return wait(inf)
+        end
+        if tostring(Self) == "Humanoid" and (tostring(key) == "WalkSpeed") then
+            return 16
+        end
+        if tostring(Self) == "Humanoid" and (tostring(key) == "JumpPower") then
+            return 50
+        end
+        if tostring(Self) == "Humanoid" and (tostring(key) == "PlatformStand") then
+            return false
+        end
+        if (tostring(Self) == "Workspace" or tostring(Self) == "workspace") and (tostring(key) == "Gravity") then
+            return mgrav
+        end
+    end
+	return oldInx(Self,key)
+end)
+hookfunction(game:GetService("Stats").GetTotalMemoryUsageMb, function(...)
+    return math.random(420,430)
+end)
+spawn(function()
+
+    while wait(1) do
+        local m, s = pcall(function()
+            while true do
+                if ocm then
+                    game:GetService("ScriptContext"):SetTimeout(1)
+                    local ffff = {
+                        getconnections(game.Players.LocalPlayer.Character.HumanoidRootPart.ChildRemoved);
+                        getconnections(game.Players.LocalPlayer.Character.HumanoidRootPart.DescendantRemoving);
+                        getconnections(game.Players.LocalPlayer.Character.HumanoidRootPart.ChildAdded);
+                        getconnections(game.Players.LocalPlayer.Character.HumanoidRootPart.DescendantAdded);
+                        getconnections(game.Players.LocalPlayer.Character.ChildRemoved);
+                        getconnections(game.Players.LocalPlayer.Character.DescendantRemoving);
+                        getconnections(Workspace.DescendantAdded);
+                        getconnections(Workspace.ChildAdded);
+
+                    }
+                    for _, grouped in pairs(ffff) do
+                        for _, connection in pairs(grouped) do
+                            connection:Disconnect()
+                        end
+                    end
+                wait(.5)
+                else
+                    wait(.1)
+                end
+            end
+        end)
+        rconsoleerr("LocalDisabler Has Errored! Rebooting Disabler....\n")
+    end
+end)
+spawn(function()
+    while wait(.1) do
+        ocm = (tab_disabler[2].Value and tab_disabler[1][1][1].Value == "LocalDisabler")
+    end
+end)
+setreadonly(mt,true)
 coroutine.resume(coroutine.create(function()
 	while wait(1) do
 		pcall(function()
@@ -1226,6 +1298,7 @@ coroutine.resume(coroutine.create(function()
 end))
 --error()
 coroutine.resume(coroutine.create(function()
+local revert = false
 	while wait(1) do
 		pcall(function()
 			while wait() do
@@ -1238,8 +1311,10 @@ coroutine.resume(coroutine.create(function()
 
 
 					if speed_mode == "Normal" then
+                        revert = true
 						game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = speed
 					elseif speed_mode == "Velocity" or speed_mode == "CFrame" then
+                        game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = 16
 						local sp = game.Players.LocalPlayer.Character.Humanoid.MoveDirection * speed
 						if speed_mode == "Velocity" then
 							local vel = game.Players.LocalPlayer.Character.PrimaryPart.AssemblyLinearVelocity
@@ -1260,8 +1335,9 @@ coroutine.resume(coroutine.create(function()
 						end
 					end
 				else
-					if game.Players.LocalPlayer.Character.Humanoid.WalkSpeed ~= 16 then
+					if revert then
 						game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = 16
+                        revert = false
 					end
 				end
 			end
@@ -1526,8 +1602,8 @@ coroutine.resume(coroutine.create(function()
 		pcall(function()
 			local jump = false
 
-			game:GetService("UserInputService").InputBegan:Connect(function(key)
-				if key.KeyCode == Enum.KeyCode.Space then
+			game:GetService("UserInputService").InputBegan:Connect(function(key,g)
+				if key.KeyCode == Enum.KeyCode.Space and not g then
 					jump = true
 				end
 			end)
@@ -1575,7 +1651,7 @@ end))
 coroutine.resume(coroutine.create(function()
 	while wait(1) do
 		pcall(function()
-			while wait() do
+			while wait(.1) do
 				if tab_hj[2].Value == true then
 					local amount = tonumber(tab_hj[1][1][1].Text)
 					if not amount then
@@ -2001,21 +2077,21 @@ for _, pl in pairs(game.Players:GetChildren()) do
             
 			for _, db in pairs(scamming) do
 				if string.find(msg,db) then
-                    print(msg.. " Scamming")
+                    rconsoleprint(msg.. ": Reported For Scamming".. "\n")
                     new_notification("Reported 4 S/F" .. pl.Name)
 					game.Players:ReportAbuse(pl,"Scamming","HE SAID ".. db.. " BAN HIM!!!")
 				end
 			end
 			for _, db in pairs(cheats) do
 				if string.find(msg,db) then
-                    print(msg.. " Cheats")
+                    rconsoleprint(msg.. " Cheats".. "\n")
                     new_notification("Reported 4 C/E" .. pl.Name)
 					game.Players:ReportAbuse(pl,"Cheating/Exploiting","HE ADMITTED TO CHEATING!!! HE SAID ".. db.. " BAN HIM!!!")
 				end
 			end
 			for _, db in pairs(bully) do
 				if string.find(msg,db) then
-                    print(msg.. " Bullying")
+                    print(msg.. " Bullying".. "\n")
                     new_notification("Reported 4 M/B" .. pl.Name)
 					game.Players:ReportAbuse(pl,"Bullying","HE BULLIED ME!!! HE CALLED ME ".. db.. "")
 				end
@@ -2031,21 +2107,21 @@ game.Players.PlayerAdded:Connect(function(pl)
             
 			for _, db in pairs(scamming) do
 				if string.find(msg,db) then
-                    print(msg.. " Scamming")
+                    rconsoleprint(msg.. " Scamming".. "\n")
                     new_notification("Reported 4 Scam " .. pl.Name)
 					game.Players:ReportAbuse(pl,"Scamming","HE SAID ".. db.. " BAN HIM!!!")
 				end
 			end
 			for _, db in pairs(cheats) do
 				if string.find(msg,db) then
-                    print(msg.. " Cheats")
+                    rconsoleprint(msg.. " Cheats".. "\n")
                     new_notification("Reported 4 C/E " .. pl.Name)
 					game.Players:ReportAbuse(pl,"Cheating/Exploiting","HE ADMITTED TO CHEATING!!! HE SAID ".. db.. " BAN HIM!!!")
 				end
 			end
 			for _, db in pairs(bully) do
 				if string.find(msg,db) then
-                    print(msg.. " Bullying")
+                    rconsoleprint(msg.. " Bullying".. "\n")
                     new_notification("Reported 4 M/B " .. pl.Name)
 					game.Players:ReportAbuse(pl,"Bullying","HE BULLIED ME!!! HE CALLED ME ".. db.. "")
 				end
@@ -2102,12 +2178,14 @@ local done = true
 		pcall(function()
             while wait() do
                 if tab_fov[2].Value == true then
-                    workspace.CurrentCamera.FieldOfView = tonumber(tab_fov[1][1][1].Text)
+					local cam = Workspace.CurrentCamera or Workspace:FindFirstChildOfClass("Camera")
+                    cam.FieldOfView = tonumber(tab_fov[1][1][1].Text)
                     done = false
                 else
                     if not done then
                         done = true
-                        workspace.CurrentCamera.FieldOfView = 70
+						local cam = Workspace.CurrentCamera or Workspace:FindFirstChildOfClass("Camera")
+                        cam.FieldOfView = 70
                     end
                 end
             end
@@ -2129,7 +2207,7 @@ coroutine.resume(coroutine.create(function()
     end
 end))
 if game.PlaceId == 5774246 and workspace:FindFirstChild("Map") then
-    print("Detected - Easy.gg")
+    rconsoleprint("Detected - Easy.gg".. "\n")
     local tab_scaffold
     local tab_breaker
     local tab_kb
