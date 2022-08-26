@@ -1146,6 +1146,15 @@ tab_autorep = new_select({
 	["selects"] = {
 	}
 })
+tab_silenta = new_select({
+	["name"] = "SilentAim"; 
+	["menu"] = find_menu("Player");
+	["selects"] = {
+		{"bool","Teams",false},
+		{"mode","Mode",{"Raycast","RayWithIgnoreList","RayWithWhiteList","FindPartOnRay","Mouse"},1},
+        {"key","Key",""},
+	}
+})
 tab_nc = new_select({
 	["name"] = "Noclip"; 
 	["menu"] = find_menu("Movement");
@@ -1208,6 +1217,42 @@ end
 end)
 end
 end))
+
+local nt = getrawmetatable(game)
+local ___namecall = nt.__namecall
+setreadonly(nt,false)
+local vals = {false,"",false}
+nt.__namecall = newcclosure(function(self,...)
+    local method = tostring(getnamecallmethod())
+    if (method == "FindPartOnRay" and vals[2] == "FindPartOnRay") or (method == "FindPartOnRayWithIgnoreList" and vals[2] == "RayWithIgnoreList") or (method == "FindPartOnRayWithWhiteList" and vals[2] == "RayWithWhiteList") or (method == "Mouse"and vals[2] == "Mouse") or (method == "Raycast" and vals[2] == "Raycast") and vals[1] == true then
+        local bestPos = math.huge
+        local best = nil
+        pcall(function()
+            for _, db in pairs(game.Players:GetPlayers()) do
+                db.Character.Archivable = true
+                if db.Character and db ~= game.Players.LocalPlayer then
+                    if db.Character.PrimaryPart and game.Players.LocalPlayer.Character.PrimaryPart and (game.Players.LocalPlayer.Team ~= db.Team or not vals[3]) then 
+                        local pos, onsc = (workspace.CurrentCamera or workspace:FindFirstChildOfClass("Camera")):WorldToScreenPoint(db.Character.PrimaryPart.Position)
+                        if (db.Character.PrimaryPart.Position - game.Players.LocalPlayer.Character.PrimaryPart.Position).Magnitude < bestPos and onsc and db.Character.Humanoid.Health > 0 and db.Team ~= game.Players.LocalPlayer.Team then
+                            bestPos = (db.Character.PrimaryPart.Position - game.Players.LocalPlayer.Character.PrimaryPart.Position).Magnitude
+                            best = db.Character
+                        end
+                    end
+                end
+            end
+        
+        end)
+        if best and bestPos ~= math.huge then
+            if best:FindFirstChild("Head") then
+                return best.Head,best.Head.Position + Vector3.new(0,math.random(-1,1)/10,0)
+            end
+        end
+    end
+
+    return ___namecall(self,...)
+end)
+setreadonly(nt,true)
+
 local mt = getrawmetatable(game)
 local oldInx = mt.__index
 setreadonly(mt,false)
@@ -1269,11 +1314,12 @@ spawn(function()
         rconsoleerr("LocalDisabler Has Errored! Rebooting Disabler....\n")
     end
 end)
-spawn(function()
+coroutine.resume(coroutine.create(function()
     while wait(.1) do
         ocm = (tab_disabler[2].Value and tab_disabler[1][1][1].Value == "LocalDisabler")
+		vals = {tab_silenta[2].Value,tab_silenta[1][2][1].Value,tab_silenta[1][1][1].Value}
     end
-end)
+end))
 setreadonly(mt,true)
 coroutine.resume(coroutine.create(function()
 	while wait(1) do
@@ -1693,7 +1739,6 @@ game:GetService("RunService").Stepped:Connect(function()
                 if db ~= game.Players.LocalPlayer then
 
                     if team then
-
                         if db.Team == game.Players.LocalPlayer.Team then
                             return
                         end
@@ -1842,6 +1887,7 @@ external_menu.AlwaysOnTop = true
 external_menu.aim_frame.Position = UDim2.new(0,0,0,0)
 
 coroutine.resume(coroutine.create(function()
+local backre = false
 	while wait(1) do
 		pcall(function()
 		while game:GetService("RunService").Stepped:Wait() do
@@ -1903,6 +1949,8 @@ coroutine.resume(coroutine.create(function()
 					if tab_aura[1][3][1].Value == true then
 						root.CFrame = CFrame.new(pos,Vector3.new(tar2.X,pos.Y,tar2.Z))
 					end
+                    backre = true
+                    game.Players.LocalPlayer.Character.Humanoid.AutoRotate = false
 					local vector, isOnScreen = workspace.CurrentCamera:WorldToScreenPoint(close[1].Character.PrimaryPart.Position)
 					aim_frame.Visible = true
 					user.Text = "Name: ".. close[1].Name
@@ -1985,12 +2033,16 @@ coroutine.resume(coroutine.create(function()
 						end
 					end
 				else
+                    game.Players.LocalPlayer.Character.Humanoid.AutoRotate = true
+
 					external_menu.aim_frame.Visible = false
 					external_menu.Parent = storage
 					external_menu.Adornee = nil
 					aim_frame.Visible = false
 				end
 			else
+                game.Players.LocalPlayer.Character.Humanoid.AutoRotate = true
+
 				external_menu.aim_frame.Visible = false
 				external_menu.Parent = storage
 				external_menu.Adornee = nil
