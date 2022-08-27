@@ -1186,6 +1186,7 @@ tab_esp = new_select({
 		{"key","Key",""},
 	}
 })
+
 writefile("rise/configs/".. game.PlaceId.. "_riseconfig.txt",game:GetService("HttpService"):JSONEncode(seat_data))
 
 opened_tab("Movement")
@@ -1412,8 +1413,7 @@ end
 spawn(function()
 
     pcall(function()
-        function fesp(part,c)
-            warn(part.Name)
+        local function fesp(part,c)
             local p = Instance.new("Part",workspace)
             p.Size = Vector3.new(2.5,7,2.5)
             p.CFrame = part.CFrame
@@ -1421,38 +1421,38 @@ spawn(function()
             local wc = Instance.new("WeldConstraint",p)
             wc.Part0 = p 
             wc.Part1 = part 
-            make_esp(p,c.Color)
-            return p
-        end
-        repeat wait() until tab_esp[2].Value == true
-        game.Players.PlayerAdded:Connect(function(db)
-            if db.Character then
-                if db.Character.PrimaryPart then
-                    local m = fesp(db.Character.PrimaryPart,db.TeamColor)
-                    local c = db.Character
-                    spawn(function()
-                        repeat wait() until not db or tab_esp[2].Value == false  or not db.Character == c
-                        m:Destroy()
-                    end)
-                end
+                make_esp(p,c.Color)
+                return p
             end
-                db.CharacterAdded:Connect(function(rt)
-                    wait(1)
-                    if db.Character then
-                        if db.Character.PrimaryPart and tab_esp[2].Value == true then
-                            local m = fesp(db.Character.PrimaryPart,db.TeamColor)
-                            repeat wait() until not db or not rt or tab_esp[2].Value == false 
-                            m:Destroy() 
-                        end
+            repeat wait() until tab_esp[2].Value == true
+            game.Players.PlayerAdded:Connect(function(db)
+                if db.Character then
+                    if db.Character.PrimaryPart then
+                        local m = fesp(db.Character.PrimaryPart,db.TeamColor)
+                        local c = db.Character
+                        spawn(function()
+                            repeat wait() until not db or tab_esp[2].Value == false  or not db.Character == c
+                            m:Destroy()
+                        end)
                     end
-                end)
-        end)
-        for _, db in pairs(game.Players:GetChildren()) do
-            if db.Character then
-                if db.Character.PrimaryPart then
-                    local m = fesp(db.Character.PrimaryPart,db.TeamColor)
-                    local c = db.Character
-                    spawn(function()
+                end
+                    db.CharacterAdded:Connect(function(rt)
+                        wait(1)
+                        if db.Character then
+                            if db.Character.PrimaryPart and tab_esp[2].Value == true then
+                                local m = fesp(db.Character.PrimaryPart,db.TeamColor)
+                                repeat wait() until not db or not rt or tab_esp[2].Value == false 
+                                m:Destroy() 
+                            end
+                        end
+                    end)
+            end)
+            for _, db in pairs(game.Players:GetChildren()) do
+                if db.Character then
+                    if db.Character.PrimaryPart then
+                        local m = fesp(db.Character.PrimaryPart,db.TeamColor)
+                        local c = db.Character
+                        spawn(function()
                         repeat wait() until not db or tab_esp[2].Value == false  or not db.Character == c
                         m:Destroy()
                     end)
@@ -1471,6 +1471,7 @@ spawn(function()
         end
     end)
 end)
+
 function fake_damage()
 	local cam = workspace.CurrentCamera
 	cam.CameraType = Enum.CameraType.Scriptable
